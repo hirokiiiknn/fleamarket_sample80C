@@ -73,3 +73,4 @@ gem 'erb2haml'
 gem 'devise'
 gem "jquery-rails"
 gem 'font-awesome-sass', '~> 5.4.1'
+gem 'ancestry'
