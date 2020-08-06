@@ -19,7 +19,7 @@
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_one: destination
-- has_one: cards
+- has_one: card
 
 ## destinationテーブル
 
@@ -70,7 +70,7 @@
 |days|integer|null: false|
 |seller_id|references|null:false, foreign_key: true|
 |buyer_id|references|foreign_key: true|
-|category_id|references|foreign_key: true|
+|category_id|references|null:false, foreign_key: true|
 
 
 ### Association
