@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
 end
 
 group :development do
@@ -63,3 +64,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn'
 end
+
+
+#新規追加gem
+
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'devise'
+gem "jquery-rails"
+gem 'font-awesome-sass', '~> 5.4.1'
