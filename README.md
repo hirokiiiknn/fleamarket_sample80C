@@ -18,8 +18,8 @@
 ### Association
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
-- belongs_to: destination
-- belongs_to: cards
+- has_one: destination
+- has_one: cards
 
 ## destinationテーブル
 
@@ -70,6 +70,7 @@
 |days|integer|null: false|
 |seller_id|references|null:false, foreign_key: true|
 |buyer_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
 
 
 ### Association
@@ -85,7 +86,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
+|name|string|null: false|
 
 
 
@@ -105,3 +106,14 @@
 ### Association
 - has_many: items
 
+## imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|references|null: false, foreign_key: true|
+
+
+
+### Association
+- belongs_to: items
