@@ -1,2 +1,30 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+.body
+  .Header
+    .Header__Inner
+      .Header__Inner--Main
+        .Icon
+%a{:href => "harinezumi.jpg", :target => "_blank"}
+  %img{:alt => "ハリネズミ秋のお散歩", :border => "0", :height => "100", :src => "harinezumi.jpg", :width => "120"}/
+
+        
+        .searchBox
+        %form{action: "cgi-bin/example.cgi", method: "post"}
+        %p 検索したいキーワードを入力してください。
+        %input{name: "search", placeholder: "キーワードを入力", type: "search"}/
+        %input{name: "submit", type: "submit", value: "検索"}/
+
+      .Header__Inner--HeaderNavi
+        .listsLeft
+          .listsLeft__item
+          カテゴリー
+          .listsLeft__brand
+          ブランド
+        .listsRight
+          .listsRight__login
+          ログイン
+          .listsRight___new
+          新規
+  .Footer
+    .Footer__contents
+
+    .Footer__logo
