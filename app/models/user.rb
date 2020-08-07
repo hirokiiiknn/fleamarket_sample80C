@@ -4,12 +4,23 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   validates :nickname, presence: true
-  validates :first_name, presence: true#,  format: { /\A[一-龥ぁ-ん]+\z/ } エラー原因の為コメントアウト中
-  validates :family_name, presence: true#, format: { /\A[一-龥]+\z/ } エラー原因の為コメントアウト中
-  validates :first_name_kana, presence: true#, format: { /\A[ぁ-んー－]+\z/ }エラー原因の為コメントアウト中
-  validates :family_name_kana, presence: true#, format: { /\A[ぁ-んー－]+\z/ } エラー原因の為コメントアウト中
-  validates :email, presence: true, uniqueness: true#, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/ } エラー原因の為コメントアウト中
+
+  VALID_FIRSTNAME_REGEX = /\A[一-龥ぁ-ん]+\z/
+  validates :first_name, presence: true, format: { with: VALID_FIRSTNAME_REGEX } 
+
+  VALID_FAMIRYNAME_REGEX = /\A[一-龥]+\z/
+  validates :family_name, presence: true, format: { with: VALID_FAMIRYNAME_REGEX } 
+
+  VALID_KANA_REGEX = /\A[ぁ-んー－]+\z/
+  validates :first_name_kana, presence: true, format: { with: VALID_KANA_REGEX }
+  validates :family_name_kana, presence: true, format: { with: VALID_KANA_REGEX } 
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } 
+
+
   validates :password, presence: true, length: { minimum: 7 }
   validates :birthday, presence: true
   
