@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_07_072844) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -37,8 +38,6 @@ ActiveRecord::Schema.define(version: 2020_08_07_072844) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
 
-
-
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
@@ -58,8 +57,8 @@ ActiveRecord::Schema.define(version: 2020_08_07_072844) do
     t.integer "birthday", null: false
     t.text "introduction"
     t.string "avator"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", limit: 191, default: "", null: false
+    t.string "encrypted_password", limit: 191, default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
