@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_07_032600) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_032600) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_032600) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
