@@ -10,8 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2020_08_07_030924) do
 
-ActiveRecord::Schema.define(version: 2020_08_06_060528) do
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+  end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -22,10 +27,9 @@ ActiveRecord::Schema.define(version: 2020_08_06_060528) do
     t.integer "days", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
 
-ActiveRecord::Schema.define(version: 2020_08_06_025116) do
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
@@ -34,8 +38,8 @@ ActiveRecord::Schema.define(version: 2020_08_06_025116) do
     t.integer "birthday", null: false
     t.text "introduction"
     t.string "avator"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", limit: 191, default: "", null: false
+    t.string "encrypted_password", limit: 191, default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -43,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_025116) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
   end
 
 end
