@@ -19,12 +19,12 @@
           = link_to 'categories#index' do
             カテゴリー
           .listsLeft__brand
-          ブランド
+          = link_to "ブランド", :root, class: 'Button'
         .listsRight
           .listsRight__login
-          ログイン
+          = link_to "ログイン", :root, class: 'Button'
           .listsRight___new
-          新規会員登録
+          = link_to "新規会員登録", :root, class: 'Button'
 
   .main
     %section.topVisual
@@ -139,22 +139,19 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}
                 .category-list__body
                   %h3.name
                   .details
-                    %ul
-                      %li
-                        100円
-                      %li
-                        %i.likeBtn
-                    %p
-                      (税込)
+                  - @items.each do |item|
+                    = item.image
+                    = item.name
+                    = item.price
             .category-list
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}
                 .category-list__body
                   %h3.name
                   .details
@@ -169,7 +166,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -184,7 +181,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -199,7 +196,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -224,7 +221,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}
                 .category-list__body
                   %h3.name
                   .details
@@ -239,7 +236,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG"}
                 .category-list__body
                   %h3.name
                   .details
@@ -254,7 +251,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -269,7 +266,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -284,7 +281,7 @@
               %a{herf: "#"}
                 %figure.category-list__image
                   //=link_to ""
-                  %img{ src: "#"}
+                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}
                 .category-list__body
                   %h3.name
                   .details
@@ -303,29 +300,29 @@
         FURIMAについて
         %ul
           %li
-          会社概要（運営会社）
+          = link_to "会社概要（運営会社）", :root, class: 'Button'
           %li
-          プライバシーポリシー
+          = link_to "プライバシーポリシー", :root, class: 'Button'
           %li
-          FURIMA利用規約
+          = link_to "FURIMA利用規約", :root, class: 'Button'
           %li
-          ポイントに関する特約
+          = link_to "ポイントに関する特約", :root, class: 'Button'
         .head
         FURIMAを見る
         %ul
           %li
-          カテゴリー一覧
+          = link_to "カテゴリー一覧", :root, class: 'Button'
           %li
-          ブランド一覧
+          = link_to "ブランド一覧", :root, class: 'Button'
         .head
         ヘルプ＆ガイド
         %ul
           %li
-          FURIMAガイド
+          = link_to "FURIMAガイド", :root, class: 'Button'
           %li
-          FURIMAロゴ利用ガイドライン
+          = link_to "FURIMAロゴ利用ガイドライン", :root, class: 'Button'
           %li
-          お知らせ
+          = link_to "お知らせ", :root, class: 'Button'
     .Footer__logo
     %a{href: "/assets/logo-white.png"}
     %img{alt: "次へ", src: "/assets/logo-white.png",width:"200px", height:"200px", class: "icon"}/
