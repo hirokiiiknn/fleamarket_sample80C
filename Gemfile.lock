@@ -109,6 +109,11 @@ GEM
       html2haml
     erubi (1.9.0)
     erubis (2.7.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.13.1)
     font-awesome-sass (5.4.1)
       sassc (>= 1.11)
@@ -313,6 +318,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   erb2haml
+  factory_bot_rails
   font-awesome-sass (~> 5.4.1)
   haml-rails
   jbuilder (~> 2.7)
