@@ -2,12 +2,50 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .body {
+  display: block;
+  box-sizing: border-box;
   .Header {
+    padding: 0 60px;
     .Header__Inner {
+      padding: 15px 0 0;
       .Header__Inner--Main {
         display: flex;
-        .Icon{
-          background-color: red;
+        align-items: center;
+        .Icon {
+          margin-right: 30px;
+          padding-bottom: 10px;
+          font-weight: normal;
+        }
+        .searchBox {
+          .form {
+            width: 100%;
+          }
+        }
+      }
+      .Header__Inner--HeaderNavi {
+        font-size: 14px;
+        display: flex;
+        margin-bottom: 10px;
+        .listsLeft {
+          display: flex;
+          .listsLeft__item {
+            position: relative;
+            display: flex;
+            padding-right: 30px;
+          }
+          .listsLeft__brand {
+            padding: 0 0 0 16px;
+          }
+        }
+        .listsRight {
+          margin-left: auto;
+          display: flex;
+          .listsRight__login {
+            padding: 0 0 0 16px;
+          }
+          .listsRight__new {
+            padding: 0 0 0 16px;
+          }
         }
       }
     }
