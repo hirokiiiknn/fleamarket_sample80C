@@ -12,9 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_08_07_072844) do
 
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -22,30 +20,24 @@ ActiveRecord::Schema.define(version: 2020_08_07_072844) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-
-
-
     t.string "first_name_destination", null: false
     t.string "family_name_destination", null: false
     t.string "first_name_destination_kana", null: false
+    t.string "family_name_destination_kana", null: false
     t.integer "postcode", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
     t.integer "phone_number"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-
-
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
@@ -76,4 +68,5 @@ ActiveRecord::Schema.define(version: 2020_08_07_072844) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "destinations", "users"
 end
