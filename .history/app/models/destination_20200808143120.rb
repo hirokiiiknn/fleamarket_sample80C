@@ -1,14 +1,10 @@
-class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+class Destination < ApplicationRecord
+  belongs_to :user, optional: true
 
-
-  validates :nickname, presence: true
+  validates :first_name_destination, :family_name_destination, :first_name_destination_kana, :family_name_destination_kana, :postcode, :prefecture, :city, :house_number, :user_id ,presence: true
 
   VALID_FIRSTNAME_REGEX = /\A[一-龥ぁ-ん]+\z/
-  validates :first_name, presence: true, format: { with: VALID_FIRSTNAME_REGEX } 
+  validates :first_name_destination, presence: true, format: { with: VALID_FIRSTNAME_REGEX } 
 
   VALID_FAMIRYNAME_REGEX = /\A[一-龥]+\z/
   validates :family_name, presence: true, format: { with: VALID_FAMIRYNAME_REGEX } 
@@ -20,10 +16,4 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } 
 
-
-  validates :password, presence: true, length: { minimum: 7 }
-  validates :birthday, presence: true
-
-  has_one :destination
-  
 end
