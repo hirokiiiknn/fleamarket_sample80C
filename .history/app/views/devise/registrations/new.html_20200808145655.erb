@@ -1,7 +1,7 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :nickname %><br />
@@ -65,7 +65,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Next" %>
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
@@ -74,54 +74,55 @@
     <%= f.text_field :first_name_destination, autofocus: true %>
   </div>
 
-  <div class="field">
+   <div class="field">
     <%= f.label :family_name_destination %><br />
     <%= f.text_field :family_name_destination, autofocus: true %>
-  </div>
+   </div>
 
-  <div class="field">
+   <div class="field">
     <%= f.label :first_name_destination_kana %><br />
     <%= f.text_field :first_name_destination_kana, autofocus: true %>
-  </div>
+   </div>
 
-  <div class="field">
+   <div class="field">
     <%= f.label :family_name_destination_kana %><br />
     <%= f.text_field :family_name_destination_kana, autofocus: true %>
-  </div>
+   </div>
 
-  <div class="field">
-    <%= f.label :postcode %><br />
+   <div class="field"> %>
+    <%= f.label :postcode<br />
     <%= f.text_field :postcode, autofocus: true %>
-  </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :prefecture %><br />
+   <div class="field"> %>
+    <%= f.label :prefecture<br />
     <%= f.text_field :prefecture, autofocus: true %>
-  </div>
+   </div>
 
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true %>
-  </div>
+   <div class="field"> %>
+     <%= f.label :city<br />
+     <%= f.text_field :city, autofocus: true %>
+   </div>
 
-  <div class="field">
+   <div class="field"> %>
     <%= f.label :house_number %><br />
     <%= f.text_field :house_number, autofocus: true %>
-  </div>
+   </div>
 
-  <div class="field">
-    <%= f.label :building_name %><br />
-    <%= f.text_field :building_name, autofocus: true %>
-  </div>
+   <div class="field"> %>
+     <%# <%= f.label :building_name %><br />
+     <%# <%= f.text_field :building_name, autofocus: true %>
+   <%# </div>
 
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.text_field :phone_number, autofocus: true %>
-  </div>
+   <div class="field"> %>
+     <%# <%= f.label :phone_number %><br />
+     <%# <%= f.text_field :phone_number, autofocus: true %>
+   <%# </div>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id, autofocus: true %>
-  </div>
+   <div class="field"> %>
+     <%# <%= f.label :user_id %><br />
+     <%# <%= f.text_field :user_id, autofocus: true %>
+   <%# </div>
    
 <%= render "devise/shared/links" %>
+<%# test %>
