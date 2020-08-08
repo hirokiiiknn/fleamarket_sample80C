@@ -13,6 +13,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       # t.references :seller, null: false, foreign_key: true
       # t.references :buyer,  foreign_key: true
       # t.references :category, null: false, foreign_key: true
+      t.references :image, null: false,
+      foregin_key: true
       t.timestamps
     end
   end
