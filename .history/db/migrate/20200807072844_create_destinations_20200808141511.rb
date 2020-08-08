@@ -10,7 +10,7 @@ class CreateDestinations < ActiveRecord::Migration[6.0]
       t.string :house_number,                   null: false
       t.string :building_name
       t.integer :phone_number,                  unique: true
-      t.references :user
+      t.references :user_id
       t.timestamps
     end
       

@@ -23,7 +23,5 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 7 }
   validates :birthday, presence: true
-
-  has_one :destination
   
 end
