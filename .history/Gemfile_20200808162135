@@ -34,7 +34,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
+  gem 'capistrano-bundler'ｓ
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
