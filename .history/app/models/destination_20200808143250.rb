@@ -13,5 +13,7 @@ class Destination < ApplicationRecord
   validates :first_name_destination_kana, format: { with: VALID_KANA_REGEX }
   validates :family_name_destination_kana, format: { with: VALID_KANA_REGEX } 
 
-  validates :phone_number, uniqueness: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX } 
+
 end
