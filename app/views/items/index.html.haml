@@ -8,18 +8,20 @@
           %img{alt: "次へ", src: "/assets/logo.png",width:"140px", height:"50px", class: "icon"}/
         
         .searchBox
-        %form#form1{action: "root", method: "get"}
-        %input#sbox1{name: "s", placeholder: "キーワードから探す", type: "text",class: "form"}/
-        %i.fas.fa-search
-        %input#sbtn1{type: "submit", value: "#"}/
+
+          %form#form1{action: "root", method: "get"}
+            %input#sbox1{name: "s", placeholder: "キーワードから探す", type: "text",class: "form"}/
+            %button#sbtn1{type: "submit", value: "#"}/
+            .searchBox__icon
+              =link_to image_tag("/images/icon-search 1.png"),"#"
 
       .Header__Inner--HeaderNavi
         .listsLeft
           .listsLeft__item
-          = link_to 'categories#index' do
-            カテゴリー
+            = link_to 'categories#index' do
+              カテゴリー
           .listsLeft__brand
-          = link_to "ブランド", :root, class: 'Button'
+            = link_to "ブランド", :root, class: 'Button'
         .listsRight
           .listsRight__login
           = link_to "ログイン", :root, class: 'Button'
@@ -53,7 +55,7 @@
                   1
                 %img{ src:"images/pict-reason-01.jpg"}
               %h3.list__word
-                %span
+                %span.reason-word
                   3分
                 ですぐに出品
               .list__text
@@ -64,7 +66,7 @@
                   2
                 %img{ src:"images/pict-reason-02.jpg"}
               %h3.list__word
-                %span
+                %span.reason-word
                   シンプル
                 で使いやすい
               .list__text
@@ -76,7 +78,7 @@
                 %img{ src:"images/pict-reason-03.jpg"}
               %h3.list__word
                 手数料
-                %span
+                %span.reason-word
                   業界最安
               .list__text
                 最大3%でお得に出品&購入!
