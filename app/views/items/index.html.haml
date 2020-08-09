@@ -136,17 +136,12 @@
                 新規投稿商品
           .category-lists
             .category-list
-              %a{herf: "#"}
-                %figure.category-list__image
-                  //=link_to ""
-                  %img{ src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"}
-                .category-list__body
-                  %h3.name
-                  .details
-                  - @items.each do |item|
-                    = item.image
-                    = item.name
-                    = item.price
+              %figure.category-list__image
+              .category-list__body
+                - @items.each do |item|
+                  %img{ src: "#{item.image}"}
+                  = item.name
+                  = item.price
             .category-list
               %a{herf: "#"}
                 %figure.category-list__image
