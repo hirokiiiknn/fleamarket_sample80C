@@ -86,6 +86,16 @@
           margin-top: 24px;
           .btnA{
             margin-right: 10px;
+            img:hover{
+              cursor:pointer;
+              opacity: 0.5;
+            }
+          }
+          .btnG{
+            img:hover{
+              cursor:pointer;
+              opacity: 0.5;
+            }
           }
         }
       }
