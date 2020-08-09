@@ -157,5 +157,24 @@
       }
       
     }
+    .pickupVisual{
+      .pickup-box{
+        .category-box{
+          .category-lists{
+            .category-list{
+              &__image{
+
+              }
+              &__body{
+                img{
+                  height:180px;
+                  width:180px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
