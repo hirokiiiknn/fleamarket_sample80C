@@ -30,8 +30,7 @@
         .listsRight
           - if user_signed_in?
             .user_nav.grid-6
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-              = link_to "投稿する", :root, class: "post"
+              = link_to "マイページ", 
           - else
             .grid-6
               .listsRight__login
