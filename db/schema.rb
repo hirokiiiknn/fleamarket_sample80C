@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_024427) do
+ActiveRecord::Schema.define(version: 2020_08_10_080230) do
+
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -22,7 +32,9 @@ ActiveRecord::Schema.define(version: 2020_08_10_024427) do
   end
 
 
+
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+
     t.string "first_name_destination", null: false
     t.string "family_name_destination", null: false
     t.string "first_name_destination_kana", null: false
@@ -36,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_024427) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -45,7 +57,9 @@ ActiveRecord::Schema.define(version: 2020_08_10_024427) do
   end
 
 
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false

@@ -25,6 +25,7 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_one :destination
+  has_one :card
 
   #userが「買った」商品 →buyed_items
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item" 
