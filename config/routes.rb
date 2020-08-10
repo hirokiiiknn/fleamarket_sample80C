@@ -17,6 +17,14 @@ Rails.application.routes.draw do
   resources :items
   resources :destinations
 
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
+  
   get '/users/:id', to: 'users#show', as: 'user'
   # 馬場追記_名前付きルーティング
   # as で名前定義→user_pathでコントローラーで使用可能
