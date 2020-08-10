@@ -30,7 +30,8 @@
         .listsRight
           - if user_signed_in?
             .user_nav.grid-6
-              = link_to "マイページ", 
+              = link_to('マイページ', user_path(current_user.id))
+
           - else
             .grid-6
               .listsRight__login
