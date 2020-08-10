@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
 
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -27,10 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
   end
 
 
-
-
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-
 
     t.string "first_name_destination", null: false
     t.string "family_name_destination", null: false
@@ -57,11 +52,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
   end
 
 
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-
-
-
 
     t.string "name", null: false
     t.text "introduction", null: false
@@ -72,19 +63,20 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.bigint "image_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+
     t.integer "seller_id"
     t.integer "buyer_id"
     t.integer "quantity"
     t.index ["image_id"], name: "index_items_on_image_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
     t.string "first_name_kana", null: false
     t.string "family_name_kana", null: false
-    t.integer "birthday", null: false
+    t.date "birthday", null: false
     t.text "introduction"
     t.string "avator"
     t.string "email", limit: 191, default: "", null: false
