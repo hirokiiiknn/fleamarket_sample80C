@@ -84,18 +84,18 @@
         width: 100%;
         margin: 0 auto;
         padding-top: 35px;
-        .content__title{
+        &__title{
           font-size: 60px;
           color: #fff;
           text-shadow: 0 0 5px rgba(0,0,0,0.4);
           line-height: 1.2;
         }
-        .content__text{
+        &__text{
           font-size: 18px;
           color: #fff;
           margin-top: 16px;
         }
-        .content__btn{
+        &__btn{
           display: flex;
           margin-top: 24px;
           .btnA{
