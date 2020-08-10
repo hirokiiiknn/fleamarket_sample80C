@@ -1,3 +1,6 @@
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'modules/sign_up' %>
+<% end %>
 <h2>サインアップ</h2>
 
 <%= form_for(@user, url: user_registration_path) do |f| %>
@@ -29,7 +32,7 @@
 
    <div class="field">
      <div class="new">
-     <%= f.label :ナマエ %><br />
+     <%= f.label :名前（ふりがな） %><br />
      <p>必須</p>
      </div>
      <%= f.text_field :first_name_kana, autofocus: true %>
@@ -37,7 +40,7 @@
 
    <div class="field">
      <div class="new">
-     <%= f.label :ミョウジ %><br />
+     <%= f.label :苗字（ふりがな） %><br />
      <p>必須</p>
      </div>
      <%= f.text_field :family_name_kana, autofocus: true %>

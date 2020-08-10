@@ -12,11 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_08_08_090137) do
 
-
-
-
+<<<<<<< HEAD
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+=======
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
 
+>>>>>>> aea2785955a6ce0e5bce84f01f0946f66317ce9c
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -24,28 +25,27 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  
+<<<<<<< HEAD
+  create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+=======
 
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
 
-
+>>>>>>> aea2785955a6ce0e5bce84f01f0946f66317ce9c
     t.string "first_name_destination", null: false
     t.string "family_name_destination", null: false
     t.string "first_name_destination_kana", null: false
-    t.string "family_name_destination_kana", null: false
     t.integer "postcode", null: false
     t.integer "prefecture", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
     t.integer "phone_number"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-
-  
-
+<<<<<<< HEAD
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+=======
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+>>>>>>> aea2785955a6ce0e5bce84f01f0946f66317ce9c
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "first_name", null: false
     t.string "family_name", null: false
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.integer "birthday", null: false
     t.text "introduction"
     t.string "avator"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", limit: 191, default: "", null: false
+    t.string "encrypted_password", limit: 191, default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 2020_08_08_090137) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "images", "items"
+<<<<<<< HEAD
+=======
+
   add_foreign_key "destinations", "users"
+
+>>>>>>> aea2785955a6ce0e5bce84f01f0946f66317ce9c
+  add_foreign_key "images", "items"
 end

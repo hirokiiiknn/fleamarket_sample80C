@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.joins(:images).select('items.*, images.image')
   end
+
+
 end
