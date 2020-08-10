@@ -141,14 +141,14 @@
               .category-list__image
                 - @items.each do |item|
                   - if item.quantity == 0
-                    %img{ src: "#{item.image}"}
+                    = image_tag "#{item.image}", class: "image"
                     SOLDOUT
                     = item.name
                     = item.price
               .category-list__body
                 - @items.each do |item|
                   - if item.quantity != 0
-                    %img{ src: "#{item.image}"}
+                    = image_tag "#{item.image}", class: "image"
                     = item.name
                     = item.price
 
