@@ -1,0 +1,74 @@
+- content_for :css do
+  = stylesheet_link_tag 'modules/sign_up'
+%h2 サインアップ
+= form_for(@user, url: user_registration_path) do |f|
+  = render "devise/shared/error_messages", resource: @user
+  .field
+    .new
+      = f.label :ニックネーム
+      %br/
+      %p 必須
+    = f.text_field :nickname, autofocus: true
+  .field
+    .new
+      = f.label :名前
+      %br/
+    = f.text_field :first_name, autofocus: true
+  .field
+    .new
+      = f.label :苗字
+      %br/
+      %p 必須
+    = f.text_field :family_name, autofocus: true
+  .field
+    .new
+      = f.label :名前（ふりがな）
+      %br/
+      %p 必須
+    = f.text_field :first_name_kana, autofocus: true
+  .field
+    .new
+      = f.label :苗字（ふりがな）
+      %br/
+      %p 必須
+    = f.text_field :family_name_kana, autofocus: true
+  .field
+    .new
+      = f.label :誕生日
+      %br/
+      %p 必須
+    = f.date_select :birthday, use_month_numbers: true,                                                |
+      start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1), autofocus: true |
+  .field
+    = f.label :自己紹介
+    %br/
+    = f.text_field :introduction, autofocus: true
+  .field
+    = f.label :写真
+    %br/
+    = f.file_field :avator, autofocus: true
+  .field
+    .new
+      = f.label :メールアドレス
+      %br/
+      %p 必須
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    .new
+      = f.label :パスワード
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} 文字以上)
+      %br/
+      %p 必須
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    .new
+      = f.label :パスワード確認
+      %br/
+      %p 必須
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "サインアップ"
+= render "devise/shared/links"
+
