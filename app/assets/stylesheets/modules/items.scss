@@ -8,63 +8,69 @@
     padding: 0 60px;
     .Header__Inner {
       padding: 15px 0 0;
+      min-height: 82px;
       .Header__Inner--Main {
-        position: relative;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         .Icon {
           margin-right: 30px;
           padding-bottom: 10px;
           font-weight: normal;
         }
         .searchBox {
-          width: 100%;
-          .form {
-            width: 100%;
+          margin: 0 0 0 400px;
+         .form {
+            width: 1000px;
             display: flex;
             margin-bottom: 5px;
-            .seach{
-              width: calc(100% - 26px);
-              height: 36px;
+            .search-box{
+              width: 600px;
+              height: 30px;
             }
-            .submit{
-              width: 36px;
-              cursor: pointer;
-              background-color: #3CCACE;
-              padding: 8px;
+            .search-btn {
+              background-color: #3ccace;
+              color: white;
+              height: 35px;
+              border: solid 0px;
             }
           }
         }
       }
       .Header__Inner--HeaderNavi {
-        font-size: 14px;
+        font-size: 16px;
         display: flex;
         margin-bottom: 10px;
         .listsLeft {
           display: flex;
           .listsLeft__item {
-            position: relative;
             display: flex;
             padding-right: 30px;
           }
           .listsLeft__brand {
             padding: 0 0 0 16px;
           }
+          a {
+            text-decoration: none;
+            color: black;
+          }
         }
         .listsRight {
-          margin-left: auto;
+          margin: 0 0 0 650px;
           display: flex;
           .listsRight__login {
             padding: 0 0 0 16px;
           }
-          .listsRight__new {
-            padding: 0 0 0 16px;
+          .Button {
+            padding-left: 16px;
+            text-decoration: none;
+            color: black;
           }
         }
       }
+    
     }
-
-  }
+ }
   .main{
     background-color: #f8f8f8;
     .topVisual{
@@ -361,5 +367,62 @@
       }
     }
   }
+  .Banner {
+    background-image: url("bg-appBanner-pict.jpg");
+    height: 100%;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+  }
+  .Footer {
+    background-color: #272727;
+    color: white;
+    padding: 60px 0;
+    .Footer__contents {
+      .Footer__contents--content{
+        display: flex;
+        justify-content: space-evenly;
+        .head {
+        }
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: 12px;
+        }
+      }
+      p {
+        margin: 0 0 0 670px;
+
+      }
+    }
+    .icon {
+      margin: 30px 0 0 630px;
+    }
+  }
+  .purchaseBtn {
+    background: #3CCACE;
+    height: 100px;
+    width: 100px;
+    margin-left: 500px;
+    text-align: center;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    color: #fff;
+    padding: 13px;
+    border-radius: 10px;
+    .purchaseBtn__text {
+      color: #fff;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .purchaseBtn__icon {
+      font-size: 50px;
+      
+    }
+  }
 }
+
+
+
 

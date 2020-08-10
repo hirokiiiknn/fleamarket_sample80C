@@ -11,12 +11,12 @@
           %img{alt: "次へ", src: "/assets/logo.png",width:"140px", height:"50px", class: "icon"}/
         
         .searchBox
+          %form{actio: "http://xxxxxxxxxxxxx.com/", metho: "get", class: "form"}
+            %div
+              %input{nam: "s", placeholde: "キーワードから探す", type: "text", class: "search-box"}
+              %button{type: "submit",class: "search-btn"}
+                %i.fas.fa-search
 
-          %form#form1{action: "root", method: "get"}
-            %input#sbox1{name: "s", placeholder: "キーワードから探す", type: "text",class: "form"}/
-            %button#sbtn1{type: "submit", value: "#"}/
-            .searchBox__icon
-              =link_to image_tag("/images/icon-search 1.png"),"#"
 
       .Header__Inner--HeaderNavi
         .listsLeft
@@ -172,6 +172,13 @@
                   = image_tag "#{item.image}", class: "image"
                   = item.name
                   = item.price
+  .Banner
+    .inner
+      %h2.inner__title 誰でも簡単、人生を変えるフリマアプリ
+      %p.inner__test 今すぐ無料ダウンロード
+      .inner__icon
+        %img.linkIcon-aBtn
+        %img.linlIcon-gBtn
     %section.pickupVisual
       %h2.topic-category
         ピックアップブランド
@@ -192,8 +199,9 @@
     .Footer__contents
       .Footer__contents--content
         .head
-        FURIMAについて
         %ul
+          %li
+          FURIMAについて
           %li
           = link_to "会社概要（運営会社）", :root, class: 'Button'
           %li
@@ -203,23 +211,30 @@
           %li
           = link_to "ポイントに関する特約", :root, class: 'Button'
         .head
-        FURIMAを見る
         %ul
+          %li
+          FURIMAを見る
           %li
           = link_to "カテゴリー一覧", :root, class: 'Button'
           %li
           = link_to "ブランド一覧", :root, class: 'Button'
         .head
-        ヘルプ＆ガイド
         %ul
+          %li
+          ヘルプ＆ガイド
           %li
           = link_to "FURIMAガイド", :root, class: 'Button'
           %li
           = link_to "FURIMAロゴ利用ガイドライン", :root, class: 'Button'
           %li
           = link_to "お知らせ", :root, class: 'Button'
-    .Footer__logo
-    %a{href: "/assets/logo-white.png"}
-    %img{alt: "次へ", src: "/assets/logo-white.png",width:"200px", height:"200px", class: "icon"}/
+      .Footer__logo
+      %a{href: "/assets/logo-white.png"}
+      %img{alt: "次へ", src: "/assets/logo-white.png",  width:"150px", height:"50px", class: "icon"}/
+      %p©FURIMA
+  .purchaseBtn
+    .purchaseBtn__text 出品する
+    .purchaseBtn__icon
+      %i.fas.fa-camera
 
     ©FURIMA
