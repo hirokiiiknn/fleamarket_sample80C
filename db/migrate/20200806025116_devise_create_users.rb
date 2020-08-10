@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :family_name,       null: false
       t.string :first_name_kana,   null: false
       t.string :family_name_kana,  null: false
-      t.integer :birthday,         null: false
+      t.date :birthday,         null: false
       t.text :introduction
       t.string :avator
       t.string :email,              null: false, default: "", limit:191

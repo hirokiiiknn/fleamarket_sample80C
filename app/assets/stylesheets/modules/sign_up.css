@@ -77,6 +77,12 @@ h2 {
   margin-bottom: 1em;
   font-size: 50px;
 }
+select{
+  cursor: pointer;
+  height: 30px;
+  
+}
+
 @media (max-width: 550px) {
   .user_new {
   width: 90%;
