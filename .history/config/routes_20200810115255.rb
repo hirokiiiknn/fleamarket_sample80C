@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user'
   # 馬場追記_名前付きルーティング
-  # as で名前定義→user_pathでコントローラーで使用可能
+  # as で名前定義→
 end
