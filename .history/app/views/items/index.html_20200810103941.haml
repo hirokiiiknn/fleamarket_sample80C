@@ -25,33 +25,11 @@
               カテゴリー
           .listsLeft__brand
             = link_to "ブランド", :root, class: 'Button'
-
-
         .listsRight
-          - if user_signed_in?
-            .user_nav.grid-6
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-              = link_to "投稿する", :root, class: "post"
-          - else
-            .grid-6
-              .listsRight__login
-              = link_to "ログイン", new_user_session_path, class: 'Button'
-              .listsRight___new
-              = link_to "新規会員登録", new_user_registration_path, class: 'Button'
-
-          -# 馬場追記
-
-        -# - if user_signed_in?
-        -#   .user_nav.grid-6
-        -#     = link_to "ログアウト", destroy_user_session_path, method: :delete
-        -#     = link_to "投稿する", :root, class: "post"
-        -# - else
-        -#   .grid-6
-        -#     = link_to "ログイン", new_user_session_path, class: "post"
-        -#     = link_to "新規登録", new_user_registration_path, class: "post"
-
-          
-          -# ここまで
+          .listsRight__login
+          = link_to "ログイン", :root, class: 'Button'
+          .listsRight___new
+          = link_to "新規会員登録", :root, class: 'Button'
 
   .main
     %section.topVisual
@@ -163,20 +141,12 @@
                 新規投稿商品
           .category-lists
             .category-list
-              .category-list__image
-                - @items.each do |item|
-                  - if item.quantity == 0
-                    = image_tag "#{item.image}", class: "image"
-                    SOLDOUT
-                    = item.name
-                    = item.price
+              %figure.category-list__image
               .category-list__body
                 - @items.each do |item|
-                  - if item.quantity != 0
-                    = image_tag "#{item.image}", class: "image"
-                    = item.name
-                    = item.price
-
+                  %img{ src: "#{item.image}"}
+                  = item.name
+                  = item.price
     %section.pickupVisual
       .pickup-box
         %h2.topic-category
