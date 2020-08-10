@@ -336,7 +336,14 @@
           }
         }
         .category-lists{
+          width: 780px;
+          margin: 26px auto;
+          display: flex;
+          justify-content: space-around;
           .category-list{
+            width: 220px;
+            display: inline-block;
+            //float: left;
             &__image{
               img{
                 height:180px;
