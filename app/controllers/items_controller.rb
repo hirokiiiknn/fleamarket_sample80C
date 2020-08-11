@@ -49,7 +49,10 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  def search
+  def show
+  
+  end
+
 
     #ajax通信を開始
     respond_to do |format|
