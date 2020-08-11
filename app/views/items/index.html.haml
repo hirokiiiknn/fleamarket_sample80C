@@ -13,7 +13,7 @@
         .searchBox
           %form{actio: "http://xxxxxxxxxxxxx.com/", metho: "get", class: "form"}
             %div
-              %input{nam: "s", placeholde: "キーワードから探す", type: "text", class: "search-box"}
+              %input{nam: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
               %button{type: "submit",class: "search-btn"}
                 %i.fas.fa-search
 
@@ -35,9 +35,9 @@
           - else
             .grid-6
               .listsRight__login
-              = link_to "ログイン", new_user_session_path, class: 'Button'
+                = link_to "ログイン", new_user_session_path, class: 'Button'
               .listsRight___new
-              = link_to "新規会員登録", new_user_registration_path, class: 'Button'
+                = link_to "新規会員登録", new_user_registration_path, class: 'Button'
               
 
           -# 馬場追記
@@ -160,25 +160,75 @@
         .category-lists
           .category-list
             .category-list__image
-              - @items.each do |item|
-                - if item.quantity == 0
-                  = image_tag "#{item.image}", class: "image"
-                  SOLDOUT
-                  = item.name
-                  = item.price
+              %img{src:"images/beef.jpeg"}
             .category-list__body
-              - @items.each do |item|
-                - if item.quantity != 0
-                  = image_tag "#{item.image}", class: "image"
-                  = item.name
-                  = item.price
-  .Banner
-    .inner
-      %h2.inner__title 誰でも簡単、人生を変えるフリマアプリ
-      %p.inner__test 今すぐ無料ダウンロード
-      .inner__icon
-        %img.linkIcon-aBtn
-        %img.linlIcon-gBtn
+              %hs3.name テスト
+              .datails
+                %ul
+                  %li 10000円 
+                  %li
+                    %i.fa.fa-star.likeIcon 1
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/tantan.jpeg"}
+            .category-list__body
+              %h3.name ee
+              .datails
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/fish.png"}
+            .category-list__body
+              %h3.name product3
+              .datails
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/gyouza.png"}
+            .category-list__body
+              %h3.name product2
+              .datails
+                %ul
+                  %li 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/carry.png"}
+            .category-list__body
+              %h3.name product1
+              .datails
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon 1
+                %p (税込)
+
+          -# 最終的にはデータベースからeach文で記載する
+            -# .category-list__image
+              -# - @items.each do |item|
+              -#   - if item.quantity == 0
+              -#     = image_tag "#{item.image}", class: "image"
+              -#     SOLDOUT
+              -#     = item.name
+              -#     = item.price
+            -# .category-list__body
+
+              -# - @items.each do |item|
+              -#   - if item.quantity != 0
+              -#     = image_tag "#{item.image}", class: "image"
+              -#     = item.name
+              -#     = item.price
     %section.pickupVisual
       %h2.topic-category
         ピックアップブランド
@@ -195,6 +245,72 @@
                 %img{ src: "#{item.image}"}
                 = item.name
                 = item.price
+        .category-lists
+          .category-list
+            .category-list__image
+              %img{src:"images/beef.jpeg"}
+            .category-list__body
+              %hs3.name テスト
+              .datails
+                %ul
+                  %li 10000円 
+                  %li
+                    %i.fa.fa-star.likeIcon 1
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/tantan.jpeg"}
+            .category-list__body
+              %h3.name ee
+              .datails
+                %ul
+                  %li 1000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/fish.png"}
+            .category-list__body
+              %h3.name product3
+              .datails
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/gyouza.png"}
+            .category-list__body
+              %h3.name product2
+              .datails
+                %ul
+                  %li 20000円
+                  %li
+                    %i.fa.fa-star.likeIcon 0
+                %p (税込)
+          .category-list
+            .category-list__image
+              %img{src:"images/carry.png"}
+            .category-list__body
+              %h3.name product1
+              .datails
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon 1
+                %p (税込)
+  .Banner
+    .inner
+      %h2.inner__title 誰でも簡単、人生を変えるフリマアプリ
+      %p.inner__test 今すぐ無料ダウンロード
+      .inner__icon
+        %a.btnA{herf: "#"}
+          %img.linkIcon-aBtn{src: "images/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
+        %a.btnG{herf: "#"}
+          %img.linlIcon-gBtn{src: "images/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+
   .Footer
     .Footer__contents
       .Footer__contents--content
@@ -236,5 +352,3 @@
     .purchaseBtn__text 出品する
     .purchaseBtn__icon
       %i.fas.fa-camera
-
-    ©FURIMA
