@@ -30,8 +30,8 @@
         .listsRight
           - if user_signed_in?
             .user_nav.grid-6
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
-              = link_to "投稿する", :root, class: "post"
+              = link_to('マイページ', user_path(current_user.id))
+
           - else
             .grid-6
               .listsRight__login
@@ -113,7 +113,7 @@
         %h2.subtitle
           会員数日本一位
         .middle-content__box
-          .middle-content__text
+          %p.middle-content__text
             FURIMAはフリマアプリで最も人気。
             %br
             出品・購入回数も業界最多です!
@@ -127,74 +127,67 @@
     %section.featuresVisual
       %h2.feauture-title
         FURIMAの特徴
-      .under-line
       .feauture-contents
         %section.content
-          %figure.content.img
+          %figure.content__img
             %img{ src:"images/icon-01.png"}
-          .content-top
-            %h3.content__subtitle
-              簡単に売り買いできる
-            %p.content__detail
-              スマホひとつで、いつでもどこでも簡単に出品が可能!
+          %h3.content__top
+            簡単に売り買いできる
+          %p.content__detail
+            スマホひとつで、いつでもどこでも簡単に出品が可能!
         %section.content
-          %figure.content.img
-            %img{ src:"images/icon-02.png"}
-          .content-top
-            %h3.content__subtitle
-              売上金は即日振り込みに対応
-            %p.content__detail
-              午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+          %figure.content__img
+            %img{ src:"images/icon-03.png"}
+          %h3.content__top
+            売上金は即日振り込みに対応
+          %p.content__detail
+            午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
         %section.content
-          %figure.content.img
-            %img{ src: "images/icon-03.png"}
-          .content-top
-            %h3.content__subtitle
-              様々な支払いに対応
-            %p.content__detail
-              お支払いは、クレジットカードだけでなく、ポイントは売上金など多彩な方法があります!
+          %figure.content__img
+            %img{ src: "images/icon-04.png"}
+          %h3.content__top
+            様々な支払いに対応
+          %p.content__detail
+            お支払いは、クレジットカードだけでなく、ポイントは売上金など多彩な方法があります!
     %section.pickupVisual
-      .pickup-box
-        %h2.topic-category
-          ピックアップカテゴリー
-        .category-box
-          .category-head
-            %a{herf: "#"}
-              %h3.title
-                新規投稿商品
-          .category-lists
-            .category-list
-              .category-list__image
-                - @items.each do |item|
-                  - if item.quantity == 0
-                    = image_tag "#{item.image}", class: "image"
-                    SOLDOUT
-                    = item.name
-                    = item.price
-              .category-list__body
-                - @items.each do |item|
-                  - if item.quantity != 0
-                    = image_tag "#{item.image}", class: "image"
-                    = item.name
-                    = item.price
-
-    %section.pickupVisual
-      .pickup-box
-        %h2.topic-category
-          ピックアップブランド
-        .category-box
-          .category-head
-            %a{herf: "#"}
-              %h3.title
-                アーカイバ
-          .category-lists
-            .category-list
-              %figure.category-list__image
-              .category-list__body
-                - @items.each do |item|
-                  %img{ src: "#{item.image}"}
+      %h2.topic-category
+        ピックアップカテゴリー
+      .category-box
+        .category-head
+          %a.newItem{herf: "#"}
+            %h3.title
+              新規投稿商品
+        .category-lists
+          .category-list
+            .category-list__image
+              - @items.each do |item|
+                - if item.quantity == 0
+                  = image_tag "#{item.image}", class: "image"
+                  SOLDOUT
                   = item.name
                   = item.price
+            .category-list__body
+              - @items.each do |item|
+                - if item.quantity != 0
+                  = image_tag "#{item.image}", class: "image"
+                  = item.name
+                  = item.price
+    %section.pickupVisual
+      %h2.topic-category
+        ピックアップブランド
+      .category-box
+        .category-head
+          %a.newItem{herf: "#"}
+            %h3.title
+              アーカイバ
+        .category-lists
+          .category-list
+            %figure.category-list__image
+            .category-list__body
+              - @items.each do |item|
+                %img{ src: "#{item.image}"}
+                = item.name
+                = item.price
   .Footer
     .Footer__contents
       .Footer__contents--content
