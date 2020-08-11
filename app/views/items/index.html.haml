@@ -229,6 +229,12 @@
               -#     = image_tag "#{item.image}", class: "image"
               -#     = item.name
               -#     = item.price
+              - @items.each do |item|
+                - if item.quantity != 0
+                  = image_tag "#{item.image}", class: "image"
+                  = item.name
+                  = item.price
+
     %section.pickupVisual
       %h2.topic-category
         ピックアップブランド
@@ -301,6 +307,7 @@
                   %li
                     %i.fa.fa-star.likeIcon 1
                 %p (税込)
+
   .Banner
     .inner
       %h2.inner__title 誰でも簡単、人生を変えるフリマアプリ
@@ -352,3 +359,14 @@
     .purchaseBtn__text 出品する
     .purchaseBtn__icon
       %i.fas.fa-camera
+
+    .btn
+      .btn__display
+        = link_to '出品', new_item_path
+        %br/
+        .contents
+          = render @items
+
+
+    ©FURIMA
+
