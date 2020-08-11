@@ -120,5 +120,6 @@ class ItemsController < ApplicationController
     @grandchild_array = []
     @grandchild_array << grandchild.name
     @grandchild_array << grandchild.id
+    end
   end
 end
