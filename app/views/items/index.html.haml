@@ -8,14 +8,14 @@
       .Header__Inner--Main
         .Icon
           %a{href: "/assets/logo.png"}
-          %img{alt: "次へ", src: "/assets/logo.png",width:"140px", height:"50px", class: "icon"}/
+          = image_tag "/assets/logo.png", alt: "次へ" ,width:"140px", height:"50px", class: "icon"
+
         
         .searchBox
           %form{actio: "http://xxxxxxxxxxxxx.com/", metho: "get", class: "form"}
-            %div
-              %input{nam: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
-              %button{type: "submit",class: "search-btn"}
-                %i.fas.fa-search
+            %input{nam: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
+            %button{type: "submit",class: "search-btn"}
+              %i.fas.fa-search
 
 
       .Header__Inner--HeaderNavi
@@ -65,10 +65,9 @@
           フリマアプリです
         .content__btn
           %a.btnA{herf: "#"}
-            //=link_to ""
-            %img{src: "images/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
+          = image_tag "/assets/apple.png"
           %a.btnG{herf: "#"}
-            %img{src: "images/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+          = image_tag "/assets/google.png"
     %section.secondVisual
       .second-content
         %h2.reason
@@ -79,7 +78,7 @@
               .list__image
                 %span.num
                   1
-                %img{ src:"images/pict-reason-01.jpg"}
+                = image_tag '/assets/pict-reason-01.jpg'
               %h3.list__word
                 %span.reason-word
                   3分
@@ -90,7 +89,7 @@
               .list__image
                 %span.num
                   2
-                %img{ src:"images/pict-reason-02.jpg"}
+                = image_tag '/assets/pict-reason-02.jpg'
               %h3.list__word
                 %span.reason-word
                   シンプル
@@ -101,7 +100,7 @@
               .list__image
                 %span.num
                   3
-                %img{ src:"images/pict-reason-03.jpg"}
+                = image_tag '/assets/pict-reason-03.jpg'
               %h3.list__word
                 手数料
                 %span.reason-word
@@ -121,30 +120,31 @@
             ほしかったあの商品に出会えるかもしれません。
         .btn
           %a.btnA{herf: "#"}
-            %img{src: "images/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
+          = image_tag "/assets/apple.png"
           %a.btnG{herf: "#"}
-            %img{src: "images/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+          = image_tag "/assets/google.png"
+
     %section.featuresVisual
       %h2.feauture-title
         FURIMAの特徴
       .feauture-contents
         %section.content
           %figure.content__img
-            %img{ src:"images/icon-01.png"}
+          = image_tag '/assets/icon-01.png'
           %h3.content__top
             簡単に売り買いできる
           %p.content__detail
             スマホひとつで、いつでもどこでも簡単に出品が可能!
         %section.content
           %figure.content__img
-            %img{ src:"images/icon-03.png"}
+          = image_tag '/assets/icon-03.png'
           %h3.content__top
             売上金は即日振り込みに対応
           %p.content__detail
             午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
         %section.content
           %figure.content__img
-            %img{ src: "images/icon-04.png"}
+          = image_tag '/assets/icon-04.png'
           %h3.content__top
             様々な支払いに対応
           %p.content__detail
@@ -160,7 +160,7 @@
         .category-lists
           .category-list
             .category-list__image
-              %img{src:"images/beef.jpeg"}
+            = image_tag '/assets/beef.jpeg', width: "180px", height: "180px"
             .category-list__body
               %hs3.name テスト
               .datails
@@ -171,7 +171,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/tantan.jpeg"}
+            = image_tag '/assets/tantan.jpeg', width: "180px", height: "180px"
             .category-list__body
               %h3.name ee
               .datails
@@ -182,7 +182,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/fish.png"}
+            = image_tag '/assets/fish.png'
             .category-list__body
               %h3.name product3
               .datails
@@ -193,7 +193,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/gyouza.png"}
+            = image_tag '/assets/gyouza.png'
             .category-list__body
               %h3.name product2
               .datails
@@ -204,7 +204,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/carry.png"}
+            = image_tag '/assets/carry.png'
             .category-list__body
               %h3.name product1
               .datails
@@ -248,7 +248,7 @@
         .category-lists
           .category-list
             .category-list__image
-              %img{src:"images/beef.jpeg"}
+            = image_tag '/assets/beef.jpeg', width: "180px", height: "180px"
             .category-list__body
               %hs3.name テスト
               .datails
@@ -259,7 +259,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/tantan.jpeg"}
+            = image_tag '/assets/tantan.jpeg', width: "180px", height: "180px"
             .category-list__body
               %h3.name ee
               .datails
@@ -270,7 +270,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/fish.png"}
+            = image_tag '/assets/fish.png'
             .category-list__body
               %h3.name product3
               .datails
@@ -281,7 +281,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/gyouza.png"}
+            = image_tag '/assets/gyouza.png'
             .category-list__body
               %h3.name product2
               .datails
@@ -292,7 +292,7 @@
                 %p (税込)
           .category-list
             .category-list__image
-              %img{src:"images/carry.png"}
+            = image_tag '/assets/carry.png'
             .category-list__body
               %h3.name product1
               .datails
@@ -307,9 +307,10 @@
       %p.inner__test 今すぐ無料ダウンロード
       .inner__icon
         %a.btnA{herf: "#"}
-          %img.linkIcon-aBtn{src: "images/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg"}
+          = image_tag "/assets/apple.png"
         %a.btnG{herf: "#"}
-          %img.linlIcon-gBtn{src: "images/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg"}
+          = image_tag "/assets/google.png"
+
 
   .Footer
     .Footer__contents
@@ -346,7 +347,7 @@
           = link_to "お知らせ", :root, class: 'Button'
       .Footer__logo
       %a{href: "/assets/logo-white.png"}
-      %img{alt: "次へ", src: "/assets/logo-white.png",  width:"150px", height:"50px", class: "icon"}/
+      = image_tag "/assets/logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon"
       %p©FURIMA
   .purchaseBtn
     .purchaseBtn__text 出品する
