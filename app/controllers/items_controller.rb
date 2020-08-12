@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
 
 
-
   def index
     @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC')
   end
@@ -41,16 +40,23 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
   end
 
   def show
-  
+    
   end
 
   def search
