@@ -68,6 +68,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     :family_name_destination_kana, :postcode, :prefecture, :city, :house_number, :building_name, :phone_number, )
   end
 
+  # private
+  # def move_to_root
+  #   redirect_to root_path unless user_signed_in?
+  # end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
