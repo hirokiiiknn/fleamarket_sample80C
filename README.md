@@ -44,12 +44,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false, unique: true|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|references|null:false, foreign_key: true|
-
+|customer_id|null:false|
+|card_id|null:false|
 
 ### Association
 - belongs_to: user

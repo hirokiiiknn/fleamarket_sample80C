@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   # get 'items/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'items#index'
-
-  
-
   resources :categories
   
-  resources :items
+  resources :items do
+    collection do
+      get :search
+    end
+  end
+  
   resources :destinations
 
   resources :card, only: [:new, :show] do
