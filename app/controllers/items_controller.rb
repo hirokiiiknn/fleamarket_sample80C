@@ -53,12 +53,12 @@ class ItemsController < ApplicationController
   
   end
 
-
-    #ajax通信を開始
+  def search
+  #ajax通信を開始
     respond_to do |format|
       format.html
       format.json do
-        #子カテゴリーを探して変数@childrensに代入します！
+      #子カテゴリーを探して変数@childrensに代入します！
         if params[:parent_id]
           @childrens = Category.find(params[:parent_id]).children
         elsif params[:children_id]
@@ -66,8 +66,8 @@ class ItemsController < ApplicationController
         end
       end
     end
-
   end
+
 
   private
   def item_params
