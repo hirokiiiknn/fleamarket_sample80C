@@ -19,7 +19,7 @@
           font-weight: normal;
         }
         .searchBox {
-          margin: 0 0 0 400px;
+          margin: 0 0 0 200px;
          .form {
             width: 1000px;
             display: flex;
@@ -31,7 +31,7 @@
             .search-btn {
               background-color: #3ccace;
               color: white;
-              height: 35px;
+              height: 34px;
               border: solid 0px;
             }
           }
@@ -58,6 +58,9 @@
         .listsRight {
           margin: 0 0 0 650px;
           display: flex;
+          .grid-6 {
+            display: flex;
+          }
           .listsRight__login {
             padding: 0 0 0 16px;
           }
@@ -344,8 +347,7 @@
           width: 780px;
           margin: 26px auto;
           display: flex;
-          justify-content: space-around;
-          .category-list{
+           .category-list{
             width: 220px;
             display: inline-block;
             //float: left;
@@ -360,6 +362,17 @@
                 height:180px;
                 width:180px;
               }
+              .name {
+                margin-left: 20px;
+              }
+                ul{
+                  display: flex;
+                  justify-content: space-around;
+                }
+                p {
+                  font-size: 10px;
+                  margin-left: 30px;
+                }
             }
           }
         }
@@ -368,10 +381,20 @@
   }
   .Banner {
     background-image: url("bg-appBanner-pict.jpg");
-    height: 100%;
-    width: auto;
+    padding: 100px 40px;
     background-size: cover;
     background-position: center;
+    .inner {
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+      .inner__icon {
+        margin: 20px auto 0;
+      }
+    }
   }
   .Footer {
     background-color: #272727;

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'destinations', to: 'users/registrations#new_destination'
     post 'destinations', to: 'users/registrations#create_destination'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
   # get 'items/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
