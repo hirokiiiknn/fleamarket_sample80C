@@ -1,3 +1,36 @@
+
+.baba
+  %ul.left_baba
+    %li 出品者
+    %li カテゴリー
+    %li ブランド
+    %li 商品のサイズ
+    %li 商品の状態
+    %li 配送料の負担
+    %li 配送元の地域
+    %li 配送日の目安
+
+  %ul.right_baba
+    %li ss
+    %li ベビー
+    %li テスト
+    %li テスト
+    %li 新品
+    %li 送料
+    %li 北海道
+    %li 1-2日
+
+
+
+
+
+
+
+
+
+
+
+-# ここから下がcard/newで必要
 = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
   %label カード番号
   = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
