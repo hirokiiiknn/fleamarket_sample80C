@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
 
 
-
   def index
     @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC')
   end
@@ -50,7 +49,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
+    
   end
 
   def search
