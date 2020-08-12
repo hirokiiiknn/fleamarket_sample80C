@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to  root_path
+      redirect_to  post_done_items_path
     else
       @item.images.new
       render :new
@@ -54,24 +54,17 @@ class ItemsController < ApplicationController
   end
 
   def search
-  #ajax通信を開始
-    respond_to do |format|
-      format.html
-      format.json do
-      #子カテゴリーを探して変数@childrensに代入します！
-        if params[:parent_id]
-          @childrens = Category.find(params[:parent_id]).children
-        elsif params[:children_id]
-          @grandChilds = Category.find(params[:children_id]).children
-        end
-      end
-    end
+    @search_items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
   end
 
 
   private
+  
   def item_params
-    params.require(:item).permit( :name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
 
@@ -99,7 +92,7 @@ class ItemsController < ApplicationController
   end
 
 
-
+  
 
 
   def category_map

@@ -1,1 +1,3 @@
-console.log("JavaScriptは正常に読み込まれています");
+//= require jquery 
+//= require rails-ujs
+//= require_tree .

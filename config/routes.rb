@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   
   resources :items do
     collection do
-      get :search
+      get 'get_category_children', defaults: { fomat: 'json'}
+      get 'get_category_grandchildren', defaults: { fomat: 'json'}
+      get 'search'
+      get 'post_done'
+      get 'delete_done'
+      get 'detail_search'
+      get 'update_done'
     end
   end
   
