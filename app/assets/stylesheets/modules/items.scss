@@ -7,6 +7,7 @@
   .Header {
     padding: 0 60px;
     .Header__Inner {
+      width: 100%;
       padding: 15px 0 0;
       min-height: 82px;
       .Header__Inner--Main {
@@ -109,16 +110,16 @@
           display: flex;
           margin-top: 24px;
           .btnA{
-            margin-right: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
           .btnG{
+            margin-left: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
         }
@@ -250,16 +251,16 @@
           display: flex;
           margin-top: 24px;
           .btnA{
-            margin-right: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
           .btnG{
+            margin-left: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
         }
@@ -401,11 +402,15 @@
     background-color: #272727;
     color: white;
     padding: 60px 0;
+    text-align: center;
     .Footer__contents {
       .Footer__contents--content{
         display: flex;
         justify-content: space-evenly;
         .head {
+          margin: 0 0 20px;
+          font-size: 16px;
+          font-weight: bold;
         }
         a {
           text-decoration: none;
@@ -413,15 +418,22 @@
           font-size: 12px;
         }
       }
-      p {
-        margin: 0 0 0 670px;
-
+    }
+    .Footer__logo{
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
+      .icon{
+        width: 100%;
       }
     }
-    .icon {
-      margin: 30px 0 0 630px;
+    p{
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
     }
   }
+  
   .purchaseBtn {
     background: #3CCACE;
     height: 100px;
@@ -441,11 +453,6 @@
     }
     .purchaseBtn__icon {
       font-size: 50px;
-      
     }
   }
 }
-
-
-
-
