@@ -222,7 +222,7 @@
     .middleVisual{
       height: 400px;
       width: 100%;
-      background-image: url("bg-topMiddleDl-pict.png");
+      background-image: image_url("bg-topMiddleDl-pict.png");
       background-position: bottom right;
       background-size: cover;
       display: inline-flex;
@@ -381,7 +381,7 @@
     }
   }
   .Banner {
-    background-image: url("bg-appBanner-pict.jpg");
+    background-image: image_url("bg-appBanner-pict.png");
     padding: 100px 40px;
     background-size: cover;
     background-position: center;
