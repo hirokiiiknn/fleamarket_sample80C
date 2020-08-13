@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   def create
     
     @item = Item.new(item_params)
-    binding.pry
     if @item.save
       redirect_to  post_done_items_path
     else
