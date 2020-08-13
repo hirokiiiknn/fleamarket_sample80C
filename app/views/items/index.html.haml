@@ -3,55 +3,7 @@
   = stylesheet_link_tag 'modules/items'
 
 .body
-  .Header
-    .Header__Inner
-      .Header__Inner--Main
-        .Icon
-          %a{href: asset_path("logo.png")}
-          = image_tag asset_path("logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
-
-        
-        .searchBox
-          %form{action: "http://xxxxxxxxxxxxx.com/", method: "get", class: "form"}
-            %input{name: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
-            %button{type: "submit",class: "search-btn"}
-              %i.fas.fa-search
-
-
-      .Header__Inner--HeaderNavi
-        .listsLeft
-          .listsLeft__item
-            = link_to 'categories#index' do
-              カテゴリー
-          .listsLeft__brand
-            = link_to "ブランド", :root, class: 'Button'
-
-
-        .listsRight
-          - if user_signed_in?
-            .user_nav.grid-6
-              = link_to('マイページ', user_path(current_user.id))
-          - else
-            .grid-6
-              .listsRight__login
-                = link_to "ログイン", new_user_session_path, class: 'Button'
-              .listsRight___new
-                = link_to "新規会員登録", new_user_registration_path, class: 'Button'
-              
-
-          -# 馬場追記
-
-        -# - if user_signed_in?
-        -#   .user_nav.grid-6
-        -#     = link_to "ログアウト", destroy_user_session_path, method: :delete
-        -#     = link_to "投稿する", :root, class: "post"
-        -# - else
-        -#   .grid-6
-        -#     = link_to "ログイン", new_user_session_path, class: "post"
-        -#     = link_to "新規登録", new_user_registration_path, class: "post"
-
-          
-          -# ここまで
+  = render partial: "header"
 
   .main
     %section.topVisual
@@ -366,7 +318,4 @@
         %br/
         .contents
           = render @items
-
-
     ©FURIMA
-
