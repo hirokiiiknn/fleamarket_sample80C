@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_073806) do
     t.integer "prefecture", null: false
     t.integer "cost", null: false
     t.integer "days", null: false
+    t.bigint "image_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "seller_id"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_073806) do
     t.string "category_id"
     t.string "brand_id"
     t.integer "item_condition"
+    t.index ["image_id"], name: "index_items_on_image_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC", force: :cascade do |t|

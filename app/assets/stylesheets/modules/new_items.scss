@@ -10,25 +10,161 @@ body,html {
   padding: 0;
   background-color: white;
   font-family: 'Segoe UI';
-}
-.new-item{
-  &__name{
-    &__name-label{
+
+  .new_item{
+    &__name{
+      display: flex;
+      margin-top: 50px;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required{
+        background-color: red;
+        color: white;
+
+      }
+    }
+
+    &__image-box{
+      .img-label{
+
+      }
 
     }
-    &__name--required{
 
+    &__item_name{
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__area {
+
+    }
+    &__introduction {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__intro-area {
+
+    }
+
+
+    .append__category {
+      .category {
+        &__lavel {
+          display: flex;
+          &--name {
+            margin: 0 5px 0 0;
+          }
+          &--required {
+            background-color: red;
+            color: white;
+          }
+        }
+      }
+      .serect_field {
+
+      }
+    }
+    &__brand {
+      &--label {
+
+      }
+      &--area {
+      }
+    }
+    &__item_condition {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__cost {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__prefecture {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__days {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__price {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    &__quantity {
+      display: flex;
+      &--label {
+        margin: 0 5px 0 0;
+      }
+      &--required {
+        background-color: red;
+        color: white;
+      }
+    }
+    .input {
+      width: 900px;
+      height: 60px;
+    }
+    .input2 {
+      width: 200px;
+      height: 40px;
+    }
+    .serect_field {
+      width: 900px;
+      height: 60px;
     }
   }
-
-  &__image-box{
-    .img-label{
-      
-    }
-
+  .send__sipping_btn {
+    background-color: #3ccace;
+    color: #FFFFFF;
+    width: 360px;
+    height: 48px;
+    font-weight: 600;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    margin-left: 40%;
   }
-
-  &__item_name{
-    display: flex;
-  } 
 }

@@ -7,6 +7,7 @@
   .Header {
     padding: 0 60px;
     .Header__Inner {
+      width: 100%;
       padding: 15px 0 0;
       min-height: 82px;
       .Header__Inner--Main {
@@ -19,13 +20,14 @@
           font-weight: normal;
         }
         .searchBox {
-          margin: 0 0 0 200px;
+          width: 100%;
+          
          .form {
-            width: 1000px;
+            width: 100%;
             display: flex;
             margin-bottom: 5px;
             .search-box{
-              width: 600px;
+              width: 100%;
               height: 30px;
             }
             .search-btn {
@@ -56,8 +58,8 @@
           }
         }
         .listsRight {
-          margin: 0 0 0 650px;
           display: flex;
+          margin-left: auto;
           .grid-6 {
             display: flex;
           }
@@ -79,7 +81,7 @@
     .topVisual{
       width: 100%;
       height: 560px;
-      background-image: url("bg-mainVisual-pict_pc.jpg");
+      background-image: image_url("bg-mainVisual-pict_pc.png");
       display: flex;
       align-items: center;
       position: relative;
@@ -108,16 +110,16 @@
           display: flex;
           margin-top: 24px;
           .btnA{
-            margin-right: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
           .btnG{
+            margin-left: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
         }
@@ -221,7 +223,7 @@
     .middleVisual{
       height: 400px;
       width: 100%;
-      background-image: url("bg-topMiddleDl-pict.jpg");
+      background-image: image_url("bg-topMiddleDl-pict.png");
       background-position: bottom right;
       background-size: cover;
       display: inline-flex;
@@ -249,16 +251,16 @@
           display: flex;
           margin-top: 24px;
           .btnA{
-            margin-right: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
           .btnG{
+            margin-left: 10px;
             img:hover{
-              cursor:pointer;
-              opacity: 0.5;
+            cursor:pointer;
+            opacity: 0.5;
             }
           }
         }
@@ -380,7 +382,7 @@
     }
   }
   .Banner {
-    background-image: url("bg-appBanner-pict.jpg");
+    background-image: image_url("bg-appBanner-pict.png");
     padding: 100px 40px;
     background-size: cover;
     background-position: center;
@@ -400,11 +402,15 @@
     background-color: #272727;
     color: white;
     padding: 60px 0;
+    text-align: center;
     .Footer__contents {
       .Footer__contents--content{
         display: flex;
         justify-content: space-evenly;
         .head {
+          margin: 0 0 20px;
+          font-size: 16px;
+          font-weight: bold;
         }
         a {
           text-decoration: none;
@@ -412,15 +418,22 @@
           font-size: 12px;
         }
       }
-      p {
-        margin: 0 0 0 670px;
-
+    }
+    .Footer__logo{
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
+      .icon{
+        width: 100%;
       }
     }
-    .icon {
-      margin: 30px 0 0 630px;
+    p{
+      max-width: 160px;
+      width: 100%;
+      margin: 0 auto;
     }
   }
+  
   .purchaseBtn {
     background: #3CCACE;
     height: 100px;
@@ -440,11 +453,6 @@
     }
     .purchaseBtn__icon {
       font-size: 50px;
-      
     }
   }
 }
-
-
-
-
