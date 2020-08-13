@@ -7,13 +7,13 @@
     .Header__Inner
       .Header__Inner--Main
         .Icon
-          %a{href: asset_path("logo.png")}
-          = image_tag asset_path("logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
+          %a{href: "/assets/logo.png"}
+          = image_tag asset_path("logo.png", alt: "次へ" ,width:"140px", height:"50px", class: "icon")
 
         
         .searchBox
-          %form{actio: "http://xxxxxxxxxxxxx.com/", metho: "get", class: "form"}
-            %input{nam: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
+          %form{action: "http://xxxxxxxxxxxxx.com/", method: "get", class: "form"}
+            %input{name: "s", placeholder: "キーワードから探す", type: "text", class: "search-box"}>
             %button{type: "submit",class: "search-btn"}
               %i.fas.fa-search
 
@@ -352,8 +352,8 @@
           %li
           = link_to "お知らせ", :root, class: 'Button'
       .Footer__logo
-      %a{href: asset_path("logo-white.png")}
-      = image_tag asset_path("logo-white.png"), alt: "次へ", width:"150px", height:"50px", class: "icon"
+      %a{href: "/assets/logo-white.png"}
+      = image_tag asset_path("logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon")
       %p©FURIMA
   .purchaseBtn
     .purchaseBtn__text 出品する
