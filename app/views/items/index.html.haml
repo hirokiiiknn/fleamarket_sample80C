@@ -8,7 +8,7 @@
       .Header__Inner--Main
         .Icon
           %a{href: "/assets/logo.png"}
-          = image_tag asset_path("/logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
+          = image_tag asset_path("/assets/logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
 
         
         .searchBox
@@ -351,22 +351,18 @@
           = link_to "FURIMAロゴ利用ガイドライン", :root, class: 'Button'
           %li
           = link_to "お知らせ", :root, class: 'Button'
-      .Footer__logo
+    .Footer__logo
       %a{href: "/assets/logo-white.png"}
       = image_tag "/assets/logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon"
-      %p©FURIMA
+    %p©FURIMA
   .purchaseBtn
     .purchaseBtn__text 出品する
     .purchaseBtn__icon
       %i.fas.fa-camera
 
     .btn
-      .btn__display
+      %label{class: "btn__display"}
         = link_to '出品', new_item_path
         %br/
         .contents
           = render @items
-
-
-    ©FURIMA
-
