@@ -1,12 +1,10 @@
--# - content_for :css do
--#   = stylesheet_link_tag 'module/users'
   
 = render partial: "items/header"
 
 %h2.title マイページ
 %ul.page
-  %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page-list"
-  %li= link_to "クレジット登録", new_card_path, class: "page-list"
+  %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page__list"
+  %li= link_to "クレジット登録", new_card_path, class: "page__list"
 -# = link_to "登録情報の編集", edit_user_path(current_user) 
 
 = render partial: "items/footer"
