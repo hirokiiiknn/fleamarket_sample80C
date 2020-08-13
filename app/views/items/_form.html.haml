@@ -63,7 +63,7 @@
     .new_item__item_condition--required
       [必須]
   .new_item__item_condition-area
-    =f.select :item_condition , Item.item_conditions.keys, {include_blank: "選択してください"},class:"serect_field"
+    =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
 
   .new_item__cost
     .new_item__cost--label
@@ -71,7 +71,7 @@
     .new_item__cost--required
       [必須]
   .new_item__cost-area
-    = f.select :cost , Item.delivery_fees.keys, {include_blank: "選択してください"},class:"serect_field"
+    =f.collection_select(:cost, DeliveryFee.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
 
   .new_item__prefecture
     .new_item__prefecture--label
@@ -79,16 +79,17 @@
     .new_item__prefecture--required
       [必須]
   .new_item__prefecture-area
-    =f.select :prefecture, Item.prefectures.keys, {include_blank: "選択してください"},class:"serect_field"
+    =f.collection_select(:prefecture, Prefecture.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
 
   .new_item__days
     .new_item__days--label
       発送元までの日数
     .new_item__days--required
-      [必須]
-  .new_item__days-area
-    =f.select :days, Item.days.keys, {include_blank: "選択してください"},class:"serect_field"
+      必須 
 
+  .new_item__days-area
+    =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+       
   .new_item__price
     .new_item__price--label
       販売価格
