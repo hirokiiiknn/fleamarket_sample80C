@@ -8,7 +8,7 @@
       .Header__Inner--Main
         .Icon
           %a{href: "/assets/logo.png"}
-          = image_tag asset_path("/logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
+          = image_tag asset_path("logo.png"), alt: "次へ" ,width:"140px", height:"50px", class: "icon"
 
         
         .searchBox
@@ -66,7 +66,7 @@
           %a.btnA{herf: "#"}
           = image_tag "/assets/apple.png"
           %a.btnG{herf: "#"}
-          = image_tag "/assets/google.png"
+          = image_tag asset_path("google.png")
     %section.secondVisual
       .second-content
         %h2.reason
