@@ -26,7 +26,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    
     @item = Item.new(item_params)
+    binding.pry
     if @item.save
       redirect_to  post_done_items_path
     else
@@ -36,7 +38,7 @@ class ItemsController < ApplicationController
   end
 
   def  post_done
-    @item = Item.where(user_id: current_user.id).last
+    @item = Item.where(seller_id: current_user.id).last
   end
 
   def edit
@@ -70,7 +72,7 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:image, :_destroy, :id]).merge(seller_id: current_user.id)
   end
 
 
@@ -84,7 +86,7 @@ class ItemsController < ApplicationController
   end
 
   def check_item_details
-    @item = Item.where(user_id: current_user.id).last
+    @item = Item.where(seller_id: current_user.id).last
   end
 
   def show_all_instance
