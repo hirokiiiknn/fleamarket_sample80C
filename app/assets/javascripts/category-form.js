@@ -1,3 +1,5 @@
+
+
 $(function(){
   function appendOption(category){
     var html = `<option value="${category.id}">${category.name}</option>`;
@@ -28,6 +30,7 @@ $(function(){
   
   $('#item_category_id').on('change',function(){
     var parentId = document.getElementById('item_category_id').value;
+    
     if (parentId != ""){
       $.ajax({
         url: '/items/get_category_children/',

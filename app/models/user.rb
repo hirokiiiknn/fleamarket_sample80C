@@ -26,8 +26,9 @@ class User < ApplicationRecord
 
   has_one :destination
   has_one :card
-
-  #userが「買った」商品 →buyed_items
+  
+  #Userモデルで「買った商品」「現在売っている商品」「既に売った商品」を取り出せるようにする。
+  #userが「買った」商品 →bought_items
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item" 
   #userが 「現在売っている」商品 →selling_items
   has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
