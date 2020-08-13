@@ -44,12 +44,17 @@
         .lavel__Required
           [必須]
     = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
-    
-  .new_item__brand
-    .new_item__brand--label
-      ブランド
-  .new_item__brand--area
-    =f.text_field :brand_id, placeholder: "シャネル"
+    .new_item__brand
+      .new_item__brand--label
+        ブランド
+      .ner_item__brand--required
+        必須
+    .form-group.brand--container
+      = f.fields_for :brand do |brand|
+        = brand.label "ブランド"
+        %span.form-require-gray 任意
+        %div
+          = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
 
   .new_item__item_condition
     .new_item__item_condition--label
