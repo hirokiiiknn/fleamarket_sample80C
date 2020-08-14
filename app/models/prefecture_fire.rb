@@ -1,4 +1,4 @@
-class Prefecture < ActiveHash::Base
+class PrefectureFire < ActiveHash::Base
   self.data = [
       {id: 1, name: '北海道'}, {id: 2, name: '青森県'}, {id: 3, name: '岩手県'},
       {id: 4, name: '宮城県'}, {id: 5, name: '秋田県'}, {id: 6, name: '山形県'},
@@ -20,5 +20,5 @@ class Prefecture < ActiveHash::Base
 
 
   include ActiveHash::Associations
-  has_many :destinations
+  has_many :items
 end

@@ -75,7 +75,7 @@
     .new_item__prefecture--required
       [必須]
   .new_item__prefecture-area
-    =f.collection_select(:prefecture, Prefecture.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
+    =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
 
   .new_item__days
     .new_item__days--label

@@ -15,6 +15,5 @@ class Destination < ApplicationRecord
 
   validates :phone_number, uniqueness: true, allow_blank: true
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :prefecture
+  
 end
