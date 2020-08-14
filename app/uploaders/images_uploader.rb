@@ -5,10 +5,10 @@ class ImagesUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-  process :resize_to_fit => [800, 800]
+  process :resize_to_fit => [100, 100]
 
   # 保存形式をJPGにする
-  process :convert => 'jpg'
+  # process :convert => 'jpg'
 
   # サムネイルを生成する設定
   version :thumb do
