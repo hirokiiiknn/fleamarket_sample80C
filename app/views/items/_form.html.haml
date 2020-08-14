@@ -5,6 +5,9 @@
   -# = render 'layouts/error_messages', model: f.object
 - content_for :css do
   = stylesheet_link_tag 'modules/new_items'
+
+.header
+  = image_tag "/assets/logo.png", alt: 'logo', width: "150px", height: "60px"
 .new_item 
 = form_for @item do |f|
   .new_item__name
@@ -12,13 +15,25 @@
       出品画像
     .new_item__name--required
       [必須]
-  .new_item__image-box
-    %label.img-label{for: "img-file"}
-      = f.fields_for :images do |image|
-        #append-js
-          .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :image, type: 'file', value:"",style: "",  id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
-          %i.fas.fa-camera
+
+  #image-box
+    #previews
+      - if @item.persisted?
+        - @item.images.each_with_index do |image, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :image, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @item.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @item.persisted?
+      .js-file_group{"data-index" => "#{@item.images.count}"}
+        = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+        .js-remove 削除
+
+
     
   .new_item__item_name
     .new_item__item_name--label
@@ -46,12 +61,18 @@
           
     = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
     
+  .new_item__brand
+    .new_item__brand--label
+      ブランド
+  .new_item__brand--area
+    =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
     .form-group.brand--container
       = f.fields_for :brand do |brand|
         = brand.label "ブランド"
         %span.form-require-gray 任意
         %div
           = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+
 
   .new_item__item_condition
     .new_item__item_condition--label
@@ -95,7 +116,7 @@
     出品価格（300円〜9,999,999円）
   .new_item__selling-price-area
     =f.number_field :price, placeholder: "0", class: "input2"
-    円
+    円  (販売手数料10％)
 
   .new_item__quantity
     .new_item__quantity--label
