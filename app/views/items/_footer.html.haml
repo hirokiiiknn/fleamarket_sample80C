@@ -1,6 +1,7 @@
 .Footer
   .Footer__contents
     .Footer__contents--content
+
       
       %ul
         %li.head
@@ -12,16 +13,14 @@
         %li
         = link_to "FURIMA利用規約", :root, class: 'Button'
         %li
-        = link_to "ポイントに関する特約", :root, class: 'Button'
-      
+        = link_to "ポイントに関する特約", :root, class: 'Button'    
       %ul
         %li.head
           FURIMAを見る
         %li
         = link_to "カテゴリー一覧", :root, class: 'Button'
         %li
-        = link_to "ブランド一覧", :root, class: 'Button'
-      
+        = link_to "ブランド一覧", :root, class: 'Button'     
       %ul
         %li.head
           ヘルプ＆ガイド
@@ -35,7 +34,6 @@
     %a{href: "/assets/logo-white.png"}
     = image_tag "/assets/logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon"
   %p©FURIMA
-
 
 = link_to new_item_path do
   .purchaseBtn
