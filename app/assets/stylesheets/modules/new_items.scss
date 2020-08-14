@@ -11,10 +11,16 @@ body,html {
   background-color: white;
   font-family: 'Segoe UI';
 
+  .header {
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    padding-left: 45%;
+  }
   .new_item{
+    margin-top: 50px;
+    margin-left:20%;
     &__name{
+      margin: 7px;
       display: flex;
-      margin-top: 50px;
       &--label {
         margin: 0 5px 0 0;
       }
@@ -26,13 +32,19 @@ body,html {
     }
 
     &__image-box{
-      .img-label{
-
+      width: 85%;
+      text-align: center;
+      height: 180px;
+      padding: 0.5em 1em;
+      background: #f0f7ff;
+      border: dashed 2px #d6d6d6;
+      .js-file_group{
+        margin-top: 50px;
       }
-
     }
 
     &__item_name{
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -42,10 +54,11 @@ body,html {
         color: white;
       }
     }
-    &__area {
+    // &__area {
 
-    }
+    // }
     &__introduction {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -55,14 +68,15 @@ body,html {
         color: white;
       }
     }
-    &__intro-area {
+    // &__intro-area {
 
-    }
+    // }
 
 
     .append__category {
       .category {
         &__lavel {
+          margin: 7px;
           display: flex;
           &--name {
             margin: 0 5px 0 0;
@@ -74,17 +88,21 @@ body,html {
         }
       }
       .serect_field {
-
+        color: black;
       }
     }
     &__brand {
-      &--label {
+      margin: 7px;
 
+      &--label {
+        color: black;
       }
       &--area {
+        color: black;
       }
     }
     &__item_condition {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -95,6 +113,7 @@ body,html {
       }
     }
     &__cost {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -105,6 +124,7 @@ body,html {
       }
     }
     &__prefecture {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -115,6 +135,7 @@ body,html {
       }
     }
     &__days {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -125,6 +146,7 @@ body,html {
       }
     }
     &__price {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -135,6 +157,7 @@ body,html {
       }
     }
     &__quantity {
+      margin: 7px;
       display: flex;
       &--label {
         margin: 0 5px 0 0;
@@ -165,6 +188,6 @@ body,html {
     font-weight: 600;
     border-radius: 10px;
     border: 1px solid transparent;
-    margin-left: 40%;
+    margin-left: 25%;
   }
 }
