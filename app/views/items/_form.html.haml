@@ -1,140 +1,139 @@
--# - if user_signed_in?
--# .new__page__header
--#   = link_to image_tag("logo/logo.png", alt: "logo"), root_path
--# = form_for @item do |f|
-  -# = render 'layouts/error_messages', model: f.object
-- content_for :css do
-  = stylesheet_link_tag 'modules/new_items'
-
-.header
-  = image_tag "/assets/logo.png", alt: 'logo', width: "150px", height: "60px"
-.new_item 
-= form_for @item do |f|
-  .new_item__name
-    .new_item__name--label
-      出品画像
-    .new_item__name--required
-      [必須]
-
-  #image-box
-    #previews
-      - if @item.persisted?
-        - @item.images.each_with_index do |image, i|
-          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-    = f.fields_for :images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        = image.file_field :image, class: 'js-file'
-        %br/
-        %span.js-remove 削除
-      - if @item.persisted?
-        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-    - if @item.persisted?
-      .js-file_group{"data-index" => "#{@item.images.count}"}
-        = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-        .js-remove 削除
 
 
-    
-  .new_item__item_name
-    .new_item__item_name--label
-      商品名
-    .new_item__item_name--required
-      [必須]
-  .new_item__area
-    = f.text_field :name, placeholder: "４０字まで", class: "input"
-    
-  .new_item__introduction
-    .new_item__introduction--label
-      商品の説明
-    .new_item__introduction--required
-      [必須]
-  .new_item__intro-area
-    = f.text_field :introduction, placeholdr: "商品の説明（必須1000文字以内）（色、素材、重さ、定価、注意点など）", class: "input"
-    
-  .append__category
-    .category
-      .category__lavel
-        .category__lavel--name 
-          カテゴリー
-        .category__lavel--required
+
+- if user_signed_in?
+  - content_for :css do
+    = stylesheet_link_tag 'modules/new_items'
+  -# .new__page__header
+  -# = link_to image_tag(asset_path("logo.png"), root_path
+
+
+  = form_for @item do |f|
+    .new_item 
+      .new_item__name
+        .new_item__name--label
+          出品画像
+        .new_item__name--required
           [必須]
-          
-    = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
+    #image-box
+      #previews
+        - if @item.persisted?
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+      = f.fields_for :images do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :image, class: 'js-file'
+          %br/
+          %span.js-remove 削除
+        - if @item.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      - if @item.persisted?
+        .js-file_group{"data-index" => "#{@item.images.count}"}
+          = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+          .js-remove 削除
+
+
+      
+    .new_item__item_name
+      .new_item__item_name--label
+        商品名
+      .new_item__item_name--required
+        [必須]
+    .new_item__area
+      = f.text_field :name, placeholder: "４０字まで", class: "input"
+      
+    .new_item__introduction
+      .new_item__introduction--label
+        商品の説明
+      .new_item__introduction--required
+        [必須]
+    .new_item__intro-area
+      = f.text_field :introduction, placeholdr: "商品の説明（必須1000文字以内）（色、素材、重さ、定価、注意点など）", class: "input"
+      
+    .append__category
+      .category
+        .category__lavel
+          .category__lavel--name 
+            カテゴリー
+          .category__lavel--required
+            [必須]
+            
+      = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
+      
+    .new_item__brand
+      .new_item__brand--label
+        ブランド
+    .new_item__brand--area
+      =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
+      .form-group.brand--container
+        = f.fields_for :brand do |brand|
+          = brand.label "ブランド"
+          %span.form-require-gray 任意
+          %div
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+
+
+    .new_item__item_condition
+      .new_item__item_condition--label
+        商品の状態
+      .new_item__item_condition--required
+        [必須]
+    .new_item__item_condition-area
+      =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+
+    .new_item__cost
+      .new_item__cost--label
+        配送料の負担
+      .new_item__cost--required
+        [必須]
+    .new_item__cost-area
+      =f.collection_select(:cost, DeliveryFee.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+
+    .new_item__prefecture
+      .new_item__prefecture--label
+        発送元の地域
+      .new_item__prefecture--required
+        [必須]
+    .new_item__prefecture-area
+      =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
+
+    .new_item__days
+      .new_item__days--label
+        発送元までの日数
+      .new_item__days--required
+        必須 
+
+    .new_item__days-area
+      =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+        
+    .new_item__price
+      .new_item__price--label
+        販売価格
+      .new_item__price--required
+        [必須]
+    .new_item__selling-price
+      出品価格（300円〜9,999,999円）
+    .new_item__selling-price-area
+      =f.number_field :price, placeholder: "0", class: "input2"
+      円  (販売手数料10％)
+
+    .new_item__quantity
+      .new_item__quantity--label
+        販売数
+      .new_item__quantity--required
+        [必須]
+    .new_item__quantity-area
+      =f.number_field :quantity, placeholder: "0", class: "input2"
+      個
     
-  .new_item__brand
-    .new_item__brand--label
-      ブランド
-  .new_item__brand--area
-    =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
-    .form-group.brand--container
-      = f.fields_for :brand do |brand|
-        = brand.label "ブランド"
-        %span.form-require-gray 任意
-        %div
-          = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+    .send
+      = f.submit "出品する", class: "send__sipping_btn"
 
-
-  .new_item__item_condition
-    .new_item__item_condition--label
-      商品の状態
-    .new_item__item_condition--required
-      [必須]
-  .new_item__item_condition-area
-    =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-
-  .new_item__cost
-    .new_item__cost--label
-      配送料の負担
-    .new_item__cost--required
-      [必須]
-  .new_item__cost-area
-    =f.collection_select(:cost, DeliveryFee.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-
-  .new_item__prefecture
-    .new_item__prefecture--label
-      発送元の地域
-    .new_item__prefecture--required
-      [必須]
-  .new_item__prefecture-area
-    =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
-
-  .new_item__days
-    .new_item__days--label
-      発送元までの日数
-    .new_item__days--required
-      必須 
-
-  .new_item__days-area
-    =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-       
-  .new_item__price
-    .new_item__price--label
-      販売価格
-    .new_item__price--required
-      [必須]
-  .new_item__selling-price
-    出品価格（300円〜9,999,999円）
-  .new_item__selling-price-area
-    =f.number_field :price, placeholder: "0", class: "input2"
-    円  (販売手数料10％)
-
-  .new_item__quantity
-    .new_item__quantity--label
-      販売数
-    .new_item__quantity--required
-      [必須]
-  .new_item__quantity-area
-    =f.number_field :quantity, placeholder: "0", class: "input2"
-    個
-  
-  .send
-  = f.submit "出品する", class: "send__sipping_btn"
-
--# - else
-.done#fullsize
-  .done__title
-    商品を出品するには新規会員登録またはログインが必要です
-  .done__backlink
-    = link_to '新規会員登録', new_user_registration_path, class: 'link'
-  .done__backlink
-    = link_to 'ログイン', new_user_session_path, class: 'link'
+- else
+  .done#fullsize
+    .done__title
+      商品を出品するには新規会員登録またはログインが必要です
+    .done__backlink
+      = link_to '新規会員登録', new_user_registration_path, class: 'link'
+    .done__backlink
+      = link_to 'ログイン', new_user_session_path, class: 'link'
