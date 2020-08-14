@@ -4,11 +4,14 @@
   .done__title
     商品を出品しました
   .done__backlink
-    %a.link
-  .done__basklink
-    %a.link
+    -# %a.link
+      = link_to "トップページへ戻る", root_path, class: 'link'
   .done__backlink
     %a.link
+      出品した商品を確認する
+  .done__backlink
+    %a.link
+      出品中の商品一覧を見る
 
 -# %h2.title マイページ
 -# %ul.page
