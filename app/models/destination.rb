@@ -14,4 +14,6 @@ class Destination < ApplicationRecord
   validates :family_name_destination_kana, format: { with: VALID_KANA_REGEX } 
 
   validates :phone_number, uniqueness: true, allow_blank: true
+
+  
 end

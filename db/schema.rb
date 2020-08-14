@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_054141) do
+ActiveRecord::Schema.define(version: 2020_08_13_073806) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_054141) do
     t.integer "prefecture", null: false
     t.integer "cost", null: false
     t.integer "days", null: false
-    t.bigint "image_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "seller_id"
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_054141) do
     t.string "category_id"
     t.string "brand_id"
     t.integer "item_condition"
-    t.index ["image_id"], name: "index_items_on_image_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
