@@ -260,14 +260,6 @@
                     %i.fa.fa-star.likeIcon 1
                 %p (税込)
 
-  .Banner
-    .inner
-      %h2.inner__title 誰でも簡単、人生を変えるフリマアプリ
-      %p.inner__test 今すぐ無料ダウンロード
-      .inner__icon
-        %a.btnA{herf: "#"}
-          = image_tag asset_path("apple.png")
-        %a.btnG{herf: "#"}
-          = image_tag asset_path("google.png")
+  = render 'banner'
 
   = render 'footer'
