@@ -1,1 +1,81 @@
-てすと
+.main
+  .content
+    .content__left
+    .content__right
+      .top__content
+        .item-box
+          %h2.item-box__name
+          .item-box__body
+            .item-box__main
+              .mainPct
+                = image_tag asset_path('beef.png')
+                .subPct-box
+                  .subPct
+                    = image_tag asset_path('beef.png')
+          .item-box__price
+            %span.price
+              ¥10,000
+            .item-box__price-detail
+              %span.tex
+                (税込)
+              %span.postage
+                送料込み
+            .item__detail
+              テストテストテスト
+          .table
+            %table
+              %tbody
+                %tr
+                  %th
+                    出品者
+                  %td
+                    aaa
+                %tr
+                  %th
+                    カテゴリー
+                  %td
+                    %a{herf: "#"}
+                      レディース
+                    %br
+                    %a{herf: "#"}
+                      トップス
+                    %br
+                    %a{herf: "#"}
+                      Tシャツ/カットソー(半袖/袖なし)
+                %tr
+                  %th
+                    ブランド
+                  %td
+
+                %tr
+                  %th
+                    商品のサイズ
+                  %td
+
+                %tr
+                  %th
+                    商品の状態
+                  %td
+                    新品/未使用
+                %tr
+                  %th
+                    配送料の負担
+                  %td
+                    送料込み(出品者負担)
+                %tr
+                  %th
+                    発送元の地域
+                  %td
+                    北海道
+                    //link必要
+                %tr
+                  %th
+                    発送日の目安
+                  %td
+                    1-2日で発送
+          .optionalArea 
+            %ul
+              %li.optionalBtn__likeBtn
+                %i.fa.fa-star
+                  お気に入り 1
+            %ul
