@@ -167,20 +167,14 @@
                 %p (税込)
 
           -# 最終的にはデータベースからeach文で記載する
-            -# .category-list__image
-              -# - @items.each do |item|
-              -#   - if item.quantity == 0
-              -#     = image_tag "#{item.image}", class: "image"
-              -#     SOLDOUT
-              -#     = item.name
-              -#     = item.price
-            -# .category-list__body
-
-              -# - @items.each do |item|
-              -#   - if item.quantity != 0
-              -#     = image_tag "#{item.image}", class: "image"
-              -#     = item.name
-              -#     = item.price
+            .category-list__image
+              - @items.each do |item|
+                - if item.quantity == 0
+                  = image_tag "#{item.image}", class: "image"
+                  SOLDOUT
+                  = item.name
+                  = item.price
+            .category-list__body
               - @items.each do |item|
                 - if item.quantity != 0
                   = image_tag "#{item.image}", class: "image"
