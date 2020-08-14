@@ -45,11 +45,7 @@
           [必須]
           
     = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
-    .new_item__brand
-      .new_item__brand--label
-        ブランド
-      .ner_item__brand--required
-        必須
+    
     .form-group.brand--container
       = f.fields_for :brand do |brand|
         = brand.label "ブランド"
