@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -37,4 +39,12 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   # 馬場追記_名前付きルーティング
   # as で名前定義→user_pathでコントローラーで使用可能
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      post 'pay', to: 'purchase#pay'
+      get 'done', to: 'purchase#done'
+    end
+  end
 end
