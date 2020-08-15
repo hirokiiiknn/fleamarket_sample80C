@@ -15,7 +15,7 @@ body,html {
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
     padding-left: 45%;
   }
-  .new_item{
+  .new_item {
     margin-top: 50px;
     margin-left:20%;
     &__name{
@@ -31,14 +31,14 @@ body,html {
       }
     }
 
-    &__image-box{
+    .js-file_group {
       width: 85%;
       text-align: center;
       height: 180px;
       padding: 0.5em 1em;
       background: #f0f7ff;
       border: dashed 2px #d6d6d6;
-      .js-file_group{
+      .js-file {
         margin-top: 50px;
         display: none;
       }
