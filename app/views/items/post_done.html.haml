@@ -15,8 +15,9 @@
     =link_to root_path, class:"link" do
       トップページへ戻る
   .done__backlink
-    =link_to item_path(@item.id), method: :get, class:"link" do
-      出品した商品を確認する
+
+    = link_to "出品した商品を確認する", item_path(current_user.id), class: 'show_item'
+      
   .done__backlink
     =link_to "/users/#{@item.seller.id}", class:"link" do
       出品中の商品一覧を見る
