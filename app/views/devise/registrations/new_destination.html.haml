@@ -38,7 +38,7 @@
       = f.label :都道府県
       %br/
       %p 必須
-    = f.text_field :prefecture, autofocus: true
+    =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
   .field
     .new
       = f.label :市区町村
