@@ -1,23 +1,27 @@
+//= render partial: "items/header"
+- content_for :css do
+  = stylesheet_link_tag 'modules/post_done'
+
+
+
 = render partial: "items/header"
 -# = render 'header'
+
+
 .done
   .done__title
     商品を出品しました
   .done__backlink
-    -# %a.link
-      = link_to "トップページへ戻る", root_path, class: 'link'
+    =link_to root_path, class:"link" do
+      トップページへ戻る
   .done__backlink
+
     = link_to "出品した商品を確認する", item_path(current_user.id), class: 'show_item'
       
   .done__backlink
-    %a.link
+    =link_to "/users/#{@item.seller.id}", class:"link" do
       出品中の商品一覧を見る
 
--# %h2.title マイページ
--# %ul.page
--#   %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page__list"
--#   %li= link_to "クレジット登録", new_card_path, class: "page__list"
--# -# = link_to "登録情報の編集", edit_user_path(current_user) 
 
 = render partial: "banner"
 

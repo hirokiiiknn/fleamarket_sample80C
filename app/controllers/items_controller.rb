@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
   end
 
   def post_done
-
+    
     @item = Item.where(seller_id: current_user.id).last
   end
 
