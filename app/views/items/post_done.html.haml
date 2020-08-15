@@ -7,8 +7,8 @@
     -# %a.link
       = link_to "トップページへ戻る", root_path, class: 'link'
   .done__backlink
-    %a.link
-      出品した商品を確認する
+    = link_to "出品した商品を確認する", item_path(current_user.id), class: 'show_item'
+      
   .done__backlink
     %a.link
       出品中の商品一覧を見る
