@@ -1,12 +1,14 @@
+
+
 .done{
   padding: 100px;
-  .done__title{
+  &__title{
     font-size: 22px;
     text-align: center;
     font-weight: bold;
     margin: 0 auto;
   }
-  .done__backlink{
+  &__backlink{
     width: 250px;
     height: 50px;
     background-color: #3ccace;
