@@ -1,12 +1,9 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :category_map, only: [:edit, :update]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  # before_action :set_item, only: [:show, :edit, :update, :destroy]
   # before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
-
-
-
 
   def index
     @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC')
@@ -27,7 +24,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    
     @item = Item.new(item_params)
     if @item.save
       redirect_to  post_done_items_path
@@ -39,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def post_done
-
     @item = Item.where(seller_id: current_user.id).last
   end
 
@@ -72,14 +67,11 @@ class ItemsController < ApplicationController
     @items = @q.result(distinct: true)
   end
 
-
   private
   
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:image, :_destroy], brand_attributes: [:id, :name ]).merge(seller_id: current_user.id)
-
   end
-
 
   def category_parent_array
     @category_parent_array = Category.where(ancestry: nil).each do |parent|
@@ -91,10 +83,7 @@ class ItemsController < ApplicationController
   end
 
   def check_item_details
-
-
     @item = Item.where(seller_id: current_user.id).last
-
   end
 
   def show_all_instance
@@ -106,10 +95,6 @@ class ItemsController < ApplicationController
     @category_child = Category.find(@category_id).parent
     @category_grandchild = Category.find(@category_id)
   end
-
-
-  
-
 
   def category_map
     grandchild = @item.category

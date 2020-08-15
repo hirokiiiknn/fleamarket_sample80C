@@ -7,14 +7,15 @@
   -# .new__page__header
   -# = link_to image_tag(asset_path("logo.png"), root_path
 
-
+  .header
+    = image_tag "/assets/logo.png", alt: 'logo', width: "150px", height: "60px"
+  .new_item 
   = form_for @item do |f|
-    .new_item 
-      .new_item__name
-        .new_item__name--label
-          出品画像
-        .new_item__name--required
-          [必須]
+    .new_item__name
+      .new_item__name--label
+        出品画像
+      .new_item__name--required
+        [必須]
     #image-box
       #previews
         - if @item.persisted?
@@ -24,12 +25,14 @@
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field :image, class: 'js-file'
           %br/
+          %i.fas.fa-camera
           %span.js-remove 削除
         - if @item.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @item.persisted?
         .js-file_group{"data-index" => "#{@item.images.count}"}
-          = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+          = image.file_field :image, type: 'file',id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
+          %i.fas.fa-camera
           .js-remove 削除
 
 
@@ -67,10 +70,10 @@
       =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
       .form-group.brand--container
         = f.fields_for :brand do |brand|
-          = brand.label "ブランド"
-          %span.form-require-gray 任意
-          %div
-            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+          -# = brand.label "ブランド"
+          -# %span.form-require-gray 任意
+          -# %div
+          -#   = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
 
 
     .new_item__item_condition
@@ -101,7 +104,7 @@
       .new_item__days--label
         発送元までの日数
       .new_item__days--required
-        必須 
+        [必須] 
 
     .new_item__days-area
       =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
