@@ -9,7 +9,7 @@
     %li= link_to "クレジット登録", new_card_path, class: "page__list"
   -# = link_to "登録情報の編集", edit_user_path(current_user) 
 
-= link_to'商品詳細', item_path
+= link_to'商品詳細', item_path(current_user.id)
 
 = render partial: "items/banner"
 
