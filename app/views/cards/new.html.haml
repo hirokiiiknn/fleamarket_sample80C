@@ -1,0 +1,11 @@
+%p クレジットード情報入力
+= form_with model: @card, url: cards_path, id: "card_token", local: true, html: { name: 'inputForm' } do |f|
+  %p カード番号
+  = f.text_field :card_number, id: "card_number",class: "card_form",maxlength: '16'
+  %p 有効期限
+  = f.collection_select :exp_month , Month.all, :id, :name ,class: "card-check-box"
+  = f.collection_select :exp_year, Year.all, :id, :name, class: "card-check-box"
+  %p セキュリティーコード
+  = f.password_field :cvc, id: 'cvc',class: "card_form" ,maxlength: '6'
+  #card_token.card-btn
+    = f.submit '登録', id: 'token_submit',class: 'card-btn'
