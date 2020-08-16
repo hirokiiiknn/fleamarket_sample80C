@@ -70,10 +70,10 @@
       =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
       .form-group.brand--container
         = f.fields_for :brand do |brand|
-          -# = brand.label "ブランド"
-          -# %span.form-require-gray 任意
-          -# %div
-          -#   = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+          = brand.label "ブランド"
+          %span.form-require-gray 任意
+          %div
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
 
 
     .new_item__item_condition
