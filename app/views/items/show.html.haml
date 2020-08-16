@@ -3,9 +3,9 @@
   = stylesheet_link_tag 'modules/show'
 
 = render partial: "items/header"
-
-= link_to "購入", new_card_path
-= link_to "トップへ戻る", root_path
+.link
+  = link_to "購入", card_path
+  = link_to "トップへ戻る", root_path
 
 %nav.breadCrumbs
   %ul
@@ -34,19 +34,21 @@
     .content__right
       .top__content
         .item-box
-          %h2.item-box__name
+          %h2.item-box__name ee
           .item-box__body
             .item-box__main
               .mainPct
-                = image_tag asset_path('beef.png')
+                = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
-                    = image_tag asset_path('beef.png')
+                    = image_tag asset_path('beef.png'), size: "120x120"
+                  .subPct
+                    = image_tag asset_path('beef.png'), size: "120x120"
           .item-box__price
             %span.price
               ¥10,000
-            .item-box__price-detail
-              %span.tex
+            .item-box__price--detail
+              %span.tax
                 (税込)
               %span.postage
                 送料込み
@@ -137,6 +139,7 @@
       .relatedItems
         %a{herf: "#"}
           レディースをもっと見る
+
         .productLists
           .productlist
             %a{herf: "#"}
