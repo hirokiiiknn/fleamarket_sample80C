@@ -28,8 +28,13 @@ Rails.application.routes.draw do
   
   resources :destinations
 
-  resources :cards, only:[:index, :new, :create,:destroy,:show] do
+  resources :cards, except: :index do
+    collection do
+      get 'registration_done'
+      get 'delete_done'
+    end
     member do
+      get 'buy'
       post 'pay'
     end
   end
