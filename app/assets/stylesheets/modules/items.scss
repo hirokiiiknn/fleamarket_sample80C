@@ -275,23 +275,29 @@
           margin: 26px auto;
           display: flex;
            .category-list{
+            display: flex;
             width: 220px;
             display: inline-block;
-            //float: left;
-            &__image{
+            &__soldout{
               img{
                 height:180px;
                 width:180px;
               }
             }
-            &__body{
+            &__product{
+              
+              
+
               img{
+               
                 height:180px;
                 width:180px;
               }
-              .name {
-                margin-left: 20px;
+              .product-info{
+                
               }
+             
+            
                 ul{
                   display: flex;
                   justify-content: space-around;
