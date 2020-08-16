@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
   }
 
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" image="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src=${url} width="100px" height="100px">`;
     return html;
   }
 
@@ -29,6 +29,7 @@ $(document).on('turbolinks:load', ()=> {
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
+   
     // 該当indexを持つimgタグがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('image', blobUrl);
