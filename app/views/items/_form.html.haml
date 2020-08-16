@@ -20,7 +20,7 @@
       #previews
         - if @item.persisted?
           - @item.images.each_with_index do |image, i|
-            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+            = image_tag image.url.src, data: { index: i }, width: "100", height: '100'
       = f.fields_for :images do |image|
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field :image, class: 'js-file'
@@ -63,17 +63,16 @@
             
       = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
       
-    .new_item__brand
-      .new_item__brand--label
-        ブランド
+    
     .new_item__brand--area
-      =f.text_field :brand_id, placeholder: "例）シャネル", class: "input"
+    
       .form-group.brand--container
-        = f.fields_for :brand do |brand|
-          -# = brand.label "ブランド"
-          -# %span.form-require-gray 任意
-          -# %div
-          -#   = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input-default"
+        = f.fields_for :brand, @item.build_brand do |brand|
+          = brand.label "ブランド"
+          %span.form-require-gray 
+            必須
+          %div
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
 
 
     .new_item__item_condition
