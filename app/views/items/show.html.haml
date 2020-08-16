@@ -116,7 +116,7 @@
 
         .commentBox
           %ul.commentContents
-          //以下のformは仮で作成、コメントテーブル作成してから修正する
+          //コメントテーブルないため以下のformは仮で作成
           %form.new_comment
             %textarea.message_form{name: "message", placeholder: "MESSAGE"}
             %p.noticeMsg
@@ -139,6 +139,24 @@
       .relatedItems
         %a{herf: "#"}
           レディースをもっと見る
+
+        .productLists
+          .productlist
+            %a{herf: "#"}
+              %figure.productList--img
+                = image_tag asset_path('carry.png')
+              .productList--body
+                %h3.name
+                  product1
+                  .details
+                    %ul
+                      %li
+                        100000円
+                      %li
+                        %i.fa.fa-star.likeIcon
+                          1
+                      %p
+                        (税込) 
 
 = render partial: "items/banner"
 = render partial: "items/footer"
