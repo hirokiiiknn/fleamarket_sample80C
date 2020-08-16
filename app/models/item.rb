@@ -4,7 +4,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :brand
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  # accepts_nested_attributes_for :images
   #Itemモデルで 「購入者」「出品者」を取り出せるようにする。
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
