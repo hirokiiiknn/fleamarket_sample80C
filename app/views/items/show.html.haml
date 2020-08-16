@@ -114,8 +114,30 @@
 
         .commentBox
           %ul.commentContents
-          %form{action: "#", id: "new_comment", method: "post", class: "new_comment"}
-          //%input{type: hidden, name: authenticity_token}
+          //以下のformは仮で作成、コメントテーブル作成してから修正する
+          %form.new_comment
+            %textarea.message_form{name: "message", placeholder: "MESSAGE"}
+            %p.noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br
+            %button{type: "submit",class: "commentBtn"}
+              %i.fas.fa-comment
+              コメントする
+      %ul.links
+        %li.links__before
+          = link_to "#", class: "angle__left" do
+            = icon('fa', 'angle-left')
+            %span 前の商品
+        %li.links__after
+          = link_to "#", class: "angle__right" do
+            %span 後ろの商品
+            = icon('fa', 'angle-right')
+      .relatedItems
+        %a{herf: "#"}
+          レディースをもっと見る
+
 
 
 = render partial: "items/banner"
