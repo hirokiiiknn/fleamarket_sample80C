@@ -111,13 +111,10 @@
                 %a{herf: "#"}
                   %i.fa.fa-flag
                     不適切な商品の通報
-        .commentBox{
-          %ul.commentContents{
+        .commentBox
+          %ul.commentContents
           %form{action: "#", id: "new_comment", method: "post", class: "new_comment"}
-
-          }
-          }
-        }
+          //%input{type: hidden, name: authenticity_token}
 
 = render partial: "items/banner"
 = render partial: "items/footer"
