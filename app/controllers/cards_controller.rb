@@ -62,6 +62,11 @@
     before_action :take_card, only:[:show,:pay]
     before_action :set_api_key
     
+    # def new
+      # card = Card.where(user_id: current_user.id)
+      # redirect_to card_index_path if card.exists?
+    # end
+
     def create
       if params['payjp-token'].blank?
         redirect_to action: "new"
@@ -138,7 +143,6 @@
   
     def set_api_key
       Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
-      binding.pry
     end
   
     def set_customer
