@@ -1,13 +1,13 @@
+
 - content_for :css do
   = stylesheet_link_tag 'modules/show'
 
 = render partial: "items/header"
 
-
 = link_to "購入", card_path
 = link_to "トップへ戻る", root_path
 
-.breadCrumbs
+%nav.breadCrumbs
   %ul
     %li
       %a FURIMA
@@ -142,4 +142,3 @@
 
 = render partial: "items/banner"
 = render partial: "items/footer"
-
