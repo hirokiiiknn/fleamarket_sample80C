@@ -70,8 +70,7 @@
 
         = f.fields_for :brand, @item.build_brand do |brand|
           = brand.label "ブランド"
-          %span.form-require-gray 
-            必須
+         
           %div
             = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
 
