@@ -111,6 +111,7 @@
               新規投稿商品
         .category-lists
           
+          
         
           -# - @items.each do |item|
           -#   .category-list__soldout  
@@ -119,7 +120,9 @@
           -#       SOLDOUT
           -#       = item.name
           -#       = item.price
-          
+     
+
+ 
           - @items.each do |item|
             .category-list
               - if item.quantity != 0
@@ -182,28 +185,7 @@
                   %li
                     %i.fa.fa-star.likeIcon 0
                 %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('gyouza.png')
-            .category-list__body
-              %h3.name product2
-              .datails
-                %ul
-                  %li 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon 0
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('carry.png')
-            .category-list__body
-              %h3.name product1
-              .datails
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeIcon 1
-                %p (税込)
+          
 
   = render 'banner'
 

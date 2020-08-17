@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
   before_action :check_item_details, only: [:post_done, :update_done]
 
   def index
-    @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
+    @items = Item.all.order('id DESC').limit(3)
+    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
