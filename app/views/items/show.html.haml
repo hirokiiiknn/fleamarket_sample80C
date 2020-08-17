@@ -34,16 +34,18 @@
     .content__right
       .top__content
         .item-box
-          %h2.item-box__name ee
+          %h2 
+          = @item.name
           .item-box__body
             .item-box__main
               .mainPct
-                = image_tag asset_path('beef.png'), size: "550x350"
+                = image_tag(@item.images.first.image.url)
+                //= image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
-                    = image_tag asset_path('beef.png'), size: "120x120"
-                  .subPct
-                    = image_tag asset_path('beef.png'), size: "120x120"
+                    -# - @item.each do|img|
+                    -#   .subPct-list
+                        -# = image_tag(@item.images.image.url)
           .item-box__price
             %span.price
               ¥10,000
