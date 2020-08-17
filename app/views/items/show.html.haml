@@ -136,27 +136,27 @@
           = link_to "#", class: "angle__right" do
             %span 後ろの商品
             = icon('fa', 'angle-right')
-      .relatedItems
-        %a{herf: "#"}
-          レディースをもっと見る
 
+      .relatedItems
+        .relatedItems__title
+          %a{herf: "#"} レディースをもっと見る
         .productLists
-          .productlist
+          .productList
             %a{herf: "#"}
-              %figure.productList--img
-                = image_tag asset_path('carry.png')
-              .productList--body
-                %h3.name
-                  product1
-                  .details
-                    %ul
-                      %li
-                        100000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                          1
-                      %p
-                        (税込) 
+            .productList__img
+              = image_tag asset_path('carry.png')
+            .productList__body
+              %h3.name
+                product1
+                .details
+                  %ul
+                    %li
+                      100000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                        1
+                  %p
+                    (税込) 
 
 = render partial: "items/banner"
 = render partial: "items/footer"
