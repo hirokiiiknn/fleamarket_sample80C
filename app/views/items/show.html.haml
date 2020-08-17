@@ -66,14 +66,14 @@
                   %th
                     カテゴリー
                   %td
-                    %a{herf: "#"}
-                      レディース
+                    %a
+                      = link_to "レディース"
                     %br
-                    %a{herf: "#"}
-                      トップス
+                    %a  
+                      = link_to "トップス"
                     %br
-                    %a{herf: "#"}
-                      Tシャツ/カットソー(半袖/袖なし)
+                    %a
+                      = link_to "Tシャツ/カットソー(半袖/袖なし)"
                 %tr
                   %th
                     ブランド
@@ -110,7 +110,8 @@
                   お気に入り 1
             %ul.optional
               %li.optionalBtn
-                %a{herf: "#"}
+                %a
+                  -# = link_to "#"
                   %i.fa.fa-flag
                     不適切な商品の通報
 
@@ -136,27 +137,29 @@
           = link_to "#", class: "angle__right" do
             %span 後ろの商品
             = icon('fa', 'angle-right')
-      .relatedItems
-        %a{herf: "#"}
-          レディースをもっと見る
 
+      .relatedItems
+        .relatedItems__title
+          %a
+            = link_to "レディースをもっと見る"
         .productLists
-          .productlist
-            %a{herf: "#"}
-              %figure.productList--img
-                = image_tag asset_path('carry.png')
-              .productList--body
-                %h3.name
-                  product1
-                  .details
-                    %ul
-                      %li
-                        100000円
-                      %li
-                        %i.fa.fa-star.likeIcon
-                          1
-                      %p
-                        (税込) 
+          .productList
+            %a
+              -# = link_to "#"
+            .productList__img
+              = image_tag asset_path('carry.png')
+            .productList__body
+              %h3.name
+                product1
+                .details
+                  %ul
+                    %li
+                      100000円
+                    %li
+                      %i.fa.fa-star.likeIcon
+                        1
+                  %p
+                    (税込) 
 
 = render partial: "items/banner"
 = render partial: "items/footer"
