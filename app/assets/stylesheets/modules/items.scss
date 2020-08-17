@@ -273,9 +273,8 @@
         .category-lists{
           width: 780px;
           margin: 26px auto;
-          display: flex;
+
            .category-list{
-            display: flex;
             width: 220px;
             display: inline-block;
             &__soldout{
@@ -284,7 +283,7 @@
                 width:180px;
               }
             }
-            &__product{
+            
               
               
 
@@ -294,6 +293,7 @@
                 width:180px;
               }
               .product-info{
+                text-decoration: none;
                 
               }
              
@@ -306,7 +306,7 @@
                   font-size: 10px;
                   margin-left: 30px;
                 }
-            }
+            
           }
         }
       }
