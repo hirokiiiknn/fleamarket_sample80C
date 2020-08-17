@@ -38,13 +38,13 @@ quantityは
     .content__right
       .top__content
         .item-box
-          %h2 
-          = @item.name
+          %h2.item-box__name 
+            = @item.name
           .item-box__body
             .item-box__main
               .mainPct
-                = image_tag(@item.images.first.image.url)
-                //= image_tag asset_path('beef.png'), size: "550x350"
+                -# = image_tag(@item.images.first.image.url)
+                = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
                     -# - @item.each do|img|
