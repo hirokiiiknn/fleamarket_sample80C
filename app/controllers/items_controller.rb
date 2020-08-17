@@ -56,7 +56,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
+    if @item.quantity == 0
+      redirect_to root_path
+    end
   end
 
   def search

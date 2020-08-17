@@ -100,7 +100,7 @@ class CardsController < ApplicationController
 
   def pay
     # if @item.auction_status == "売り切れ"
-    if @item.quantity == "0"
+    if @item.quantity == 0
       redirect_to buy_card_path(@item)
     else
       if current_user.card.present?
@@ -111,6 +111,8 @@ class CardsController < ApplicationController
           currency: 'jpy'
           )
         @item.update!(buyer_id: 2)
+        # 仮テスト 0817追記↓↓↓↓↓↓↓↓↓
+        @item.update!(quantity: @item.quantity = @item.quantity - 1)
       else
         Payjp::Charge.create(
           amount: @item.price,
@@ -118,6 +120,8 @@ class CardsController < ApplicationController
           currency: 'jpy'
           )
         @item.update!(buyer_id: 2)
+        # 仮テスト 0817追記↓↓↓↓↓↓↓↓↓
+        @item.update!(quantity: quantity = quantity - 1)
       end
     end
   end
