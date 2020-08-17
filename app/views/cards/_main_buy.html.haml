@@ -13,7 +13,7 @@
           .price
             = @item.price.to_s(:delimited)
             円 (税込)
-            = @item.delivery_fee
+            = @item.cost
 - else
   .buy
     .buy__main
@@ -28,7 +28,7 @@
           .price
             = @item.price.to_s(:delimited)
             円 (税込)
-            = @item.delivery_fee
+            = @item.cost
       .buy__main__claim
         .title
           お支払金額
@@ -61,7 +61,7 @@
         〒
         = current_user.destinations.postcode
       .buy__main__address
-        = current_user.destinations.preficture
+        = current_user.destinations.prefecture
         = current_user.destinations.city
         = current_user.destinations.house_number
         = current_user.destinations.building_name
@@ -71,6 +71,6 @@
       - if @card_info.present?
         .buy__main__btn
           = link_to '購入する', pay_card_path(@item.id), method: :post, class: 'link'
-= render "top/lower-photo"
-= render "top/footer"
-= render "top/btn"
+-# = render "top/lower-photo"
+-# = render "top/footer"
+-# = render "top/btn"

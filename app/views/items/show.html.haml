@@ -4,8 +4,12 @@
 
 = render partial: "items/header"
 .link
-  = link_to "購入", card_path
+  = link_to "購入", buy_card_path
   = link_to "トップへ戻る", root_path
+
+quantityは
+= @item.quantity
+個です。
 
 %nav.breadCrumbs
   %ul
