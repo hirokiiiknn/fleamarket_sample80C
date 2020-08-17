@@ -67,19 +67,17 @@ quantityは
                   %th
                     出品者
                   %td
-                    aaa
+                    = @user.nickname
                 %tr
                   %th
                     カテゴリー
                   %td
-                    %a
-                      = link_to "レディース"
-                    %br
-                    %a  
-                      = link_to "トップス"
-                    %br
-                    %a
-                      = link_to "Tシャツ/カットソー(半袖/袖なし)"
+                    %br= link_to "#{@category_parent.name}", "#" 
+                    
+                    %br= link_to "#{@category_child.name}", "#"
+                    
+                    %br= link_to "#{@category_grandchild.name}", "#"
+                        
                 %tr
                   %th
                     ブランド
@@ -166,6 +164,6 @@ quantityは
                         1
                   %p
                     (税込) 
-
 = render partial: "items/banner"
 = render partial: "items/footer"
+

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :category_map, only: [:edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  # before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
+  before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
 
   def index
@@ -88,7 +88,7 @@ class ItemsController < ApplicationController
   end
 
   def show_all_instance
-    @user = User.find(@item.user_id)
+    @user = User.find(@item.seller_id)
     @images = Image.where(item_id: params[:id])
     @images_first = Image.where(item_id: params[:id]).first
     @category_id = @item.category_id
