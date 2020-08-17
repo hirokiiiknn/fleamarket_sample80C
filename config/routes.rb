@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
