@@ -11,8 +11,10 @@ class CardsController < ApplicationController
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
+      # payjp-tokenが空ならnewへ
       redirect_to new_card_path
     else
+      # payjp-tokenが入っているなら以下を実施
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
@@ -31,7 +33,8 @@ class CardsController < ApplicationController
 
   def show
     if @card.blank?
-      redirect_to new_cards_path 
+    #登録された情報がない場合にカード登録画面に移動
+      redirect_to new_card_path 
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -96,24 +99,25 @@ class CardsController < ApplicationController
   end
 
   def pay
-    if @item.auction_status == "売り切れ"
+    # if @item.auction_status == "売り切れ"
+    if @item.quantity == "0"
       redirect_to buy_card_path(@item)
     else
       if current_user.card.present?
         Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
         charge = Payjp::Charge.create(
-          amount: @item.exhibition_price,
+          amount: @item.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
           )
-        @item.update!(auction_status: 2)
+        @item.update!(buyer_id: 2)
       else
         Payjp::Charge.create(
-          amount: @item.exhibition_price,
+          amount: @item.price,
           card: params['payjp-token'],
           currency: 'jpy'
           )
-        @item.update!(auction_status: 2)
+        @item.update!(buyer_id: 2)
       end
     end
   end

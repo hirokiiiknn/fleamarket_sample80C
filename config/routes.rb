@@ -44,11 +44,5 @@ Rails.application.routes.draw do
   # 馬場追記_名前付きルーティング
   # as で名前定義→user_pathでコントローラーで使用可能
 
-  # resources :purchase, only: [:index] do
-  #   collection do
-  #     get 'index', to: 'purchase#index'
-  #     post 'pay', to: 'purchase#pay'
-  #     get 'done', to: 'purchase#done'
-  #   end
-  # end
+
 end
