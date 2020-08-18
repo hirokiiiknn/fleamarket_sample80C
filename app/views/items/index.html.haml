@@ -110,76 +110,28 @@
             %h3.title
               新規投稿商品
         .category-lists
-          .category-list
-            .category-list__image
-            = image_tag asset_path('beef.png'), width: "180px", height: "180px"
-            .category-list__body
-              %hs3.name テスト
-              .datails
-                %ul
-                  %li 10000円 
-                  %li
-                    %i.fa.fa-star.likeIcon 1
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('tantan.png'), width: "180px", height: "180px"
-            .category-list__body
-              %h3.name ee
-              .datails
-                %ul
-                  %li 1000円
-                  %li
-                    %i.fa.fa-star.likeIcon 0
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('fish.png')
-            .category-list__body
-              %h3.name product3
-              .datails
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon 0
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('gyouza.png')
-            .category-list__body
-              %h3.name product2
-              .datails
-                %ul
-                  %li 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon 0
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('carry.png')
-            .category-list__body
-              %h3.name product1
-              .datails
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeIcon 1
-                %p (税込)
+        
+          - @items.each do |item|
+            .category-list  
+              - if item.quantity == 0
+                .soldout-image
+                  = image_tag item.images[0].image.url, class: "image"
+                  .soldout-info
+                    SOLDOUT
+                    = item.name
+                    = item.price
 
-          
-            .category-list__image
-              - @items.each do |item|
-                - if item.quantity == 0
-                  = image_tag "#{item.image}", class: "image"
-                  SOLDOUT
-                  = item.name
-                  = item.price
-            .category-list__body
-              - @items.each do |item|
-                - if item.quantity != 0
-                  -# = image_tag "#{item.image}", class: "image"
-                  = item.name
-                  = item.price
+          - @items.each do |item|
+            .category-list
+              - if item.quantity != 0
+                = link_to item_path(item), class: "link" do
+                  .product-image
+                    = image_tag item.images[0].image.url, class: "image"
+                  .product-info
+                    .item-name
+                      = item.name
+                    .item-price
+                      = item.price
 
     %section.pickupVisual
       %h2.topic-category
@@ -231,28 +183,7 @@
                   %li
                     %i.fa.fa-star.likeIcon 0
                 %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('gyouza.png')
-            .category-list__body
-              %h3.name product2
-              .datails
-                %ul
-                  %li 20000円
-                  %li
-                    %i.fa.fa-star.likeIcon 0
-                %p (税込)
-          .category-list
-            .category-list__image
-            = image_tag asset_path('carry.png')
-            .category-list__body
-              %h3.name product1
-              .datails
-                %ul
-                  %li 10000円
-                  %li
-                    %i.fa.fa-star.likeIcon 1
-                %p (税込)
+          
 
   = render 'banner'
 

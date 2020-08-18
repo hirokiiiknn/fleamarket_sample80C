@@ -1,3 +1,6 @@
+.link {
+  margin-left: 5%;
+}
 .breadCrumbs {
   width: 100%;
   border-top: 1px solid #eee;
@@ -6,14 +9,192 @@
   padding: 0 60px;
   ul {
     display: flex;
+    padding: 15px 0 16px;
     li {
       margin: 5px;
+      p {
+        font-weight: bold;
+      }
     }
   }
 }
 
-.showMain {
+.main {
   margin-top: 30px;
-  margin-left: 23%;
+  margin-left: 32%;
+  .content {
+    background-color: white;
+    &__left {
 
+    }
+    &__right {
+      .top__content {
+        .item-box {
+          &__name {
+            font-weight: bold;
+            font-size: 24px;
+            padding: 10px;
+            margin-left: 25%;
+          }
+          &__body {
+            .item-box__main {
+              .mainPct {
+                .main__photo{
+                  width: 560px;
+                  height: 350px;
+                }
+                .subPct-box {
+                  display: flex;
+                  margin-left: 12%;
+                  .subPct {
+                    margin-left: 3%;
+                  }
+                }
+              }
+            }
+          }
+          &__price {
+            margin-top: 3%;
+            .price {
+              margin-left: 25%;
+              font-weight: bold;
+              font-size: 24px;
+            }
+            &--detail {
+              margin-left: 25%;
+            }
+            .item__detail {
+              font-size: 18px;
+              margin-bottom: 30px;
+            }
+          }
+          .table {
+            th {
+              width: 20%;
+              background-color: #eee;
+              font-weight: 400;
+              padding: 8px;
+              border: 1px solid #dedede;
+              font-size: 14px;
+              text-align: center;
+            }
+            td {
+              width: 61%;
+              padding: 15px 15px;
+              border: 1px solid #dedede;
+              font-size: 14px;
+              a {
+                text-decoration: none;
+                color: #3CCACE;
+              }
+            }
+          }
+          .optionalArea {
+            display: flex;
+            margin-top: 20px;
+            ul {
+              .optionalBtn__likeBtn {
+                margin-right: auto;
+                padding: 6px 10px;
+                border-radius: 40px;
+                color: #3CCACE;
+                border: 1px solid #ffb340;
+              }
+            }
+            .optional {
+              .optionalBtn {
+                margin-left: 200px;
+                a {
+                  padding: 6px 10px;
+                  display: inline-block;
+                  border-radius: 4px;
+                  color: #333;
+                  border: 1px solid #333;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+        .commentBox {
+          padding: 24px;
+          background-color: #fff;
+          margin: 10px 0;
+          .commentContents {
+
+          }
+          .new_comment {
+
+            .message_form {
+              min-height: 100px;
+              width: 58%;
+            }
+            .noticeMsg {
+              padding: 8px;
+              font-size: 14px;
+              background-color: #f8f8f8;
+              margin: 10px 0;
+              margin-right: 42%;
+            }
+            .commentBtn {
+              line-height: 48px;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              color: #fff;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+            }
+          }
+        }
+      }
+      .links {
+        display: flex;
+        justify-content: space-around;
+        margin-right: 37%;
+        a {
+          text-decoration: none;
+          color: #3CCACE;
+        }
+      }
+      .relatedItems {
+        &__title {
+          a {
+            display: block;
+            margin: 24px 0 8px;
+            color: #3CCACE;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22px;
+            position: relative;
+          }
+        }
+        .productLists {
+          .productList {
+            &__img {
+            }
+            &__body {
+              margin-bottom: 5%;
+              .name {
+                .details {
+                  ul {
+                    display: flex;
+                    font-weight: bold;
+                    li {
+                      i {
+                        margin-left: 50px;
+                      }
+                    }
+                  }
+                  p {
+                    font-size: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

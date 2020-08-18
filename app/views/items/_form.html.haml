@@ -8,7 +8,9 @@
   -# = link_to image_tag(asset_path("logo.png"), root_path
 
   .header
+  = link_to root_path do
     = image_tag "/assets/logo.png", alt: 'logo', width: "150px", height: "60px"
+
   .new_item 
   = form_for @item do |f|
     .new_item__name
@@ -70,8 +72,7 @@
 
         = f.fields_for :brand, @item.build_brand do |brand|
           = brand.label "ブランド"
-          %span.form-require-gray 
-            必須
+         
           %div
             = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
 
