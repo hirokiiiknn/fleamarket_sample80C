@@ -1,4 +1,6 @@
-$(document() {
+
+$(function () {
+
   // 画像用のinputを生成する関数
   const buildFileField = (num) => {
     const html = `<div data-index="${num}" class="js-file_group">
@@ -10,15 +12,17 @@ $(document() {
     return html;
   }
 
+
   const buildImg = (index, url) => {
-    const html = `<img data-index="${index}" src=${url} width="100px" height="100px">`;
+    const html = `<img data-index="${index}" =${url} width="100px" height="100px">`;
+
     return html;
   }
 
 
 
   // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex =[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
