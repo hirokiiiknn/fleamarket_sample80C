@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :category_map, only: [:edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
+
   before_action :check_item_details, only: [:post_done, :update_done]
 
   def index
