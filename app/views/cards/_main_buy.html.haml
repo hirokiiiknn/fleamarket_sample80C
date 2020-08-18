@@ -1,5 +1,5 @@
 -# -if @item.auction_status == "売り切れ"
--if @item.quantity == "0"
+-if @item.quantity == 0
   .buy#short
     .buy__main
       .buy__main__title#soldout
@@ -59,15 +59,15 @@
         配送先
       .buy__main__address
         〒
-        = current_user.destinations.postcode
+        = current_user.destination.postcode
       .buy__main__address
-        = current_user.destinations.prefecture
-        = current_user.destinations.city
-        = current_user.destinations.house_number
-        = current_user.destinations.building_name
+        -# = current_user.destination.prefecture.name
+        = current_user.destination.city
+        = current_user.destination.house_number
+        = current_user.destination.building_name
       .buy__main__address
-        = current_user.last_name_destination
-        = current_user.family_name_destination
+        = current_user.destination.first_name_destination
+        = current_user.destination.family_name_destination
       - if @card_info.present?
         .buy__main__btn
           = link_to '購入する', pay_card_path(@item.id), method: :post, class: 'link'

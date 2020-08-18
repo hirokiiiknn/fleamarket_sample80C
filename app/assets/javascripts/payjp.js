@@ -8,7 +8,6 @@ $(function () {
       exp_month: $("#exp_month")[0].value,
       exp_year: $("#exp_year")[0].value
     };
-    debugger
     Payjp.createToken(card, function (status, response) {
       if (status === 200) {
         $("#card_token").append(
