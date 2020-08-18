@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
   def show
     if @item.quantity == 0
       redirect_to root_path
-    @seller = @items.seller.name
+    # @seller = @items.seller.name
     end
   end
 
