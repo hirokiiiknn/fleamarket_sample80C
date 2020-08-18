@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :category_map, only: [:edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
+  before_action :category_map, only: [:edit, :update]
+  # before_action :set_ransack,only: [:search, :detail_search]
 
   def index
     @items = Item.all.order('id DESC').limit(3)
@@ -43,7 +44,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
@@ -52,8 +53,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to  delete_done_items_path
+    else
+      flash.now[:alert] = '削除できませんでした'
+      render :show
+    end
   end
 
   def show
@@ -82,6 +87,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
+    
     @item = Item.find(params[:id])
   end
 
@@ -94,9 +100,9 @@ class ItemsController < ApplicationController
     @images = Image.where(item_id: params[:id])
     @images_first = Image.where(item_id: params[:id]).first
     @category_id = @item.category_id
-    # @category_parent = Category.find(@category_id).parent.parent
-    # @category_child = Category.find(@category_id).parent
-    # @category_grandchild = Category.find(@category_id)
+    @category_parent = Category.find(@category_id).parent.parent
+    @category_child = Category.find(@category_id).parent
+    @category_grandchild = Category.find(@category_id)
   end
 
   def category_map

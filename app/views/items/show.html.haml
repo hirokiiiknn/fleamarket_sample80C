@@ -172,3 +172,9 @@ quantityは
 = render partial: "items/banner"
 = render partial: "items/footer"
 
+- if current_user == @user
+  = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+  = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+- elsif user_signed_in?
+  = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+- else
