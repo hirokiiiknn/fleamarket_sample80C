@@ -58,6 +58,7 @@ class ItemsController < ApplicationController
   def show
     if @item.quantity == 0
       redirect_to root_path
+    @seller = @items.seller.name
     end
   end
 
@@ -92,9 +93,9 @@ class ItemsController < ApplicationController
     @images = Image.where(item_id: params[:id])
     @images_first = Image.where(item_id: params[:id]).first
     @category_id = @item.category_id
-    @category_parent = Category.find(@category_id).parent.parent
-    @category_child = Category.find(@category_id).parent
-    @category_grandchild = Category.find(@category_id)
+    # @category_parent = Category.find(@category_id).parent.parent
+    # @category_child = Category.find(@category_id).parent
+    # @category_grandchild = Category.find(@category_id)
   end
 
   def category_map

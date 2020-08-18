@@ -39,6 +39,10 @@
           &__body {
             .item-box__main {
               .mainPct {
+                .main__photo{
+                  width: 560px;
+                  height: 350px;
+                }
                 .subPct-box {
                   display: flex;
                   margin-left: 12%;

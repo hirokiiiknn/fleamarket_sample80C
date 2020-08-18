@@ -43,16 +43,20 @@ quantityは
           .item-box__body
             .item-box__main
               .mainPct
-                -# = image_tag(@item.images.first.image.url)
-                = image_tag asset_path('beef.png'), size: "550x350"
+                = image_tag(@item.images.first.image.url, class: "main__photo")
+                -# = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
-                    -# - @item.each do|img|
+                    -# = image_tag(@item.images[1].image.url)
+                    -# = image_tag(@item.images[2].image.url)
+                    -# - @item.each do |img|
                     -#   .subPct-list
-                        -# = image_tag(@item.images.image.url)
+                    -#     = image_tag(img.image.url)
           .item-box__price
             %span.price
-              ¥10,000
+              ¥
+              = @item.price.to_s(:delimited)
+
             .item-box__price--detail
               %span.tax
                 (税込)
@@ -81,7 +85,9 @@ quantityは
                 %tr
                   %th
                     ブランド
+                      
                   %td
+                    
                 %tr
                   %th
                     商品のサイズ
@@ -90,23 +96,22 @@ quantityは
                   %th
                     商品の状態
                   %td
-                    新品/未使用
+                    = @item.item_condition
                 %tr
                   %th
                     配送料の負担
                   %td
-                    送料込み(出品者負担)
+                    = @item.cost
                 %tr
                   %th
                     発送元の地域
                   %td
-                    北海道
-                    //link必要
+
                 %tr
                   %th
                     発送日の目安
                   %td
-                    1-2日で発送
+                    = @item.days
           .optionalArea 
             %ul
               %li.optionalBtn__likeBtn
