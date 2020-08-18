@@ -139,3 +139,5 @@ class CardsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
+
+# コードレビュー待ち
