@@ -10,8 +10,8 @@
   .Header__Inner
     .Header__Inner--Main
       .Icon
-        %a{href: "/assets/logo.png"}
-        = image_tag "/assets/logo.png", alt: "次へ" ,width:"140px", height:"50px", class: "icon"
+      = link_to root_path do
+        = image_tag "/assets/logo.png", alt: "次へ",width:"140px",height:"50px", class: "icon"
 
       
       .searchBox
