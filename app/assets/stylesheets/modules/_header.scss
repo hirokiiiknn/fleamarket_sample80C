@@ -11,9 +11,11 @@
       align-items: center;
       justify-content: space-between;
       .Icon {
-        margin-right: 30px;
         padding-bottom: 10px;
         font-weight: normal;
+      }
+      a {
+        margin: 15px;
       }
       .searchBox {
         width: 100%;
