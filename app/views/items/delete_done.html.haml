@@ -1,5 +1,16 @@
+- content_for :css do
+  = stylesheet_link_tag 'modules/delete'
+
+.body
+  = render 'header'
+
 .done#fullsize
   .done__title
     商品を削除しました
   .done__backlink
     = link_to 'トップページへ戻る', root_path, class: 'link'
+
+
+  = render 'banner'
+
+  = render 'footer'
