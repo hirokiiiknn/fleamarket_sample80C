@@ -9,3 +9,4 @@ class Condition < ActiveHash::Base
       { id: 6, value: '全体的に状態が悪い' }
   ]
 end
+
