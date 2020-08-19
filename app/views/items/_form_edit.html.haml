@@ -1,236 +1,118 @@
-.new_item
-= form_for @item do |f|
-  .new_item__name
-    .new_item__name--label
-      出品画像
-    .new_item__name--required
-      必須
-  .new_item__image-box
-    %label.img-label{for: "img-file"}
+.new_item 
+  = form_for @item do |f|
+    .new_item__name
+      .new_item__name--label
+        出品画像
+      .new_item__name--required
+        [必須]
+    #image-box
+      #previews
+        - if @item.persisted?
+          - @item.images.each_with_index do |image, i|
+            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
       = f.fields_for :images do |image|
-        #append-js
-          .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :image, type: 'file', value:"",style: "",  id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :image, class: 'js-file'
+          %br/
           %i.fas.fa-camera
-    
-  .new_item__item_name
-    .new_item__item_name--label
-      商品名
-    .new_item__item_name--required
-      必須
-  .new_item__area
-    = f.text_field :name, placeholder: "４０字まで"
-    
-  .new_item__introduction
-    .new_item__introduction--label
-      商品の説明
-    .new_item__introduction--required
-      必須
-  .new_item__intro-area
-    = f.text_field :introduction, placeholdr: "商品の説明（必須1000文字以内）（色、素材、重さ、定価、注意点など）"
-  
-  .form__label
-    .lavel__name
-      カテゴリー
-    .lavel__Required
-      [必須]
-  - if @category_id == 46 or @category_id == 74 or @category_id == 134 or @category_id == 142 or @category_id == 147 or @category_id == 150 or @category_id == 158
-    .append__category
-      .category
-        =f.collection_select :category_id, @category_children_array, :id, :name, {selected:@child_array}, {class:"serect_field"}
-      .category__grandchild#children_wrapper
-        =f.collection_select :category_id, @category_grandchildren_array, :id, :name, {},{selected:@grandchild_array, id:"child__category",class:"serect_field"}
-  - else
-    .append__category
-      .category
-        =f.collection_select :category_id, @category_parent_array, :id, :name, {selected:@parent_array}, {class:"serect_field"}
-      .category__child#children_wrapper
-        =f.collection_select :category_id, @category_children_array, :id, :name, {},{selected:@child_array, id:"child__category", class:"serect_field"}
-      .category__grandchild#grandchildren_wrapper
-        =f.collection_select :category_id, @category_grandchildren_array, :id, :name, {selected:@grandchild_array}, {class:"serect_field"}
-    
-  .new_item__brand
-    .new_item__brand--label
-      ブランド
-  .new_item__brand--area
-    =f.text_field :brand_id, placeholder: "シャネル"
-
-  .new_item__item_condition
-    .new_item__item_condition--label
-      商品の状態
-    .new_item__item_condition--required
-      必須
-  .new_item__item_condition-area
-    =f.select :item_condition , Item.item_conditions.keys, {include_blank: "選択してください"},class:"serect_field"
-
-  .new_item__cost
-    .new_item__cost--label
-      配送料の負担
-    .new_item__cost--required
-      必須
-  .new_item__cost-area
-    = f.select :cost , Item.delivery_fees.keys, {include_blank: "選択してください"},class:"serect_field"
-
-  .new_item__prefecture
-    .new_item__prefecture--label
-      発送元の地域
-    .new_item__prefecture--required
-      必須
-  .new_item__prefecture-area
-    =f.select :prefecture, Item.prefectures.keys, {include_blank: "選択してください"},class:"serect_field"
-
-  .new_item__days
-    .new_item__days--label
-      発送元までの日数
-    .new_item__days--required
-      必須
-  .new_item__days-area
-    =f.select :days, Item.days.keys, {include_blank: "選択してください"},class:"serect_field"
-
-  .new_item__price
-    .new_item__price--label
-      販売価格
-    .new_item__price--required
-      必須
-  .new_item__selling-price
-    出品価格（300円〜9,999,999円）
-  .new_item__selling-price-area
-    =f.number_field :price, placeholder: "0"
-    円
-
-  .new_item__quantity
-    .new_item__quantity--label
-      販売数
-    .new_item__quantity--required
-      必須
-  .new_item__quantity-area
-    =f.number_field :quantity, placeholder: "0"
-    個
-  
-
-  .send
-    = f.submit "出品する",class:"send__sipping_btn"
-
--# .header
--#   = image_tag "/assets/logo.png", alt: 'logo', width: "150px", height: "60px"
--# .new_item 
--# = form_for @item do |f|
--#   .new_item__name
--#     .new_item__name--label
--#       出品画像
--#     .new_item__name--required
--#       [必須]
--#   #image-box
--#     #previews
--#       - if @item.persisted?
--#         - @item.images.each_with_index do |image, i|
--#           = image_tag image.url.src, data: { index: i }, width: "100", height: '100'
--#     = f.fields_for :images do |image|
--#       .js-file_group{"data-index" => "#{image.index}"}
--#         = image.file_field :image, class: 'js-file'
--#         %br/
--#         %i.fas.fa-camera
--#         %span.js-remove 削除
--#       - if @item.persisted?
--#         = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
--#     - if @item.persisted?
--#       .js-file_group{"data-index" => "#{@item.images.count}"}
--#         = image.file_field :image, type: 'file',id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
--#         %i.fas.fa-camera
--#         .js-remove 削除
-
-
-    
--#   .new_item__item_name
--#     .new_item__item_name--label
--#       商品名
--#     .new_item__item_name--required
--#       [必須]
--#   .new_item__area
--#     = f.text_field :name, placeholder: "４０字まで", class: "input"
-    
--#   .new_item__introduction
--#     .new_item__introduction--label
--#       商品の説明
--#     .new_item__introduction--required
--#       [必須]
--#   .new_item__intro-area
--#     = f.text_field :introduction, placeholdr: "商品の説明（必須1000文字以内）（色、素材、重さ、定価、注意点など）", class: "input"
-    
--#   .append__category
--#     .category
--#       .category__lavel
--#         .category__lavel--name 
--#           カテゴリー
--#         .category__lavel--required
--#           [必須]
-          
--#     = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
-    
-  
--#   .new_item__brand--area
-  
--#     .form-group.brand--container
-
--#       = f.fields_for :brand, @item.build_brand do |brand|
--#         = brand.label "ブランド"
-        
--#         %div
--#           = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
-
-
--#   .new_item__item_condition
--#     .new_item__item_condition--label
--#       商品の状態
--#     .new_item__item_condition--required
--#       [必須]
--#   .new_item__item_condition-area
--#     =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-
--#   .new_item__cost
--#     .new_item__cost--label
--#       配送料の負担
--#     .new_item__cost--required
--#       [必須]
--#   .new_item__cost-area
--#     =f.collection_select(:cost, DeliveryFee.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-
--#   .new_item__prefecture
--#     .new_item__prefecture--label
--#       発送元の地域
--#     .new_item__prefecture--required
--#       [必須]
--#   .new_item__prefecture-area
--#     =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
-
--#   .new_item__days
--#     .new_item__days--label
--#       発送元までの日数
--#     .new_item__days--required
--#       [必須] 
-
--#   .new_item__days-area
--#     =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+          %span.js-remove 削除
+        - if @item.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @item.persisted?
+          .js-file_group{"data-index" => "#{@item.images.count}"}
+            = image.file_field :image, type: 'file',id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
+            %i.fas.fa-camera
+            .js-remove 削除
+    .new_item__item_name
+      .new_item__item_name--label
+        商品名
+      .new_item__item_name--required
+        [必須]
+    .new_item__area
+      = f.text_field :name, placeholder: "４０字まで", class: "input"
       
--#   .new_item__price
--#     .new_item__price--label
--#       販売価格
--#     .new_item__price--required
--#       [必須]
--#   .new_item__selling-price
--#     出品価格（300円〜9,999,999円）
--#   .new_item__selling-price-area
--#     =f.number_field :price, placeholder: "0", class: "input2"
--#     円  (販売手数料10％)
+    .new_item__introduction
+      .new_item__introduction--label
+        商品の説明
+      .new_item__introduction--required
+        [必須]
+    .new_item__intro-area
+      = f.text_field :introduction, placeholdr: "商品の説明（必須1000文字以内）（色、素材、重さ、定価、注意点など）", class: "input"
+      
+    .append__category
+      .category
+        .category__lavel
+          .category__lavel--name 
+            カテゴリー
+          .category__lavel--required
+            [必須]
+            
+      = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
+      
+    
+    .new_item__brand--area
+    
+      .form-group.brand--container
 
--#   .new_item__quantity
--#     .new_item__quantity--label
--#       販売数
--#     .new_item__quantity--required
--#       [必須]
--#   .new_item__quantity-area
--#     =f.number_field :quantity, placeholder: "0", class: "input2"
--#     個
-  
--#   .send
--#     = f.submit "出品する", class: "send__sipping_btn"
+        = f.fields_for :brand, @item.build_brand do |brand|
+          = brand.label "ブランド"
+         
+          %div
+            = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
+
+
+    .new_item__item_condition
+      .new_item__item_condition--label
+        商品の状態
+      .new_item__item_condition--required
+        [必須]
+    .new_item__item_condition-area
+      =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+
+    .new_item__cost
+      .new_item__cost--label
+        配送料の負担
+      .new_item__cost--required
+        [必須]
+    .new_item__cost-area
+      =f.collection_select(:cost, DeliveryFee.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+
+    .new_item__prefecture
+      .new_item__prefecture--label
+        発送元の地域
+      .new_item__prefecture--required
+        [必須]
+    .new_item__prefecture-area
+      =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
+
+    .new_item__days
+      .new_item__days--label
+        発送元までの日数
+      .new_item__days--required
+        [必須] 
+
+    .new_item__days-area
+      =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+        
+    .new_item__price
+      .new_item__price--label
+        販売価格
+      .new_item__price--required
+        [必須]
+    .new_item__selling-price
+      出品価格（300円〜9,999,999円）
+    .new_item__selling-price-area
+      =f.number_field :price, placeholder: "0", class: "input2"
+      円  (販売手数料10％)
+
+    .new_item__quantity
+      .new_item__quantity--label
+        販売数
+      .new_item__quantity--required
+        [必須]
+    .new_item__quantity-area
+      =f.number_field :quantity, placeholder: "0", class: "input2"
+      個
+    
+    .send
+      = f.submit "出品する", class: "send__sipping_btn"
