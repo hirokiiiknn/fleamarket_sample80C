@@ -53,12 +53,12 @@ quantityは
           .item-box__body
             .item-box__main
               .mainPct
-                = image_tag(@item.images.first.image.url, class: "main__photo")
+                -# = image_tag(@item.images.first.image.url, class: "main__photo")
                 -# = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
-                    = image_tag(@item.images[1].image.url)
-                    = image_tag(@item.images[2].image.url)
+                    -# = image_tag(@item.images[1].image.url)
+                    -# = image_tag(@item.images[2].image.url)
                     -# - @item.each do |img|
                     -#   .subPct-list
                     -#     = image_tag(img.image.url)
