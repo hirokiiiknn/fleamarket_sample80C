@@ -277,26 +277,19 @@
            .category-list{
             width: 220px;
             display: inline-block;
-            &__soldout{
-              img{
-                height:180px;
-                width:180px;
-              }
-            }
             
-              
+            .link{
+              text-decoration: none;
+              color: black;
               
 
-              img{
-               
-                height:180px;
-                width:180px;
+              .product-image{
+                .image{
+                  height: 180px;
+                  width: 180px;
+                }
               }
-              .product-info{
-                
-              }
-             
-            
+            }
                 ul{
                   display: flex;
                   justify-content: space-around;

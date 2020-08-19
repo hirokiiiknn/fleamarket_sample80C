@@ -16,6 +16,10 @@ body,html {
   margin-left: 25%;
 }
 
+.new_destination{
+  margin-left: 25%;
+}
+
 form {
   width: 100%;
   background: transparent;
@@ -47,6 +51,7 @@ input:hover {
 
 .field{
   margin-bottom: 4px;
+  
 }
 .new{
   display: flex;
@@ -54,7 +59,7 @@ input:hover {
   margin-bottom: 4px;
 
 }
-p{
+.tag{
   margin-left: 30px;
   border-radius: 4px;
   background-color: red;
@@ -68,7 +73,7 @@ p{
 }
 
 
-h2 {
+.title {
   color: #333333;
   border-bottom: solid 1px #333333;
   padding: 0 0 0.8em 0;
@@ -80,6 +85,15 @@ h2 {
 select{
   cursor: pointer;
   height: 30px;
+  
+}
+.user{
+  text-align: right;
+}
+.login{
+  text-decoration: none;
+  margin-right: 60px;
+  color: black;
   
 }
 

@@ -1,21 +1,25 @@
 class ItemsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :category_map, only: [:edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
-
   before_action :check_item_details, only: [:post_done, :update_done]
+  before_action :condition, only: [:show]
+  before_action :set_prefecture, only: [:show]
+  before_action :delivery_fee, only: [:show]
+  before_action :delivery_days, only: [:show]
+  before_action :category_map, only: [:edit, :update]
+  # before_action :set_ransack,only: [:search, :detail_search]
 
   def index
     @items = Item.all.order('id DESC').limit(3)
-    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @item.build_brand
+
   end
 
   def get_category_children
@@ -45,7 +49,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
@@ -54,13 +57,21 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    @user = User.find(@item.seller_id)
+    if @user == current_user.id
+      @item.destroy
+      redirect_to  delete_done_items_path
+    else
+      flash.now[:alert] = '削除できませんでした'
+      render :show
+    end
   end
 
   def show
     if @item.quantity == 0
+
       redirect_to buy_card_path
+
     # @seller = @items.seller.name
     end
   end
@@ -73,7 +84,22 @@ class ItemsController < ApplicationController
   end
 
   private
-  
+  def condition
+    @condition = Condition.find(@item.item_condition)
+  end
+   
+  def set_prefecture
+    @prefecture = PrefectureFire.find(@item.prefecture)
+  end
+
+  def delivery_fee
+    @deliveryfee = DeliveryFee.find(@item.cost)
+  end
+
+  def delivery_days
+    @deliverydays = DeliveryDays.find(@item.days)
+  end
+
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name ]).merge(seller_id: current_user.id)
   end
@@ -84,6 +110,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
+    
     @item = Item.find(params[:id])
   end
 
@@ -119,5 +146,10 @@ class ItemsController < ApplicationController
     @grandchild_array = []
     @grandchild_array << grandchild.name
     @grandchild_array << grandchild.id
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to root_url if current_user != user
   end
 end

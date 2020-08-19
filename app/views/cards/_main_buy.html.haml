@@ -63,10 +63,11 @@
       .buy__main__address
         配送先
       .buy__main__address
-        〒
-        = current_user.destination.postcode
+        
+        = "〒#{current_user.destination.postcode}"
       .buy__main__address
-        -# = current_user.destination.prefecture.name
+        = @prefecture[:name]
+        -# = .prefecture.name
         = current_user.destination.city
         = current_user.destination.house_number
         = current_user.destination.building_name

@@ -3,6 +3,7 @@
   = stylesheet_link_tag 'modules/show'
 
 = render partial: "items/header"
+
 .link  
 - if user_signed_in?
   - if current_user == @user
@@ -20,6 +21,7 @@
 quantityは
 = @item.quantity
 個です。
+
 
 %nav.breadCrumbs
   %ul
@@ -40,7 +42,7 @@ quantityは
     %li
       %i >
     %li
-      %p ee
+      %p 
     
 .main
   .content
@@ -53,8 +55,10 @@ quantityは
           .item-box__body
             .item-box__main
               .mainPct
+
                 -# = image_tag(@item.images.first.image.url, class: "main__photo")
                 -# = image_tag asset_path('beef.png'), size: "550x350"
+
                 .subPct-box
                   .subPct
                     -# = image_tag(@item.images[1].image.url)
@@ -73,7 +77,7 @@ quantityは
               %span.postage
                 送料込み
             .item__detail
-              テストテストテスト
+              = @item.introduction
           .table
             %table
               %tbody
@@ -85,43 +89,46 @@ quantityは
                 %tr
                   %th
                     カテゴリー
-                  %td
-                    -# %br= link_to "#{@category_parent.name}", "#" 
-                    
-                    -# %br= link_to "#{@category_child.name}", "#"
-                    
-                    -# %br= link_to "#{@category_grandchild.name}", "#"
-                        
+                  - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                    %td
+                      = link_to "#{@category_child.name}","#"
+                      %br= link_to "#{@category_grandchild.name}","#" 
+                  -else
+                    %td
+                      = link_to "#{@category_parent.name}","#"
+                      %br= link_to "#{@category_child.name}","#"
+                      = link_to "#{@category_grandchild.name}","#"
+
                 %tr
                   %th
                     ブランド
-                      
                   %td
-                    
+                    = @item.brand.name
                 %tr
                   %th
-                    商品のサイズ
+                    商品の量
                   %td
+                    = @item.quantity
                 %tr
                   %th
                     商品の状態
                   %td
-                    = @item.item_condition
+                    = @condition.value
                 %tr
                   %th
                     配送料の負担
                   %td
-                    = @item.cost
+                    = @deliveryfee.value
                 %tr
                   %th
                     発送元の地域
                   %td
-
+                    = @prefecture.name
                 %tr
                   %th
                     発送日の目安
                   %td
-                    = @item.days
+                    = @deliverydays.value
           .optionalArea 
             %ul
               %li.optionalBtn__likeBtn
@@ -161,6 +168,7 @@ quantityは
         .relatedItems__title
           %a
             = link_to "レディースをもっと見る"
+                      
         .productLists
           .productList
             %a
