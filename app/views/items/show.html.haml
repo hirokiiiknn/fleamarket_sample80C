@@ -4,17 +4,16 @@
 
 = render partial: "items/header"
 .link
-  - if current_user == @user
-    = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
-    = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
-  - elsif user_signed_in?
-    = link_to "購入画面に進む", buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
-  - else
--unless current_user == @user
-  = link_to "購入", buy_card_path
-  = link_to "トップへ戻る", root_path
--else
-  = link_to "トップへ戻る", root_path
+  .link__page
+    - if current_user == @user
+      = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destroy"
+    - elsif user_signed_in?
+      = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+    - else
+  -unless current_user == @user
+    = link_to "購入", buy_card_path
+    = link_to "トップへ戻る", root_path
 
 
 %nav.breadCrumbs
@@ -36,7 +35,7 @@
     %li
       %i >
     %li
-      %p ee
+      %p 
     
 .main
   .content
@@ -50,7 +49,6 @@
             .item-box__main
               .mainPct
                 = image_tag(@item.images.first.image.url, class: "main__photo")
-                -# = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
                     -# = image_tag(@item.images[1].image.url)
@@ -81,14 +79,6 @@
                 %tr
                   %th
                     カテゴリー
-                  %td
-                    %br= link_to "#{@category_parent.name}", "#" 
-                    
-                    %br= link_to "#{@category_child.name}", "#"
-                    
-                    %br= link_to "#{@category_grandchild.name}", "#"
-                        
-
                   - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
                     %td
                       = link_to "#{@category_child.name}","#"
@@ -98,15 +88,17 @@
                       = link_to "#{@category_parent.name}","#"
                       %br= link_to "#{@category_child.name}","#"
                       = link_to "#{@category_grandchild.name}","#"
+
                 %tr
                   %th
                     ブランド
                   %td
-                    
+                    = @item.brand.name
                 %tr
                   %th
-                    商品のサイズ
+                    商品の量
                   %td
+                    = @item.quantity
                 %tr
                   %th
                     商品の状態
@@ -117,7 +109,6 @@
                     配送料の負担
                   %td
                     = @deliveryfee.value
-                    -# = DeliveryFee.value
                 %tr
                   %th
                     発送元の地域
@@ -189,9 +180,3 @@
 = render partial: "items/banner"
 = render partial: "items/footer"
 
-- if current_user == @user
-  = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
-  = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
-- elsif user_signed_in?
-  = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
-- else

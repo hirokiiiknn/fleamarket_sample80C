@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
   before_action :condition, only: [:show]
+  before_action :set_prefecture, only: [:show]
   before_action :delivery_fee, only: [:show]
   before_action :delivery_days, only: [:show]
   before_action :category_map, only: [:edit, :update]
@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('id DESC').limit(3)
+    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
@@ -19,6 +20,7 @@ class ItemsController < ApplicationController
     @item.images.new
     @item.build_brand
     # @post = current_user.posts.build
+
   end
 
   def get_category_children
@@ -48,14 +50,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
       render :edit
     end
   end
-
 
   def destroy
     if @item.destroy
@@ -84,6 +85,10 @@ class ItemsController < ApplicationController
   def condition
     @condition = Condition.find(@item.item_condition)
   end
+   
+  def set_prefecture
+    @prefecture = PrefectureFire.find(@item.prefecture)
+  end
 
   def delivery_fee
     @deliveryfee = DeliveryFee.find(@item.cost)
@@ -102,11 +107,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def set_prefecture
-    @prefecture = PrefectureFire.find(@item.prefecture)
-  end
-
   def set_item
+    
     @item = Item.find(params[:id])
   end
 
@@ -137,6 +139,7 @@ class ItemsController < ApplicationController
     @child_array = []
     @child_array << child.name
     @child_array << child.id
+
     @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
     @grandchild_array = []
     @grandchild_array << grandchild.name
