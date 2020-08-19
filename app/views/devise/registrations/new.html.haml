@@ -1,7 +1,9 @@
+
 - content_for :css do
   = stylesheet_link_tag 'modules/sign_up'
 = render partial: "items/header"
 
+= render "devise/shared/links"
 %h2.title 新規会員登録
 = form_for(@user, url: user_registration_path) do |f|
   = render "devise/shared/error_messages", resource: @user
@@ -46,7 +48,7 @@
   .field
     = f.label :自己紹介
     %br/
-    = f.text_field :introduction, autofocus: true
+    = f.text_field :introduction, autofocus: 
   .field
     = f.label :写真
     %br/
@@ -59,10 +61,8 @@
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
     .new
-      = f.label :パスワード
-      - if @minimum_password_length
-        %em
-        (#{@minimum_password_length} 文字以上)
+      = f.label :パスワード（７文字以上）
+      
       %br/
       %p.tag 必須
     = f.password_field :password, autocomplete: "new-password"
@@ -71,10 +71,9 @@
       = f.label :パスワード確認
       %br/
       %p.tag 必須
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password"true
   .actions
     = f.submit "次へ"
-
 
 = render partial: "items/banner"
 = render partial: "items/footer-2"

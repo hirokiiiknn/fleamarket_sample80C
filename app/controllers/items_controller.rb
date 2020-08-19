@@ -1,10 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
   before_action :condition, only: [:show]
+  before_action :set_prefecture, only: [:show]
   before_action :delivery_fee, only: [:show]
   before_action :delivery_days, only: [:show]
   before_action :category_map, only: [:edit, :update]
@@ -12,14 +13,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('id DESC').limit(3)
-    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @item.build_brand
-    # @post = current_user.posts.build
 
   end
 
@@ -50,7 +49,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
@@ -59,7 +57,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
+    @user = User.find(@item.seller_id)
+    if @user == current_user.id
+      @item.destroy
       redirect_to  delete_done_items_path
     else
       flash.now[:alert] = '削除できませんでした'
@@ -69,7 +69,9 @@ class ItemsController < ApplicationController
 
   def show
     if @item.quantity == 0
-      redirect_to root_path
+
+      redirect_to buy_card_path
+
     # @seller = @items.seller.name
     end
   end
@@ -84,6 +86,10 @@ class ItemsController < ApplicationController
   private
   def condition
     @condition = Condition.find(@item.item_condition)
+  end
+   
+  def set_prefecture
+    @prefecture = PrefectureFire.find(@item.prefecture)
   end
 
   def delivery_fee
@@ -102,12 +108,6 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).each do |parent|
     end
   end
-
-  def set_prefecture
-    @prefecture = PrefectureFire.find(@item.prefecture)
-  end
-
-
 
   def set_item
     
@@ -146,5 +146,10 @@ class ItemsController < ApplicationController
     @grandchild_array = []
     @grandchild_array << grandchild.name
     @grandchild_array << grandchild.id
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to root_url if current_user != user
   end
 end

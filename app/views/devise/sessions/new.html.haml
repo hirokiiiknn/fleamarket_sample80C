@@ -1,4 +1,10 @@
-%h2 ログイン
+- content_for :css do
+  = stylesheet_link_tag 'modules/sessions-new'
+
+= render partial: "items/header"
+
+
+%h2.log ログイン
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .field
     .new
@@ -19,3 +25,7 @@
   .actions
     = f.submit "ログイン"
 = render "devise/shared/links"
+
+= render partial: "items/banner"
+
+= render partial: "items/footer"

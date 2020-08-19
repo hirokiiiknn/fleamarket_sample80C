@@ -72,9 +72,9 @@
             ほしかったあの商品に出会えるかもしれません。
         .btn
           %a.btnA{herf: "#"}
-          = image_tag asset_path("apple.png")
+            = image_tag asset_path("apple.png")
           %a.btnG{herf: "#"}
-          = image_tag asset_path("google.png")
+            = image_tag asset_path("google.png")
 
     %section.featuresVisual
       %h2.feauture-title
@@ -126,15 +126,18 @@
 
           - @items.each do |item|
             .category-list
-              - if item.quantity != 0
-                = link_to item_path(item), class: "link" do
-                  .product-image
-                    = image_tag item.images[0].image.url, class: "image"
-                  .product-info
-                    .item-name
-                      = item.name
-                    .item-price
-                      = "#{item.price.to_s(:delimited)}円（税込）"
+              - if item.present?
+                - if item.quantity != 0
+                  = link_to item_path(item), class: "link" do
+                    .product-image
+                      = image_tag item.images[0].image.url, class: "image"
+                    .product-info
+                      .item-name
+                        = item.name
+                      .item-price
+                        = "#{item.price.to_s(:delimited)}円（税込）"
+              
+                
 
     %section.pickupVisual
       %h2.topic-category
