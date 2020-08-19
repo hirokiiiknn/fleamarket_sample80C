@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_brand
-    @post = current_user.posts.build
+    # @post = current_user.posts.build
 
   end
 
