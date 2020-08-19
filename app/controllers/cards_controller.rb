@@ -154,3 +154,5 @@ class CardsController < ApplicationController
   end
   
 end
+
+# コードレビュー待ち
