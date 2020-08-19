@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :correct_user, only: [:buy, :pay]
   before_action :move_to_root
   before_action :prefecture,   only: [:buy, :pay]
   before_action :set_card,    only: [:new, :show, :destroy, :buy, :pay]
@@ -147,5 +148,9 @@ class CardsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to root_url if current_user == user
+  end
   
 end
