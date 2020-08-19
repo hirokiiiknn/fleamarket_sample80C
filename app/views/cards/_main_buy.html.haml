@@ -1,4 +1,4 @@
--# -if @item.auction_status == "売り切れ"
+= render partial: "items/header"
 -if @item.quantity == 0
   .buy#short
     .buy__main
@@ -14,6 +14,7 @@
             = @item.price.to_s(:delimited)
             円 (税込)
             = @item.cost
+            
 - else
   .buy
     .buy__main
@@ -71,6 +72,5 @@
       - if @card_info.present?
         .buy__main__btn
           = link_to '購入する', pay_card_path(@item.id), method: :post, class: 'link'
--# = render "top/lower-photo"
--# = render "top/footer"
--# = render "top/btn"
+
+= render partial: "items/footer"

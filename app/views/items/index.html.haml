@@ -128,7 +128,7 @@
               - if item.quantity != 0
                 = link_to item_path(item) do
                   .product-image
-                    = image_tag item.images[0].image.url, class: "image"
+                    -# = image_tag item.images[0].image.url, class: "image"
                   .product-info
                     .item-name
                       = item.name
