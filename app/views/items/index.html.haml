@@ -110,25 +110,23 @@
             %h3.title
               新規投稿商品
         .category-lists
-          
-          
         
-          -# - @items.each do |item|
-          -#   .category-list__soldout  
-          -#     - if item.quantity == 0
-          -#       = image_tag item.images[0].image.url, class: "image"
-          -#       SOLDOUT
-          -#       = item.name
-          -#       = item.price
-     
+          - @items.each do |item|
+            .category-list  
+              - if item.quantity == 0
+                .soldout-image
+                  = image_tag item.images[0].image.url, class: "image"
+                  .soldout-info
+                    SOLDOUT
+                    = item.name
+                    = item.price
 
- 
           - @items.each do |item|
             .category-list
               - if item.quantity != 0
-                = link_to item_path(item) do
+                = link_to item_path(item), class: "link" do
                   .product-image
-                    = image_tag item.images[0].image.url, class: "image"
+                    -# = image_tag item.images[0].image.url, class: "image"
                   .product-info
                     .item-name
                       = item.name

@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
-
   before_action :check_item_details, only: [:post_done, :update_done]
   before_action :category_map, only: [:edit, :update]
   # before_action :set_ransack,only: [:search, :detail_search]
@@ -66,7 +65,7 @@ class ItemsController < ApplicationController
   def show
     if @item.quantity == 0
       redirect_to root_path
-    @seller = @items.seller.name
+    # @seller = @items.seller.name
     end
   end
 

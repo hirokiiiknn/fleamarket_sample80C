@@ -277,26 +277,9 @@
            .category-list{
             width: 220px;
             display: inline-block;
-            &__soldout{
-              img{
-                height:180px;
-                width:180px;
-              }
+            .link{
+              text-decoration: none;
             }
-            
-              
-              
-
-              img{
-               
-                height:180px;
-                width:180px;
-              }
-              .product-info{
-                
-              }
-             
-            
                 ul{
                   display: flex;
                   justify-content: space-around;
