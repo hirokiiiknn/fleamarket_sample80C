@@ -44,7 +44,6 @@ quantityは
             .item-box__main
               .mainPct
                 = image_tag(@item.images.first.image.url, class: "main__photo")
-                -# = image_tag asset_path('beef.png'), size: "550x350"
                 .subPct-box
                   .subPct
                     -# = image_tag(@item.images[1].image.url)
@@ -76,11 +75,11 @@ quantityは
                   %th
                     カテゴリー
                   %td
-                    -# %br= link_to "#{@category_parent.name}", "#" 
+                    %br= link_to "#{@category_parent.name}", "#" 
                     
-                    -# %br= link_to "#{@category_child.name}", "#"
+                    %br= link_to "#{@category_child.name}", "#"
                     
-                    -# %br= link_to "#{@category_grandchild.name}", "#"
+                    %br= link_to "#{@category_grandchild.name}", "#"
                         
                 %tr
                   %th
@@ -96,7 +95,7 @@ quantityは
                   %th
                     商品の状態
                   %td
-                    = @item.item_condition
+                    -# = @item item_condition.find[:id][:value]
                 %tr
                   %th
                     配送料の負担
