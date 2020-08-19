@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
   before_action :category_map, only: [:edit, :update]
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
@@ -85,6 +86,12 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil).each do |parent|
     end
   end
+
+  def set_prefecture
+    @prefecture = PrefectureFire.find(@item.prefecture)
+  end
+
+
 
   def set_item
     
