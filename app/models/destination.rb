@@ -18,3 +18,18 @@ class Destination < ApplicationRecord
 
   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
