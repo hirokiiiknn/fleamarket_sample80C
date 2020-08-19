@@ -24,7 +24,8 @@
     .Header__Inner--HeaderNavi
       .listsLeft
         .listsLeft__item
-          = link_to 'categories#index' do
+          -# = link_to 'categories#index' do ＃レンダー先でリンクを押すとでエラーが出るので
+          = link_to '#' do
             カテゴリー
         .listsLeft__brand
           = link_to "ブランド", :root, class: 'Button'

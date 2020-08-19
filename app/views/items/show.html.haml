@@ -67,7 +67,7 @@ quantityは
               %span.postage
                 送料込み
             .item__detail
-              テストテストテスト
+              = @item.introduction
           .table
             %table
               %tbody
@@ -79,6 +79,7 @@ quantityは
                 %tr
                   %th
                     カテゴリー
+
                   - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
                     %td
                       = link_to "#{@category_child.name}","#"
