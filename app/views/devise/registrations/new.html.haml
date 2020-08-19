@@ -48,7 +48,7 @@
   .field
     = f.label :自己紹介
     %br/
-    = f.text_field :introduction, autofocus: 
+    = f.text_field :introduction, autofocus: true
   .field
     = f.label :写真
     %br/
@@ -71,7 +71,7 @@
       = f.label :パスワード確認
       %br/
       %p.tag 必須
-    = f.password_field :password_confirmation, autocomplete: "new-password"true
+    = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
     = f.submit "次へ"
 
