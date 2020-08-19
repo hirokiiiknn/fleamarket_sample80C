@@ -16,6 +16,21 @@
 -# -else
 -#   = link_to "トップへ戻る", root_path
 
+.link  
+- if user_signed_in?
+  - if current_user == @user
+    = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+    = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+  - else  
+    = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+- else
+  = link_to "ログイン", new_user_session_path, class: 'Button'
+  %p
+  = link_to "新規会員登録", new_user_registration_path, class: 'Button'
+
+
+
+
 - if current_user == @user
   = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
   = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
@@ -42,7 +57,7 @@
     %li
       %i >
     %li
-      %p ee
+      %p 
     
 .main
   .content
@@ -55,8 +70,10 @@
           .item-box__body
             .item-box__main
               .mainPct
-                = image_tag(@item.images.first.image.url, class: "main__photo")
+
+                -# = image_tag(@item.images.first.image.url, class: "main__photo")
                 -# = image_tag asset_path('beef.png'), size: "550x350"
+
                 .subPct-box
                   .subPct
                     -# = image_tag(@item.images[1].image.url)
@@ -96,15 +113,17 @@
                       = link_to "#{@category_parent.name}","#"
                       %br= link_to "#{@category_child.name}","#"
                       = link_to "#{@category_grandchild.name}","#"
+
                 %tr
                   %th
                     ブランド
                   %td
-                    
+                    = @item.brand.name
                 %tr
                   %th
-                    商品のサイズ
+                    商品の量
                   %td
+                    = @item.quantity
                 %tr
                   %th
                     商品の状態
@@ -115,7 +134,6 @@
                     配送料の負担
                   %td
                     = @deliveryfee.value
-                    -# = DeliveryFee.value
                 %tr
                   %th
                     発送元の地域
@@ -193,3 +211,4 @@
 -# - elsif user_signed_in?
 -#   = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
 -# - else
+

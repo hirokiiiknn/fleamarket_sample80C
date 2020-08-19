@@ -1,6 +1,4 @@
 
-
-
 - if user_signed_in?
   - content_for :css do
     = stylesheet_link_tag 'modules/new_items'
@@ -63,6 +61,7 @@
           .category__lavel--required
             [必須]
         = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
+
     
     .new_item__brand--area
     

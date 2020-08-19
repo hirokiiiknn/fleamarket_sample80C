@@ -16,6 +16,10 @@ body,html {
   margin-left: 25%;
 }
 
+.new_destination{
+  margin-left: 25%;
+}
+
 form {
   width: 100%;
   background: transparent;
@@ -47,6 +51,7 @@ input:hover {
 
 .field{
   margin-bottom: 4px;
+  
 }
 .new{
   display: flex;
@@ -80,6 +85,15 @@ input:hover {
 select{
   cursor: pointer;
   height: 30px;
+  
+}
+.user{
+  text-align: right;
+}
+.login{
+  text-decoration: none;
+  margin-right: 60px;
+  color: black;
   
 }
 

@@ -1,5 +1,33 @@
 .link {
-  margin-left: 5%;
+  
+  a:hover{
+    opacity: 0.5;
+  }
+  &__page{
+    margin-right: 20px;
+    margin: 10% 0 5% 79%;
+    .edit{
+      background: #3CCACE;
+      width: 100px;
+      color: #fff;
+      padding: 13px;
+      border-radius: 10px;
+      text-decoration: none;
+      position: fixed;
+      
+    }
+    .destroy{
+      background: #3CCACE;
+      width: 100px;
+      color: #fff;
+      margin-top: 70px;
+      padding: 13px;
+      border-radius: 10px;
+      text-decoration: none;
+      position: fixed;
+    }
+  }
+  
 }
 .breadCrumbs {
   width: 100%;
@@ -21,7 +49,7 @@
 
 .main {
   margin-top: 30px;
-  margin-left: 32%;
+  margin-left: 10%;
   .content {
     background-color: white;
     &__left {
