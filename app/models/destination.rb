@@ -1,6 +1,6 @@
 class Destination < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :card
+  belongs_to :card, optional: true
 
   validates :first_name_destination, :family_name_destination, :first_name_destination_kana, :family_name_destination_kana, :postcode, :prefecture, :city, :house_number, presence: true
 
