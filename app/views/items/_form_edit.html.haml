@@ -1,6 +1,6 @@
+
 - content_for :css do
   = stylesheet_link_tag 'modules/new_items'
-
 .new_item 
   = form_for @item do |f|
     .new_item__name
@@ -27,8 +27,6 @@
             %i.fas.fa-camera
             .js-remove 削除
 
-
-      
     .new_item__item_name
       .new_item__item_name--label
         商品名
@@ -68,15 +66,11 @@
             =f.collection_select :category_id, @category_grandchildren_array, :id, :name, {selected:@grandchild_array}, {class:"serect_field"}
     
     .new_item__brand--area
-    
       .form-group.brand--container
-
         = f.fields_for :brand, @item.build_brand do |brand|
           = brand.label "ブランド"
-         
           %div
             = brand.text_field :name, placeholder: "例）シャネル", value: "", class: "input"
-
 
     .new_item__item_condition
       .new_item__item_condition--label

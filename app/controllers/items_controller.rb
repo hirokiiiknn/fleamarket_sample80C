@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('id DESC').limit(3)
-    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
@@ -20,7 +19,6 @@ class ItemsController < ApplicationController
     @item.images.new
     @item.build_brand
     # @post = current_user.posts.build
-
   end
 
   def get_category_children
@@ -57,6 +55,7 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
 
   def destroy
     if @item.destroy
@@ -107,10 +106,7 @@ class ItemsController < ApplicationController
     @prefecture = PrefectureFire.find(@item.prefecture)
   end
 
-
-
   def set_item
-    
     @item = Item.find(params[:id])
   end
 
@@ -141,7 +137,6 @@ class ItemsController < ApplicationController
     @child_array = []
     @child_array << child.name
     @child_array << child.id
-
     @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
     @grandchild_array = []
     @grandchild_array << grandchild.name
