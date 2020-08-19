@@ -12,14 +12,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('id DESC').limit(3)
-    # @items = Item.joins(:images).select('items.*, images.image').order('created_at DESC').limit(3)
   end
 
   def new
     @item = Item.new
     @item.images.new
     @item.build_brand
-    # @post = current_user.posts.build
 
   end
 
@@ -50,7 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    # @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to user_path(current_user.id)
     else
