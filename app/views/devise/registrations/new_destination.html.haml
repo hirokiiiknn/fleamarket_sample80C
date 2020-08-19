@@ -1,55 +1,57 @@
 - content_for :css do
   = stylesheet_link_tag 'modules/sign_up'
-%h2 送付先住所登録
+= render partial: "items/header"
+
+%h2.title 送付先住所登録
 = form_for @destination do |f|
   = render "devise/shared/error_messages", resource: @destination
   .field
     .new
       = f.label :名前（送付先）
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :first_name_destination, autofocus: true
   .field
     .new
       = f.label :苗字（送付先）
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :family_name_destination, autofocus: true
   .field
     .new
       = f.label :名前（ふりがな）
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :first_name_destination_kana, autofocus: true
   .field
     .new
       = f.label :苗字（ふりがな）
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :family_name_destination_kana, autofocus: true
   .field
     .new
       = f.label :郵便番号
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :postcode, autofocus: true
   .field
     .new
       = f.label :都道府県
       %br/
-      %p 必須
+      %p.tag 必須
     =f.collection_select(:prefecture, PrefectureFire.all, :id, :name,{include_blank: "---"}, {class: "serect_field"} )
   .field
     .new
       = f.label :市区町村
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :city, autofocus: true
   .field
     .new
       = f.label :番地
       %br/
-      %p 必須
+      %p.tag 必須
     = f.text_field :house_number, autofocus: true
   .field
     = f.label :マンション、部屋番号等
@@ -60,6 +62,43 @@
     %br/
     = f.text_field :phone_number, autofocus: true
   .actions
-    = f.submit "Sign up"
+    = f.submit "新規会員登録"
 = render "devise/shared/links"
 
+= render partial: "items/banner"
+.Footer
+  .Footer__contents
+    .Footer__contents--content
+
+      
+      %ul
+        %li.head
+          FURIMAについて
+        %li
+        = link_to "会社概要（運営会社）", :root, class: 'Button'
+        %li
+        = link_to "プライバシーポリシー", :root, class: 'Button'
+        %li
+        = link_to "FURIMA利用規約", :root, class: 'Button'
+        %li
+        = link_to "ポイントに関する特約", :root, class: 'Button'    
+      %ul
+        %li.head
+          FURIMAを見る
+        %li
+        = link_to "カテゴリー一覧", :root, class: 'Button'
+        %li
+        = link_to "ブランド一覧", :root, class: 'Button'     
+      %ul
+        %li.head
+          ヘルプ＆ガイド
+        %li
+        = link_to "FURIMAガイド", :root, class: 'Button'
+        %li
+        = link_to "FURIMAロゴ利用ガイドライン", :root, class: 'Button'
+        %li
+        = link_to "お知らせ", :root, class: 'Button'
+  .Footer__logo
+    %a{href: "/assets/logo-white.png"}
+    = image_tag "/assets/logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon"
+  %p©FURIMA

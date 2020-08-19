@@ -31,8 +31,8 @@ class User < ApplicationRecord
   #userが「買った」商品 →bought_items
   has_many :bought_items, foreign_key: "buyer_id", class_name: "Item" 
   #userが 「現在売っている」商品 →selling_items
-  has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+  has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item",dependent: :destroy
   #userが「既に売った」商品 →sold_items
-  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
+  has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item",dependent: :destroy
   
 end

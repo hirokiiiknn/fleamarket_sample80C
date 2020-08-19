@@ -1,14 +1,14 @@
 class ItemsController < ApplicationController
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
-  before_action :category_map, only: [:edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
-
   before_action :check_item_details, only: [:post_done, :update_done]
   before_action :condition, only: [:show]
   before_action :delivery_fee, only: [:show]
   before_action :delivery_days, only: [:show]
+  before_action :category_map, only: [:edit, :update]
+  # before_action :set_ransack,only: [:search, :detail_search]
 
   def index
     @items = Item.all.order('id DESC').limit(3)
@@ -59,14 +59,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+      redirect_to  delete_done_items_path
+    else
+      flash.now[:alert] = '削除できませんでした'
+      render :show
+    end
   end
 
   def show
     if @item.quantity == 0
       redirect_to root_path
-    @seller = @items.seller.name
+    # @seller = @items.seller.name
     end
   end
 
@@ -99,7 +103,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def set_prefecture
+    @prefecture = PrefectureFire.find(@item.prefecture)
+  end
+
+
+
   def set_item
+    
     @item = Item.find(params[:id])
   end
 
