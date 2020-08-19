@@ -62,9 +62,7 @@
             カテゴリー
           .category__lavel--required
             [必須]
-            
-      = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
-      
+        = f.collection_select :category_id, @category_parent_array, :id, :name, { include_blank: "選択してください"},  class: "serect_field"
     
     .new_item__brand--area
     
@@ -83,7 +81,8 @@
       .new_item__item_condition--required
         [必須]
     .new_item__item_condition-area
-      =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+      -# =f.collection_select(:item_condition, Condition.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
+      = f.collection_select :item_condition, Condition.all, :id, :value
 
     .new_item__cost
       .new_item__cost--label

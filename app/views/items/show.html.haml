@@ -4,12 +4,18 @@
 
 = render partial: "items/header"
 .link
+  - if current_user == @user
+    = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
+    = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+  - elsif user_signed_in?
+    = link_to "購入画面に進む", buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
+  - else
+-unless current_user == @user
   = link_to "購入", buy_card_path
   = link_to "トップへ戻る", root_path
+-else
+  = link_to "トップへ戻る", root_path
 
-quantityは
-= @item.quantity
-個です。
 
 %nav.breadCrumbs
   %ul
@@ -62,7 +68,7 @@ quantityは
               %span.postage
                 送料込み
             .item__detail
-              テストテストテスト
+              = @item.introduction
           .table
             %table
               %tbody
@@ -81,10 +87,19 @@ quantityは
                     
                     %br= link_to "#{@category_grandchild.name}", "#"
                         
+
+                  - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
+                    %td
+                      = link_to "#{@category_child.name}","#"
+                      %br= link_to "#{@category_grandchild.name}","#" 
+                  -else
+                    %td
+                      = link_to "#{@category_parent.name}","#"
+                      %br= link_to "#{@category_child.name}","#"
+                      = link_to "#{@category_grandchild.name}","#"
                 %tr
                   %th
                     ブランド
-                      
                   %td
                     
                 %tr
@@ -95,22 +110,23 @@ quantityは
                   %th
                     商品の状態
                   %td
-                    -# = @item item_condition.find[:id][:value]
+                    = @condition.value
                 %tr
                   %th
                     配送料の負担
                   %td
-                    = @item.cost
+                    = @deliveryfee.value
+                    -# = DeliveryFee.value
                 %tr
                   %th
                     発送元の地域
                   %td
-                    -# = link_to "#{@item.prefecture_fire}","#"
+                    = @prefecture.name
                 %tr
                   %th
                     発送日の目安
                   %td
-                    = @item.days
+                    = @deliverydays.value
           .optionalArea 
             %ul
               %li.optionalBtn__likeBtn
@@ -150,6 +166,7 @@ quantityは
         .relatedItems__title
           %a
             = link_to "レディースをもっと見る"
+                      
         .productLists
           .productList
             %a
@@ -171,3 +188,9 @@ quantityは
 = render partial: "items/banner"
 = render partial: "items/footer"
 
+- if current_user == @user
+  = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+  = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+- elsif user_signed_in?
+  = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+- else
