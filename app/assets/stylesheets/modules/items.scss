@@ -277,8 +277,18 @@
            .category-list{
             width: 220px;
             display: inline-block;
+            
             .link{
               text-decoration: none;
+              color: black;
+              
+
+              .product-image{
+                .image{
+                  height: 180px;
+                  width: 180px;
+                }
+              }
             }
             
             

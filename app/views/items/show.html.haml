@@ -63,7 +63,7 @@ quantityは
               %span.postage
                 送料込み
             .item__detail
-              テストテストテスト
+              = @item.introduction
           .table
             %table
               %tbody
@@ -76,11 +76,11 @@ quantityは
                   %th
                     カテゴリー
                   %td
-                    -# %br= link_to "#{@category_parent.name}", "#" 
+                    %br= link_to "#{@category_parent.name}", "#" 
                     
-                    -# %br= link_to "#{@category_child.name}", "#"
+                    %br= link_to "#{@category_child.name}", "#"
                     
-                    -# %br= link_to "#{@category_grandchild.name}", "#"
+                    %br= link_to "#{@category_grandchild.name}", "#"
                         
                 %tr
                   %th
