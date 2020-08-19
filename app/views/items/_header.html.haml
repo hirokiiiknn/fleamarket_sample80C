@@ -5,13 +5,12 @@
 - content_for :css do
   = stylesheet_link_tag 'modules/items'
 
-
 .Header
   .Header__Inner
     .Header__Inner--Main
       .Icon
       = link_to root_path do
-        = image_tag "/assets/logo.png", alt: "次へ",width:"140px",height:"50px", class: "icon"
+        = image_tag asset_path("logo.png"), alt: "次へ",width:"140px",height:"50px", class: "icon"
 
       
       .searchBox

@@ -4,16 +4,18 @@
 
 = render partial: "items/header"
 .link
+  - if current_user == @user
+    = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
+    = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
+  - elsif user_signed_in?
+    = link_to "購入画面に進む", buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
+  - else
 -unless current_user == @user
   = link_to "購入", buy_card_path
   = link_to "トップへ戻る", root_path
 -else
   = link_to "トップへ戻る", root_path
 
-%pｓ
-quantityは
-= @item.quantity
-個です。
 
 %nav.breadCrumbs
   %ul
@@ -79,6 +81,13 @@ quantityは
                 %tr
                   %th
                     カテゴリー
+                  %td
+                    %br= link_to "#{@category_parent.name}", "#" 
+                    
+                    %br= link_to "#{@category_child.name}", "#"
+                    
+                    %br= link_to "#{@category_grandchild.name}", "#"
+                        
 
                   - if [46, 74, 134, 142, 147, 150, 158].include?(@category_id)
                     %td
@@ -92,7 +101,6 @@ quantityは
                 %tr
                   %th
                     ブランド
-                      
                   %td
                     
                 %tr
@@ -103,11 +111,12 @@ quantityは
                   %th
                     商品の状態
                   %td
-                    = @item.item_condition
+                    = @condition.value
                 %tr
                   %th
                     配送料の負担
                   %td
+                    = @deliveryfee.value
                     -# = DeliveryFee.value
                 %tr
                   %th
@@ -118,7 +127,7 @@ quantityは
                   %th
                     発送日の目安
                   %td
-                    = @item.days
+                    = @deliverydays.value
           .optionalArea 
             %ul
               %li.optionalBtn__likeBtn

@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   before_action :set_prefecture, only: [:show, :edit]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
   before_action :check_item_details, only: [:post_done, :update_done]
+  before_action :condition, only: [:show]
+  before_action :delivery_fee, only: [:show]
+  before_action :delivery_days, only: [:show]
   before_action :category_map, only: [:edit, :update]
   # before_action :set_ransack,only: [:search, :detail_search]
 
@@ -16,6 +19,8 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_brand
+    @post = current_user.posts.build
+
   end
 
   def get_category_children
@@ -77,7 +82,18 @@ class ItemsController < ApplicationController
   end
 
   private
-  
+  def condition
+    @condition = Condition.find(@item.item_condition)
+  end
+
+  def delivery_fee
+    @deliveryfee = DeliveryFee.find(@item.cost)
+  end
+
+  def delivery_days
+    @deliverydays = DeliveryDays.find(@item.days)
+  end
+
   def item_params
     params.require(:item).permit(:name, :introduction, :category_id, :item_condition, :price, :prefecture, :cost, :days,:brand_id, :quantity, images_attributes: [:id, :image, :_destroy], brand_attributes: [:id, :name ]).merge(seller_id: current_user.id)
   end
