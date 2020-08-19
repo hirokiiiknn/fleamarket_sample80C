@@ -132,6 +132,8 @@
       = f.submit "出品する", class: "send__sipping_btn"
 
 - else
+  - content_for :css do
+    = stylesheet_link_tag 'modules/new_items'
   .done#fullsize
     .done__title
       商品を出品するには新規会員登録またはログインが必要です

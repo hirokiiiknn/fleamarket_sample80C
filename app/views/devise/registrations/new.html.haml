@@ -48,7 +48,7 @@
   .field
     = f.label :自己紹介
     %br/
-    = f.text_field :introduction, autofocus: true
+    = f.text_field :introduction, autofocus: 
   .field
     = f.label :写真
     %br/
@@ -71,47 +71,9 @@
       = f.label :パスワード確認
       %br/
       %p.tag 必須
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password"true
   .actions
     = f.submit "次へ"
 
 = render partial: "items/banner"
-.Footer
-  .Footer__contents
-    .Footer__contents--content
-
-      
-      %ul
-        %li.head
-          FURIMAについて
-        %li
-        = link_to "会社概要（運営会社）", :root, class: 'Button'
-        %li
-        = link_to "プライバシーポリシー", :root, class: 'Button'
-        %li
-        = link_to "FURIMA利用規約", :root, class: 'Button'
-        %li
-        = link_to "ポイントに関する特約", :root, class: 'Button'    
-      %ul
-        %li.head
-          FURIMAを見る
-        %li
-        = link_to "カテゴリー一覧", :root, class: 'Button'
-        %li
-        = link_to "ブランド一覧", :root, class: 'Button'     
-      %ul
-        %li.head
-          ヘルプ＆ガイド
-        %li
-        = link_to "FURIMAガイド", :root, class: 'Button'
-        %li
-        = link_to "FURIMAロゴ利用ガイドライン", :root, class: 'Button'
-        %li
-        = link_to "お知らせ", :root, class: 'Button'
-  .Footer__logo
-    %a{href: "/assets/logo-white.png"}
-    = image_tag "/assets/logo-white.png", alt: "次へ", width:"150px", height:"50px", class: "icon"
-  %p©FURIMA
-
-
-
+= render partial: "items/footer-2"
