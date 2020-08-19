@@ -4,39 +4,17 @@
 
 = render partial: "items/header"
 .link
--#   - if current_user == @user
--#     = link_to "商品の編集", edit_item_path(@item.id), data: {"turbolinks" => false} , class: "edit"
--#     = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
--#   - elsif user_signed_in?
--#     = link_to "購入画面に進む", buy_card_path(@item.id), data: {"turbolinks" => false} , class: "pay"
--#   - else
--# -unless current_user == @user
--#   = link_to "購入", buy_card_path
--#   = link_to "トップへ戻る", root_path
--# -else
--#   = link_to "トップへ戻る", root_path
+  .link__page
+    - if current_user == @user
+      = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destroy"
+    - elsif user_signed_in?
+      = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+    - else
+  -unless current_user == @user
+    = link_to "購入", buy_card_path
+    = link_to "トップへ戻る", root_path
 
-.link  
-- if user_signed_in?
-  - if current_user == @user
-    = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
-    = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
-  - else  
-    = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
-- else
-  = link_to "ログイン", new_user_session_path, class: 'Button'
-  %p
-  = link_to "新規会員登録", new_user_registration_path, class: 'Button'
-
-
-
-
-- if current_user == @user
-  = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
-  = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
-- elsif user_signed_in?
-  = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
-- else
 
 %nav.breadCrumbs
   %ul
@@ -70,10 +48,7 @@
           .item-box__body
             .item-box__main
               .mainPct
-
-                -# = image_tag(@item.images.first.image.url, class: "main__photo")
-                -# = image_tag asset_path('beef.png'), size: "550x350"
-
+                = image_tag(@item.images.first.image.url, class: "main__photo")
                 .subPct-box
                   .subPct
                     -# = image_tag(@item.images[1].image.url)
@@ -205,10 +180,4 @@
 = render partial: "items/banner"
 = render partial: "items/footer"
 
--# - if current_user == @user
--#   = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
--#   = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destory"
--# - elsif user_signed_in?
--#   = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
--# - else
 
