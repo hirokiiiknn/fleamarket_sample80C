@@ -1,12 +1,13 @@
+- content_for :css do
+  = stylesheet_link_tag 'modules/pay'
+
+= render partial: "items/header"
+- content_for :css do
+  = stylesheet_link_tag 'modules/delete_done'
 
 .done#fullsize
   .done__title
     購入手続が完了しました
-  .done__backlink
-    = link_to 'トップページに戻る', root_path, class: 'link'
-  .done__backlink
-    = link_to 'マイページに戻る', user_path(current_user.id), class: 'link'
+= render partial: "items/banner"
+= render partial: "items/footer"
 
-quantityは
-= @item.quantity
-個です。

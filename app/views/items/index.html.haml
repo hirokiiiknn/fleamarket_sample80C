@@ -118,7 +118,9 @@
                   .product-image
                     = image_tag item.images[0].image.url, class: "image"
                   .product-info
-                    SOLDOUT
+                    .sold-out
+                      .sold
+                        SOLD
                     .item-name
                       = item.name
                     .item-price
@@ -149,10 +151,7 @@
           .category-list
             %figure.category-list__image
             .category-list__body
-              -# - @items.each do |item|
-              -#   = image_tag "#{item.image}", class: "image"
-              -#   = item.name
-              -#   = item.price
+              
         .category-lists
           .category-list
             .category-list__image

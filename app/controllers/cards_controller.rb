@@ -4,7 +4,8 @@ class CardsController < ApplicationController
   before_action :prefecture,   only: [:buy, :pay]
   before_action :set_card,    only: [:new, :show, :destroy, :buy, :pay]
   before_action :set_item,    only: [:buy, :pay]
-  
+  before_action :deliveryfee, only: [:buy, :pay]
+
   require "payjp"
 
   def new
@@ -102,7 +103,6 @@ class CardsController < ApplicationController
   end
 
   def pay
-    # if @item.auction_status == "売り切れ"
     if @item.quantity == 0
       redirect_to buy_card_path(@item)
     else
@@ -148,11 +148,13 @@ class CardsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def deliveryfee
+    @deliveryfee = DeliveryFee.find(@item.cost)
+  end
+
   def correct_user
     user = User.find(params[:id])
     redirect_to root_url if current_user == user
   end
-  
-end
 
-# コードレビュー待ち
+end
