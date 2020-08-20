@@ -277,16 +277,43 @@
         .category-list {
           width: 220px;
           display: inline-block;
+          
+
 
           .link {
             text-decoration: none;
             color: black;
+            position: relative;
 
             .product-image {
               .image {
                 height: 180px;
                 width: 180px;
               }
+            }
+            .product-info{
+              .sold-out{
+                width: 0;
+                height: 0;
+                border-top: 40px solid red;
+                border-right: 40px solid transparent;
+                border-bottom: 40px solid transparent;
+                border-left: 40px solid red;
+                z-index: 100;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                .sold{
+                  color: #fff;
+                  transform: rotate(-45deg);
+                  font-size: 20px;
+                  margin: -16px 0px 0px -32px;
+                  letter-spacing: 2px;
+                  font-weight: bold;
+                }
+
+
+              }  
             }
           }
           ul {
