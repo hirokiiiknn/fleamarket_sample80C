@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  # before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :category_parent_array, only: [:new, :create, :edit, :update]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :show_all_instance, only: [:show, :edit, :update, :destroy]
@@ -57,9 +57,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(@item.seller_id)
-    if @user == current_user.id
-      @item.destroy
+
+    if  @item.destroy
       redirect_to  delete_done_items_path
     else
       flash.now[:alert] = '削除できませんでした'
