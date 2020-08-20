@@ -75,7 +75,7 @@ class CardsController < ApplicationController
 
   def buy
     if user_signed_in?
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       if @card.blank?
         @card_info = ""
       else
