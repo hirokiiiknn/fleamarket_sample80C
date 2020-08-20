@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :correct_user, only: [:buy, :pay]
+  # before_action :correct_user, only: [:buy, :pay]
   before_action :move_to_root
   before_action :prefecture,   only: [:buy, :pay]
   before_action :set_card,    only: [:new, :show, :destroy, :buy, :pay]

@@ -1,6 +1,6 @@
 .account__page
   .account__page__header
-    -# = link_to image_tag("logo/logo.png", alt: "logo"), root_path
+    = link_to image_tag("logo/logo.png", alt: "logo"), root_path
   .account__page__main
     = form_tag(cards_path, method: :post, id: 'charge-form') do
       .account__page__main__content
