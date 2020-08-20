@@ -102,7 +102,6 @@ class CardsController < ApplicationController
   end
 
   def pay
-    # if @item.auction_status == "売り切れ"
     if @item.quantity == 0
       redirect_to buy_card_path(@item)
     else
