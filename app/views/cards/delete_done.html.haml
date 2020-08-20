@@ -1,10 +1,8 @@
--# = render "top/header"
+
 .user
   -# = render 'users/user_side'
   .done
     .done__title
       クレジット情報を削除しました
--# = render "top/lower-photo"
--# = render "top/footer"
--# = render "top/btn"
+
 = link_to'マイページへ戻る', user_path(current_user.id)

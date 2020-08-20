@@ -26,7 +26,7 @@
         購入内容確認
       .buy__main__item
         .buy__main__item--photo
-          -# = image_tag @item.images.first.image_url
+          = image_tag @item.images.first.image_url
         .buy__main__item--data
           .name
             = @item.name
