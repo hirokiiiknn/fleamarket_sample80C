@@ -1,23 +1,21 @@
 .link {
-  
-  a:hover{
+  a:hover {
     opacity: 0.5;
   }
-  &__page{
+  &__page {
     margin-right: 20px;
     margin: 10% 0 5% 79%;
-    .edit{
-      background: #3CCACE;
+    .edit {
+      background: #3ccace;
       width: 100px;
       color: #fff;
       padding: 13px;
       border-radius: 10px;
       text-decoration: none;
       position: fixed;
-      
     }
-    .destroy{
-      background: #3CCACE;
+    .destroy {
+      background: #3ccace;
       width: 100px;
       color: #fff;
       margin-top: 70px;
@@ -27,12 +25,11 @@
       position: fixed;
     }
   }
-  
 }
 .breadCrumbs {
   width: 100%;
   border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
   position: relative;
   padding: 0 60px;
   ul {
@@ -49,11 +46,10 @@
 
 .main {
   margin-top: 30px;
-  margin-left: 10%;
+  margin-left: 30%;
   .content {
     background-color: white;
     &__left {
-
     }
     &__right {
       .top__content {
@@ -67,7 +63,7 @@
           &__body {
             .item-box__main {
               .mainPct {
-                .main__photo{
+                .main__photo {
                   width: 560px;
                   height: 350px;
                 }
@@ -113,7 +109,7 @@
               font-size: 14px;
               a {
                 text-decoration: none;
-                color: #3CCACE;
+                color: #3ccace;
               }
             }
           }
@@ -125,7 +121,7 @@
                 margin-right: auto;
                 padding: 6px 10px;
                 border-radius: 40px;
-                color: #3CCACE;
+                color: #3ccace;
                 border: 1px solid #ffb340;
               }
             }
@@ -164,8 +160,8 @@
             }
             .commentBtn {
               line-height: 48px;
-              background: #3CCACE;
-              border: 1px solid #3CCACE;
+              background: #3ccace;
+              border: 1px solid #3ccace;
               color: #fff;
               width: 60%;
               font-size: 18px;
@@ -180,7 +176,7 @@
         margin-right: 37%;
         a {
           text-decoration: none;
-          color: #3CCACE;
+          color: #3ccace;
         }
       }
       .relatedItems {
@@ -188,7 +184,7 @@
           a {
             display: block;
             margin: 24px 0 8px;
-            color: #3CCACE;
+            color: #3ccace;
             text-decoration: none;
             font-weight: bold;
             font-size: 22px;
