@@ -1,8 +1,8 @@
 - content_for :css do
-  = stylesheet_link_tag 'modules/delete'
+  = stylesheet_link_tag 'modules/delete_done'
 
+= render 'header'
 .body
-  = render 'header'
 
 .done#fullsize
   .done__title
@@ -11,6 +11,6 @@
     = link_to 'トップページへ戻る', root_path, class: 'link'
 
 
-  = render 'banner'
+= render 'banner'
 
-  = render 'footer'
+= render 'footer'
