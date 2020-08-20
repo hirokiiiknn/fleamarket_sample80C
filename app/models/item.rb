@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :category
   belongs_to :brand
-  accepts_nested_attributes_for :brand
+  accepts_nested_attributes_for :brand, allow_destroy: true
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   #Itemモデルで 「購入者」「出品者」を取り出せるようにする。
@@ -18,12 +18,8 @@ class Item < ApplicationRecord
   validates :cost,                 presence: true
   validates :prefecture,              presence: true
   validates :days,          presence: true
-  validates :price,             presence: true
-  # validates_associated :images
-  # validates :image_id,                       presence: true
-  # enum item_condition: {新品未、使用: 1, 未使用に近い: 2,目立った傷や汚れなし: 3,やや傷や汚れあり: 4,傷や汚れあり: 5,全体的に状態が悪い: 6}
-  # enum cost: {送料込み（出品者負担）: 1, 着払い（購入者負担）: 2}
-  # enum days: {１〜２日で発送: 1, ２〜３日で発送: 2, ４〜７日で発送: 2}
+  validates :price,             presence: true, numericality: {greater_than_or_equal_to: 300}
+ 
   
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -32,7 +28,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :prefecture_fire
   belongs_to_active_hash :delivery_days
-  # belongs_to_active_hash :delivery_way
   belongs_to_active_hash :condition
 end
 
