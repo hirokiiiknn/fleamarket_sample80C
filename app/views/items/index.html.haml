@@ -126,7 +126,7 @@
 
           - @items.each do |item|
             .category-list
-              - if item.present?
+              - if item.images.present?
                 - if item.quantity != 0
                   = link_to item_path(item), class: "link" do
                     .product-image
