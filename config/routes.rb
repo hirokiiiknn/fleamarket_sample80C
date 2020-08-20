@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     post 'destinations', to: 'users/registrations#create_destination'
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  
+  resources :users
   # get 'items/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'items#index'
@@ -38,9 +40,8 @@ Rails.application.routes.draw do
   end
 
   
-  get '/users/:id', to: 'users#show', as: 'user'
-  # 馬場追記_名前付きルーティング
-  # as で名前定義→user_pathでコントローラーで使用可能
+
+  
 
 
 end
