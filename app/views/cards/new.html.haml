@@ -1,3 +1,5 @@
+
+
 .account__page
   .account__page__header
     = render partial: "items/header"
@@ -67,6 +69,5 @@
           = text_field_tag "", "", class: "textbox", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
         #card_token
           = submit_tag "クレジット情報を登録する", id: "token_submit", class: "submit-btn"
-        .mypage_btn
-          = link_to user_path(current_user.id), class: "submit-btn" do
-            マイページへ戻る
+        
+        = render partial: "items/footer"
