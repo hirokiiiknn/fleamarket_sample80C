@@ -124,7 +124,7 @@ class CardsController < ApplicationController
           )
         @item.update!(buyer_id: 2)
         # 仮テスト 0817追記↓↓↓↓↓↓↓↓↓
-        @item.update!(quantity: quantity = quantity - 1)
+        @item.update!(quantity: @item.quantity = @item.quantity - 1)
       end
     end
   end
