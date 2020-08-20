@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   #Itemモデルで 「購入者」「出品者」を取り出せるようにする。
   belongs_to :seller, class_name: "User"
   belongs_to :buyer, class_name: "User", optional: true
-
+  belongs_to :card
 
  
   validates :name,                         presence: true,    length: { maximum: 40 } 
