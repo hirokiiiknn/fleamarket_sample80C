@@ -156,3 +156,4 @@ class CardsController < ApplicationController
 end
 
 # コードレビュー待ち
+# 加藤
