@@ -12,7 +12,8 @@ class ItemsController < ApplicationController
   # before_action :set_ransack,only: [:search, :detail_search]
 
   def index
-    @items = Item.all.order('id DESC').limit(3)
+    # @items = Item.all.order('id DESC').limit(3)
+    @items = Item.includes(:images).order('id DESC').limit(3)
   end
 
   def new
