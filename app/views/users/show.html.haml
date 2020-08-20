@@ -3,17 +3,13 @@
 = render partial: "items/header"
 
 .mypage-box
-  %h2.title #{current_user.nickname}様のマイページ
-
-  %ul.page
-    %li= link_to "出品した商品一覧", users_path, class: "page__list"
-    %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page__list"
-    %li= link_to "クレジット登録", new_card_path, class: "page__list"
-  -# = link_to "登録情報の編集", edit_user_path(current_user) 
-  .xhibition-item
-
-
--# = link_to'商品詳細', item_path(current_user.id)
+  .name-box
+    .title #{current_user.nickname}様
+    %ul.page
+      %li= link_to "出品した商品一覧", users_path, class: "page__list"
+      %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page__list"
+      %li= link_to "クレジット登録", new_card_path, class: "page__list"
+    -# = link_to "登録情報の編集", edit_user_path(current_user) 
 
 = render partial: "items/banner"
 

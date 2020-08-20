@@ -1,0 +1,40 @@
+.item__body{
+  padding: 50px;
+  .nickname{
+    width: 170px;
+    height: 60px;
+    font-size:22px;
+    font-weight: bold;
+    text-align: center;
+    color: #3ccace;
+    border: solid 3px #3ccace;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    line-height: 60px;
+    margin: 15px auto;
+  }
+  .title{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  .item__body__lists{
+    margin-top: 50px;
+    display: flex;
+    .item__body__lists__list{
+      width: 220px;
+      display: inline-block;
+      .link{
+        text-decoration: none;
+        color: black;
+        .list__img{
+          .image{
+            height: 180px;
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
+}
