@@ -57,9 +57,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(@item.seller_id)
-    if @user == current_user.id
-      @item.destroy
+    if  @item.destroy
       redirect_to  delete_done_items_path
     else
       flash.now[:alert] = '削除できませんでした'
