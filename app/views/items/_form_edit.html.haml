@@ -1,7 +1,9 @@
 - content_for :css do
   = stylesheet_link_tag 'modules/new_items'
 
-  = render 'header'
+  .Icon
+  = link_to root_path do
+    = image_tag asset_path("logo.png"), alt: "次へ",width:"140px",height:"50px", class: "icon"
 
 .new_item 
   = form_for @item do |f|
