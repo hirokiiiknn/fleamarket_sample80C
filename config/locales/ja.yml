@@ -10,6 +10,7 @@ ja:
     models:   
       user:
       destination:
+      item:
     attributes:  # attributes:の直下に
       user:   # モデル名を指定し
         nickname: ニックネーム   # カラム名を指定する。
@@ -28,6 +29,20 @@ ja:
         city: 市区町村
         house_number: 番地等
         phone_number: 電話番号
+      item:
+        name: 商品名
+        introduction: 商品の説明
+        category_id: カテゴリー
+        quantity: 販売数
+        cost: 送料
+        prefecture: 都道府県
+        days: 発送までの日数
+        price: 値段
+      
+
+        
+
+
 
 
 
