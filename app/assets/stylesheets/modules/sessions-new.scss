@@ -2,6 +2,14 @@
   background-color: green;
   font-size: x-large;
 }
+
 .new_user {
   margin-left: 40%;
+  .field {
+    .new {
+      display: flex;
+      color: red;
+      font-weight: bold;
+    }
+  }
 }
