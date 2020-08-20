@@ -12,7 +12,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       # payjp-tokenが空ならnewへ
       redirect_to new_card_path
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
     #登録された情報がない場合にカード登録画面に移動
       redirect_to new_card_path 
     else
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(@card.card_id)
       case @card_info.brand
@@ -62,7 +62,7 @@ class CardsController < ApplicationController
   def destroy
     if @card.blank?
     else
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
       @card.delete
@@ -107,7 +107,7 @@ class CardsController < ApplicationController
       redirect_to buy_card_path(@item)
     else
       if current_user.card.present?
-        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+        Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
         charge = Payjp::Charge.create(
           amount: @item.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
