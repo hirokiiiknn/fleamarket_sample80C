@@ -1,8 +1,12 @@
+= render partial: "items/header"
 
+- content_for :css do
+  = stylesheet_link_tag 'modules/new_card'
 
+  
 .account__page
   .account__page__header
-    = render partial: "items/header"
+      
   .account__page__main
     = form_tag(cards_path, method: :post, id: 'charge-form') do
       .account__page__main__content
@@ -68,6 +72,6 @@
         .field__input
           = text_field_tag "", "", class: "textbox", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
         #card_token
-          = submit_tag "クレジット情報を登録する", id: "token_submit", class: "submit-btn"
-        
-        = render partial: "items/footer"
+          = submit_tag "クレジット情報を登録する", id: "token_submit", class: "submit-btn"    
+= render partial: "items/banner"
+= render partial: "items/footer"

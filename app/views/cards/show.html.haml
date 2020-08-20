@@ -1,7 +1,6 @@
 = render partial: "items/header"
 
 .user
-  -# = render 'users/user_side'
   .card
     .card__body
       .card__body__title
@@ -19,5 +18,6 @@
         = link_to card_path, method: :delete, class: "btn" do
           クレジット情報を削除する
 
+= render partial: "items/banner"
 = render partial: "items/footer"
 

@@ -1,6 +1,10 @@
 
 = render partial: "items/header"
+- content_for :css do
+  = stylesheet_link_tag 'modules/delete_done'
+
 .done#fullsize
   .done__title
     購入手続が完了しました
+= render partial: "items/banner"
 = render partial: "items/footer"
