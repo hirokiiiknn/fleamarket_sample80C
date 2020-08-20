@@ -75,7 +75,7 @@ class CardsController < ApplicationController
 
   def buy
     if user_signed_in?
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       if @card.blank?
         @card_info = ""
       else
@@ -124,7 +124,7 @@ class CardsController < ApplicationController
           )
         @item.update!(buyer_id: 2)
         # 仮テスト 0817追記↓↓↓↓↓↓↓↓↓
-        @item.update!(quantity: quantity = quantity - 1)
+        @item.update!(quantity: @item.quantity = @item.quantity - 1)
       end
     end
   end

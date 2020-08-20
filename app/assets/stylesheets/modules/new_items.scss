@@ -120,6 +120,11 @@ html {
         color: white;
       }
     }
+    &__item_condition-area {
+      #item_item_condition {
+        height: 50px;
+      }
+    }
     &__cost {
       margin: 7px;
       display: flex;

@@ -10,13 +10,13 @@
     .new
       = f.label :メールアドレス
       %br/
-      %p 必須
+      %p [必須]
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
     .new
       = f.label :パスワード
       %br/
-      %p 必須
+      %p [必須]
     = f.password_field :password, autocomplete: "current-password"
   - if devise_mapping.rememberable?
     .field_remember
