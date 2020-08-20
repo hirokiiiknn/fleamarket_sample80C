@@ -1,11 +1,14 @@
-.card{
+.user {
+  margin-left: 20%;
+  background-color: red;
+}
+.card {
   height: 90vh;
-  width: calc(100% - 250px);
+
   background-color: #f8f8f8;
 
   &__body {
     margin: 0 auto;
-
     &__title {
       font-size: 22px;
       text-align: center;
