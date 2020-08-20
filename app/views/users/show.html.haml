@@ -3,7 +3,8 @@
 = render partial: "items/header"
 
 .mypage-box
-  %h2.title マイページ
+  %h2.title #{current_user.nickname}様のマイページ
+
   %ul.page
     -# %li= link_to "出品した商品一覧", item_path, class: "page__list"
     %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "page__list"
