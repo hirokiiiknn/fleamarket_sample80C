@@ -3,16 +3,6 @@
   = stylesheet_link_tag 'modules/show'
 
 = render partial: "items/header"
-.link
-  .link__page
-    - if current_user == @user
-      = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
-      = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destroy"
-    - else user_signed_in?
-      = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
-
-
-
 
 %nav.breadCrumbs
   %ul
@@ -117,6 +107,15 @@
                     発送日の目安
                   %td
                     = @deliverydays.value
+
+          .link
+            .link__page
+              - if current_user == @user
+                = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
+                = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destroy"
+              - else user_signed_in?
+                = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+
           .optionalArea 
             %ul
               %li.optionalBtn__likeBtn
