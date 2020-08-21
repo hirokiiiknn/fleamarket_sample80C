@@ -15,13 +15,14 @@
   }
   .title{
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     margin-top: 30px;
   }
   .item__body__lists{
     margin-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     .item__body__lists__list{
       width: 220px;
       display: inline-block;
@@ -32,6 +33,19 @@
           .image{
             height: 180px;
             width: 180px;
+          }
+        }
+        .list__body{
+          .name{
+          }
+          .list__price{
+            .ul{
+              .li{
+              }
+            }
+            .tax{
+              font-size: 5px;
+            }
           }
         }
       }
