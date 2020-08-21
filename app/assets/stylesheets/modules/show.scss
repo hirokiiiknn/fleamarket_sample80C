@@ -3,26 +3,28 @@
     opacity: 0.5;
   }
   &__page {
-    margin-right: 20px;
-    margin: 10% 0 5% 79%;
+    text-align: end;
+    margin: 15px 15px;
     .edit {
       background: #3ccace;
-      width: 100px;
       color: #fff;
       padding: 13px;
       border-radius: 10px;
       text-decoration: none;
-      position: fixed;
     }
     .destroy {
       background: #3ccace;
-      width: 100px;
       color: #fff;
-      margin-top: 70px;
       padding: 13px;
       border-radius: 10px;
       text-decoration: none;
-      position: fixed;
+    }
+    .pay{
+      background: #3ccace;
+      color: #fff;
+      padding: 13px;
+      border-radius: 10px;
+      text-decoration: none;
     }
   }
 }

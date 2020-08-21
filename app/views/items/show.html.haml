@@ -5,15 +5,12 @@
 = render partial: "items/header"
 .link
   .link__page
-    -unless user_signed_in?
-      = link_to "ログイン", new_user_session_path, class: 'Button'   
-      %p
-      = link_to "新規会員登録", new_user_registration_path, class: 'Button'
     - if current_user == @user
       = link_to "商品の編集", edit_item_path(@item.id) , class: "edit"
       = link_to "商品の削除", item_path(@item.id), method: :delete, class: "destroy"
     - else user_signed_in?
       = link_to "購入画面に進む", buy_card_path(@item.id), class: "pay"
+
 
 
 %nav.breadCrumbs
@@ -127,7 +124,6 @@
             %ul.optional
               %li.optionalBtn
                 %a
-                  -# = link_to "#"
                   %i.fa.fa-flag
                     不適切な商品の通報
 
@@ -168,7 +164,7 @@
             .productList__body
               %h3.name
                 product1
-                .details
+                .details  
                   %ul
                     %li
                       100000円
