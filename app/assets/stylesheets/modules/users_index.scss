@@ -29,6 +29,7 @@
       .link{
         text-decoration: none;
         color: black;
+        position: relative;
         .list__img{
           .image{
             height: 180px;
@@ -36,6 +37,29 @@
           }
         }
         .list__body{
+          .soldout-item{
+            width: 0;
+            height: 0;
+            border-top: 40px solid red;
+            border-right: 40px solid transparent;
+            border-bottom: 40px solid transparent;
+            border-left: 40px solid red;
+            z-index: 100;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            &__true{
+              color: #fff;
+              transform: rotate(-45deg);
+              font-size: 17px;
+              font-family: ヒラギノ丸ゴ Pro W4;
+              margin: -16px 0px 0px -32px;
+              letter-spacing: 2px;
+              font-weight: bold;
+            }
+
+
+          }  
           .name{
           }
           .list__price{

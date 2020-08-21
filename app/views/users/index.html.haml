@@ -10,19 +10,36 @@
     出品中の商品一覧
   .item__body__lists
     - @sale_items.each do |item|
-      .item__body__lists__list
-        = link_to item_path(item.id), class: "link" do
-          .list__img
-            = image_tag item.images.first.image.url, class: "image"
-          .list__body
-            .name
-              = item.name
-            .list__price
-              %ul
-                %li
-                  = item.price.to_s(:delimited)
-                  円
-              %p.tax (税込)
+      - if item.quantity == 0
+        .item__body__lists__list
+          = link_to item_path(item.id), class: "link" do
+            .list__img
+              = image_tag item.images.first.image.url, class: "image"
+            .list__body
+              .soldout-item
+                .soldout-item__true
+                  SOLD
+              .name
+                = item.name
+              .list__price
+                = item.price.to_s(:delimited)
+                円
+                %p.tax (税込)
+
+      - else 
+        .item__body__lists__list
+          = link_to item_path(item.id), class: "link" do
+            .list__img
+              = image_tag item.images.first.image.url, class: "image"
+            .list__body
+              .name
+                = item.name
+              .list__price
+                = item.price.to_s(:delimited)
+                円
+                %p.tax (税込)        
+            
+               
   
 = render partial: "items/banner"
 
