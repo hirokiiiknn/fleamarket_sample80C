@@ -13,6 +13,7 @@
 
 
 
+
 %nav.breadCrumbs
   %ul
     %li
@@ -47,12 +48,12 @@
               .mainPct
                 = image_tag(@item.images.first.image.url, class: "main__photo")
                 .subPct-box
-                  .subPct
-                    -# = image_tag(@item.images[1].image.url)
-                    -# = image_tag(@item.images[2].image.url)
-                    -# - @item.each do |img|
-                    -#   .subPct-list
-                    -#     = image_tag(img.image.url)
+                  - @images.each do |image|
+                    .subPctList
+                      = image_tag(image.image.url, class: "subPct", size: "100x100")
+
+
+                    
           .item-box__price
             %span.price
               ¥

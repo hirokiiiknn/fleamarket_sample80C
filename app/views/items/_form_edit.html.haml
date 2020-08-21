@@ -1,7 +1,9 @@
 - content_for :css do
   = stylesheet_link_tag 'modules/new_items'
 
-  = render 'header'
+  .Icon
+  = link_to root_path do
+    = image_tag asset_path("logo.png"), alt: "次へ",width:"140px",height:"50px", class: "icon"
 
 .new_item 
   = form_for @item do |f|
@@ -22,13 +24,14 @@
       = f.fields_for :images do |image|
         .js-file_group{"data-index" => "#{image.index}"}
           = image.file_field :image, type: 'file', value:"",style: "",  id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
+
         - if @item.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
           .js-file_group{"data-index" => "#{@item.images.count}"}
             = image.file_field :image, type: 'file',id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
             %i.fas.fa-camera
-            .js-remove 削除
+            %span.js-remove 削除
 
 
       
