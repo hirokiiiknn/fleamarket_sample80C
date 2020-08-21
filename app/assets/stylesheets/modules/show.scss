@@ -19,7 +19,7 @@
       border-radius: 10px;
       text-decoration: none;
     }
-    .pay{
+    .pay {
       background: #3ccace;
       color: #fff;
       padding: 13px;
@@ -73,7 +73,6 @@
                   display: flex;
                   .subPctList {
                     margin-right: 10px;
-                    
                   }
                 }
               }
@@ -115,6 +114,22 @@
               }
             }
           }
+          .link {
+            margin-top: 30px;
+            margin-left: 10%;
+            &__page {
+              margin-right: 67%;
+              line-height: 48px;
+              background: #3ccace;
+              border: 1px solid #3ccace;
+              color: #fff;
+              font-size: 18px;
+              border-radius: 15px;
+              a {
+                margin-right: 23%;
+              }
+            }
+          }
           .optionalArea {
             display: flex;
             margin-top: 20px;
@@ -151,7 +166,7 @@
           .new_comment {
             .message_form {
               min-height: 100px;
-              width: 55%;
+              width: 50%;
             }
             .noticeMsg {
               padding: 8px;
