@@ -26,8 +26,11 @@
     #image-box
       #previews
       = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
+        .js-file_group
+        .img{"data-index" => "#{image.index}"}
           = image.file_field :image, class: 'js-file'
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
           %i.fas.fa-camera
           %br/
           %span.js-remove 削除
