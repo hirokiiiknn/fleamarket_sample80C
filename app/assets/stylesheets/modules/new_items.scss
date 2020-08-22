@@ -24,7 +24,7 @@ html {
     }
   }
   .alert{
-    background-color: red;
+    background-color: #F35500;
     color: #fff;
     text-align: center;
   }
@@ -43,18 +43,18 @@ html {
       }
     }
 
-    .js-file_group {
-      width: 78%;
-      text-align: center;
-      height: 180px;
-      padding: 0.5em 1em;
-      background: #f0f7ff;
-      border: dashed 2px #d6d6d6;
-      .js-file {
-        margin-top: 50px;
-        // display: none;
-      }
-    }
+    // .js-file_group {
+    //   width: 78%;
+    //   text-align: center;
+    //   height: 180px;
+    //   padding: 0.5em 1em;
+    //   background: #f0f7ff;
+    //   border: dashed 2px #d6d6d6;
+    //   .js-file {
+    //     margin-top: 50px;
+    //     // display: none;
+    //   }
+    // }
 
     &__item_name {
       margin: 7px;
@@ -240,4 +240,14 @@ html {
       }
     }
   }
+}
+
+#previews{
+  width: 78%;
+  text-align: center;
+  height: 120px;
+  padding: 0.5em 1em;
+  background: #f0f7ff;
+  border: dashed 2px #d6d6d6;
+
 }
