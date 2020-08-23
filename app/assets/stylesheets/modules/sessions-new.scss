@@ -1,13 +1,13 @@
 .log {
   background-color: #3ccace;
-  margin: 20px;
+  margin: 20px 60px;
   font-size: 30px;
+  text-align: center;
   color: white;
-  margin-left: 7%;
 }
 
 .new_user {
-  margin-left: 40%;
+  margin-left: 33%;
   .field {
     margin-top: 20px;
     .new {
@@ -43,6 +43,7 @@
     align-items: center;
     line-height: 50px;
     margin-top: 40px;
+    margin-left: 35px;
     input {
       background-color: #3ccace;
       text-decoration: none;
