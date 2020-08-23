@@ -16,3 +16,4 @@ Rails.application.config.assets.precompile += %w(
 
 Rails.application.config.assets.precompile += %w( modules/sessions-new.css modules/delete_done.css)
 Rails.application.config.assets.precompile += %w( modules/delete_done.css modules/new_card.css modules/_done.css)
+Rails.application.config.assets.precompile += %w( modules/users_index.css )
