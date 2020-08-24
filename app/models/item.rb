@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   validates :prefecture,              presence: true
   validates :days,          presence: true
   validates :price,             presence: true, numericality: {greater_than_or_equal_to: 300}
- 
+  validates :images, presence: true
   
 
   extend ActiveHash::Associations::ActiveRecordExtensions
