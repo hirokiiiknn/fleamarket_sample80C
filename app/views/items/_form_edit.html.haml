@@ -12,46 +12,32 @@
 .new_item 
   = form_for @item do |f|
     .new_item__name
-      .new_item__name--label
-        出品画像
+      出品画像
       .new_item__name--required
         [必須]
-    #image-box
-      #previews
-        - if @item.persisted?
-          - @item.images.each_with_index do |image, i|
-            = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-      = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :image, class: 'js-file'
-          %br/
-          %span.js-remove 削除
-        - if @item.persisted?
-          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @item.persisted?
-        .js-file_group{"data-index" => "#{@item.images.count}"}
-          = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-          .js-remove 削除        
-    -# #image-box
-    -#   #previews
-    -#     %i.fas.fa-camera
-    -#     %span.js-remove 削除
-    -#     - if @item.persisted?
-    -#       - @item.images.each_with_index do |image, i|
-    -#         = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-    -#         -# %i.fas.fa-camera
-    -#         -# %span.js-remove 削除
-    -#   = f.fields_for :images do |image|
-    -#     .js-file_group{"data-index" => "#{image.index}"}
-    -#       = image.file_field :image, type: 'file', value:"",style: "",  id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
-
-    -#     - if @item.persisted?
-    -#       = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-    -#     - if @item.persisted?
-    -#       .js-file_group{"data-index" => "#{@item.images.count}"}
-    -#         = image.file_field :image, type: 'file',id:"img-file", class:'js-file',name: "item[images_attributes][#{@item.images.count}][image]",data:{index:"0"}
-    -#         %i.fas.fa-camera
-    -#         %span.js-remove 削除
+    .pic-up
+      %input{type: "file", class: "sell__main__content__file__up"}
+        %i.fas.fa-camera
+      %pre.sell__main__content__file__box__inner
+        写真を投稿（10枚まで選択できます）
+    .sell__main__content__file__box
+      .js
+        #image-box
+          #previews
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+            = f.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.images.count}"}
+                  = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                  .js-remove 削除
 
 
       
