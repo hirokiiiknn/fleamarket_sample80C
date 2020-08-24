@@ -88,10 +88,10 @@
             }
             &--detail {
               margin-left: 40%;
-              .tax{
+              .tax {
                 font-size: 12px;
               }
-              .postage{
+              .postage {
                 font-size: 12px;
               }
             }
@@ -124,15 +124,13 @@
           }
           .link {
             margin-top: 30px;
-            margin-right: 62%;
+            margin-left: 20%;
             &__page {
-              // margin-right: 67%;
-              // line-height: 48px;
-              // background: #3ccace;
-              // border: 1px solid #3ccace;
+              line-height: 48px;
               color: #fff;
               font-size: 18px;
               border-radius: 15px;
+              display: flex;
               a {
                 margin: 20px;
               }
@@ -166,6 +164,7 @@
           }
         }
         .commentBox {
+          width: 150%;
           padding: 24px;
           background-color: #fff;
           margin: 10px 0;
@@ -199,6 +198,7 @@
         display: flex;
         justify-content: space-around;
         margin-right: 37%;
+        width: 100%;
         a {
           text-decoration: none;
           color: #3ccace;
@@ -246,6 +246,6 @@
   }
 }
 
-table{
+table {
   width: 540px;
 }
