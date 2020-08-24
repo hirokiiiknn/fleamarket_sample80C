@@ -30,6 +30,7 @@ ja:
         house_number: 番地等
         phone_number: 電話番号
       item:
+        images: 画像
         name: 商品名
         introduction: 商品の説明
         category_id: カテゴリー
