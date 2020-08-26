@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   private
 
   def set_sale_items
-    @sale_items = Item.where(seller_id: current_user.id).order('id DESC')
+    @sale_items = Item.where(seller_id: current_user.id)
   end
 
   # private
