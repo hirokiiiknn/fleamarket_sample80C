@@ -108,11 +108,10 @@
       .new_item__days--label
         発送元までの日数
       .new_item__days--required
-        [必須] 
+        [必須]
 
     .new_item__days-area
       =f.collection_select(:days, DeliveryDays.all, :id, :value, { include_blank: '---' }, {class:"serect_field"} )
-        
     .new_item__price
       .new_item__price--label
         販売価格
@@ -121,17 +120,19 @@
     .new_item__selling-price
       出品価格（300円〜9,999,999円）
     .new_item__selling-price-area
-      =f.number_field :price, placeholder: "0", class: "input2"
-      円  (販売手数料10％)
-
-    .new_item__quantity
-      .new_item__quantity--label
-        販売数
-      .new_item__quantity--required
-        [必須]
-    .new_item__quantity-area
-      =f.number_field :quantity, placeholder: "0", class: "input2"
-      個
+      =f.number_field :price, min:300, max:999999999, placeholder: "0", class: "input2"
+      円
+      %br
+      .sales_commission
+        .lavel__name
+          販売手数料（10%）
+        #sales_commission_price
+      .sales_profit
+        .lavel__name
+          販売利益
+        #sales_profit_proce
+        
+    
     
     .send
       = f.submit "出品する", class: "send__sipping_btn"
