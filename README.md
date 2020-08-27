@@ -114,5 +114,3 @@
 
 ### Association
 - belongs_to: item
-
-#Hello World
