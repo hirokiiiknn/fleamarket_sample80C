@@ -1,4 +1,32 @@
-  
+# Fleamarket
+
+Fleamarket is an application where you can sell anything you dont use anymore, or you can buy anything which other people are selling.
+
+
+# DEMO
+
+You can learn how to use it.
+
+http://54.248.6.198/#
+
+# Features
+
+sell, buy 
+
+# Requirement
+
+* Ruby 2.6.5
+
+# Installation
+
+```zsh
+rails _6.0.0_ new fleamarket_sample80C -d postgresql
+```
+
+
+# DB
+
+
 ## userテーブル
 
 |Column|Type|Options|
