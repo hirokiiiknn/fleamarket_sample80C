@@ -1,3 +1,4 @@
+
 # Fleamarket
 
 Fleamarket is an application where you can sell anything you dont use anymore, or you can buy anything which other people are selling.
@@ -25,6 +26,7 @@ rails _6.0.0_ new fleamarket_sample80C -d postgresql
 
 
 # DB
+
 
 
 ## userテーブル
